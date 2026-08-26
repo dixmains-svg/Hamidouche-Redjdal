@@ -12,185 +12,269 @@ st.set_page_config(
 )
 
 # ============================================================
-# STYLE CSS
+# STYLE
 # ============================================================
 
 st.markdown("""
 <style>
 
-.stApp {
-    background-color: #f4f7fb;
-}
+    /* ========================================================
+       PAGE
+       ======================================================== */
 
-.block-container {
-    max-width: 1250px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
+    .stApp {
+        background-color: #f4f7fb;
+    }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+    .block-container {
+        max-width: 1250px;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 
-.header {
-    background: linear-gradient(135deg, #0b1f3a, #164f86);
-    padding: 45px;
-    border-radius: 20px;
-    color: white;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-.header-name {
-    font-size: 42px;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.header-title {
-    font-size: 21px;
-    font-weight: 400;
-}
-
-.header-subtitle {
-    margin-top: 18px;
-    font-size: 16px;
-    line-height: 1.8;
-    opacity: 0.95;
-}
-
-/* =========================================================
-   TITRES
-   ========================================================= */
-
-.section-title {
-    color: #0b1f3a;
-    font-size: 28px;
-    font-weight: 800;
-    border-bottom: 3px solid #164f86;
-    padding-bottom: 8px;
-    margin-top: 25px;
-    margin-bottom: 20px;
-}
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-.card {
-    background-color: white;
-    padding: 22px;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-}
-
-.card-title {
-    color: #0b1f3a;
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.card-subtitle {
-    color: #164f86;
-    font-weight: 700;
-    margin-top: 5px;
-}
-
-/* =========================================================
-   EXPERIENCE
-   ========================================================= */
-
-.experience {
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
-    border-left: 6px solid #164f86;
-    margin-bottom: 18px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-}
-
-.experience-title {
-    color: #0b1f3a;
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.experience-company {
-    color: #164f86;
-    font-weight: 700;
-    margin-top: 5px;
-}
-
-.experience-period {
-    color: #777;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-
-/* =========================================================
-   TAGS
-   ========================================================= */
-
-.tag {
-    display: inline-block;
-    background-color: #e8f1fa;
-    color: #0b1f3a;
-    padding: 8px 14px;
-    border-radius: 20px;
-    margin: 4px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* =========================================================
-   COMPETENCES
-   ========================================================= */
-
-.skill {
-    background-color: white;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.footer {
-    text-align: center;
-    color: #777;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    font-size: 13px;
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
+    /* ========================================================
+       HEADER
+       ======================================================== */
 
     .header {
-        padding: 28px;
+        background: linear-gradient(
+            135deg,
+            #0b1f3a 0%,
+            #164f86 100%
+        );
+
+        padding: 45px;
+        border-radius: 22px;
+
+        color: white;
+
+        margin-bottom: 30px;
+
+        box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.15);
     }
 
     .header-name {
-        font-size: 30px;
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
     }
 
     .header-title {
-        font-size: 18px;
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 10px;
     }
 
     .header-subtitle {
-        font-size: 14px;
+        font-size: 16px;
+        line-height: 1.8;
+        opacity: 0.95;
     }
 
-}
+    /* ========================================================
+       TITRES
+       ======================================================== */
+
+    .section-title {
+        color: #0b1f3a;
+
+        font-size: 28px;
+
+        font-weight: 800;
+
+        border-bottom:
+            3px solid #164f86;
+
+        padding-bottom: 8px;
+
+        margin-top: 30px;
+
+        margin-bottom: 20px;
+    }
+
+    /* ========================================================
+       CARDS
+       ======================================================== */
+
+    .card {
+        background-color: white;
+
+        padding: 24px;
+
+        border-radius: 16px;
+
+        margin-bottom: 18px;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .card-title {
+        color: #0b1f3a;
+
+        font-size: 20px;
+
+        font-weight: 800;
+
+        margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+        color: #164f86;
+
+        font-weight: 700;
+
+        margin-top: 5px;
+    }
+
+    /* ========================================================
+       EXPERIENCE
+       ======================================================== */
+
+    .experience {
+        background-color: white;
+
+        padding: 25px;
+
+        border-radius: 16px;
+
+        border-left:
+            6px solid #164f86;
+
+        margin-bottom: 10px;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .experience-title {
+        color: #0b1f3a;
+
+        font-size: 21px;
+
+        font-weight: 800;
+    }
+
+    .experience-company {
+        color: #164f86;
+
+        font-size: 16px;
+
+        font-weight: 700;
+
+        margin-top: 6px;
+    }
+
+    .experience-period {
+        color: #777;
+
+        font-size: 14px;
+
+        margin-top: 6px;
+
+        margin-bottom: 15px;
+    }
+
+    /* ========================================================
+       TAGS
+       ======================================================== */
+
+    .tag {
+        display: inline-block;
+
+        background-color: #e8f1fa;
+
+        color: #0b1f3a;
+
+        padding: 8px 14px;
+
+        border-radius: 20px;
+
+        margin: 4px;
+
+        font-size: 14px;
+
+        font-weight: 600;
+    }
+
+    /* ========================================================
+       COMPETENCES
+       ======================================================== */
+
+    .skill {
+        background-color: white;
+
+        padding: 16px;
+
+        border-radius: 12px;
+
+        margin-bottom: 12px;
+
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ========================================================
+       TIMELINE
+       ======================================================== */
+
+    .timeline-year {
+        display: inline-block;
+
+        background-color: #0b1f3a;
+
+        color: white;
+
+        padding: 6px 14px;
+
+        border-radius: 20px;
+
+        font-weight: bold;
+
+        margin-bottom: 10px;
+    }
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+
+    .footer {
+        text-align: center;
+
+        color: #777;
+
+        padding-top: 40px;
+
+        padding-bottom: 20px;
+
+        font-size: 13px;
+    }
+
+    /* ========================================================
+       MOBILE
+       ======================================================== */
+
+    @media (max-width: 768px) {
+
+        .header {
+            padding: 28px;
+        }
+
+        .header-name {
+            font-size: 30px;
+        }
+
+        .header-title {
+            font-size: 18px;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+        }
+
+    }
 
 </style>
 """, unsafe_allow_html=True)
@@ -246,7 +330,7 @@ experiences = [
             "Analyser les besoins des clients.",
             "Établir des reporting d'activité quotidiens, mensuels et annuels.",
             "Apporter des solutions pertinentes et adaptées.",
-            "Suivi le bon déroulement de l'activité.",
+            "Suivre le bon déroulement de l'activité.",
             "Contrôler les flux entrants et sortants de la zone d'entreposage."
         ]
     },
@@ -257,7 +341,7 @@ experiences = [
         "entreprise": "SPA TMF Logistics",
         "missions": [
             "Piloter et superviser les opérations de transport.",
-            "Suivi le bon déroulement de l’activité.",
+            "Suivre le bon déroulement de l'activité.",
             "Contrôler les flux entrants et sortants de la zone d'entreposage.",
             "Planifier, organiser et contrôler l'activité d'une équipe.",
             "Réceptionner les commandes des clients et veiller à leur satisfaction.",
@@ -272,11 +356,11 @@ experiences = [
         "missions": [
             "Préparer la disponibilité des ressources humaines et matérielles.",
             "Planifier les commandes de chaque client.",
-            "Élaborer les reportings et les KPI's liés à l'activité.",
+            "Élaborer les reportings et les KPI liés à l'activité.",
             "Réceptionner et traiter les demandes de service commercial.",
-            "Optimiser les ressources logistiques en termes des coûts et des délais.",
+            "Optimiser les ressources logistiques en termes de coûts et de délais.",
             "Administrer et générer les ordres de mission.",
-            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus et de l'environnement externe."
+            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus."
         ]
     },
 
@@ -285,11 +369,11 @@ experiences = [
         "periode": "02/2019 - 02/2020",
         "entreprise": "SPA TMF Logistics",
         "missions": [
-            "Élaborer et maintenir une parfaite coordination avec d'autres services.",
+            "Élaborer et maintenir une parfaite coordination avec les autres services.",
             "Élaborer et mettre en place des indicateurs de suivi de transport.",
             "Gérer les partenariats avec les prestataires de transport.",
             "Piloter et contrôler les performances des activités à court, moyen et long terme.",
-            "Veiller au respect des procédures de travail et à la réglementation."
+            "Veiller au respect des procédures de travail et de la réglementation."
         ]
     },
 
@@ -299,7 +383,7 @@ experiences = [
         "entreprise": "SPA TMF Logistics",
         "missions": [
             "Exécuter et suivre régulièrement la programmation et l'utilisation des ressources.",
-            "Établir un planning optimal, en optimisant les coûts et les délais.",
+            "Établir un planning optimal en optimisant les coûts et les délais.",
             "Anticiper les situations imprévues et prendre rapidement les décisions correctives.",
             "Étudier la faisabilité d'une mission avant d'affecter les ressources."
         ]
@@ -346,13 +430,13 @@ formations = [
 
     {
         "annee": "2015",
-        "titre": "Master 2 en Recherche opérationnel - Option : fiabilité et évaluation des Performances des Réseaux",
+        "titre": "Master 2 en Recherche opérationnelle - Option : fiabilité et évaluation des Performances des Réseaux",
         "organisme": "Université Abderrahmane Mira, Bejaia - Algérie"
     },
 
     {
         "annee": "2012",
-        "titre": "Licence en Recherche Opérationnel - Option : Aide à la décision",
+        "titre": "Licence en Recherche Opérationnelle - Option : Aide à la décision",
         "organisme": "Université Abderrahmane Mira, Bejaia - Algérie"
     },
 
@@ -377,11 +461,11 @@ formations = [
 
 competences = [
 
-    "Maîtrise du Pack Office : Excel, Word, PowerPoint, Outlook",
+    "Pack Office : Excel, Word, PowerPoint, Outlook",
 
-    "Maîtrise des logiciels : Matlab, LaTeX, Photoshop, Illustrator, InDesign",
+    "Matlab, LaTeX, Photoshop, Illustrator, InDesign",
 
-    "Langages de programmation : HTML, Java, Delphi, C++",
+    "HTML, Java, Delphi, C++",
 
     "Planification et optimisation logistique",
 
@@ -421,12 +505,12 @@ langues = [
 # ============================================================
 
 interets = [
-    "Voyage",
-    "Passion pour le sport",
-    "Activités associatives",
-    "Cinéma",
-    "Arts créatifs",
-    "Informatique"
+    ("✈️", "Voyage"),
+    ("⚽", "Passion pour le sport"),
+    ("🤝", "Activités associatives"),
+    ("🎬", "Cinéma"),
+    ("🎨", "Arts créatifs"),
+    ("💻", "Informatique")
 ]
 
 
@@ -435,15 +519,15 @@ interets = [
 # ============================================================
 
 st.markdown(
-    f"""
+    """
     <div class="header">
 
         <div class="header-name">
-            {nom}
+            HAMIDOUCHE REDJDAL
         </div>
 
         <div class="header-title">
-            🚚 {fonction}
+            🚚 Planificateur & Superviseur Logistique
         </div>
 
         <div class="header-subtitle">
@@ -466,7 +550,7 @@ st.markdown(
 
 
 # ============================================================
-# MENU LATERAL
+# MENU
 # ============================================================
 
 st.sidebar.title("📄 MON CV")
@@ -491,7 +575,7 @@ st.sidebar.markdown("---")
 
 st.sidebar.markdown(
     """
-    ### 🚚 Domaine
+    ### 🚚 DOMAINES
 
     **Logistique**
 
@@ -500,6 +584,8 @@ st.sidebar.markdown(
     **Planification**
 
     **Supervision**
+
+    **Optimisation**
     """
 )
 
@@ -532,39 +618,23 @@ if menu == "🏠 Accueil":
         unsafe_allow_html=True
     )
 
-    # --------------------------------------------------------
     # STATISTIQUES
-    # --------------------------------------------------------
 
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.metric(
-            "Expérience",
-            "9 ans"
-        )
+        st.metric("Expérience", "9 ans")
 
     with col2:
-        st.metric(
-            "Expériences",
-            "5"
-        )
+        st.metric("Expériences", "5")
 
     with col3:
-        st.metric(
-            "Formations",
-            "9"
-        )
+        st.metric("Formations", "9")
 
     with col4:
-        st.metric(
-            "Langues",
-            "4"
-        )
+        st.metric("Langues", "4")
 
-    # --------------------------------------------------------
-    # EXPERTISE
-    # --------------------------------------------------------
+    # DOMAINES
 
     st.markdown(
         '<div class="section-title">🎯 Domaines d’expertise</div>',
@@ -590,9 +660,7 @@ if menu == "🏠 Accueil":
             unsafe_allow_html=True
         )
 
-    # --------------------------------------------------------
-    # DERNIER POSTE
-    # --------------------------------------------------------
+    # POSTE ACTUEL
 
     st.markdown(
         '<div class="section-title">💼 Poste actuel</div>',
@@ -753,8 +821,6 @@ elif menu == "💼 Expériences":
                 f"✓ {mission}"
             )
 
-        st.markdown("")
-
 
 # ============================================================
 # FORMATIONS
@@ -773,15 +839,7 @@ elif menu == "🎓 Formations":
             f"""
             <div class="card">
 
-                <div style="
-                    display:inline-block;
-                    background:#0b1f3a;
-                    color:white;
-                    padding:5px 12px;
-                    border-radius:20px;
-                    font-weight:bold;
-                    margin-bottom:10px;
-                ">
+                <div class="timeline-year">
                     {formation["annee"]}
                 </div>
 
@@ -883,9 +941,8 @@ elif menu == "🌐 Langues":
             )
 
     st.info(
-        "Le CV fourni mentionne les langues Kabyle, Arabe, "
-        "Français et Anglais, sans préciser leurs niveaux "
-        "de maîtrise."
+        "Les niveaux de maîtrise des langues ne sont pas précisés "
+        "dans les informations fournies."
     )
 
 
@@ -900,18 +957,9 @@ elif menu == "⭐ Centres d'intérêt":
         unsafe_allow_html=True
     )
 
-    icones = [
-        "✈️",
-        "⚽",
-        "🤝",
-        "🎬",
-        "🎨",
-        "💻"
-    ]
-
     cols = st.columns(3)
 
-    for index, interet in enumerate(interets):
+    for index, (icone, interet) in enumerate(interets):
 
         with cols[index % 3]:
 
@@ -923,7 +971,7 @@ elif menu == "⭐ Centres d'intérêt":
                         font-size:40px;
                         margin-bottom:10px;
                     ">
-                        {icones[index]}
+                        {icone}
                     </div>
 
                     <div style="
@@ -963,8 +1011,6 @@ elif menu == "📞 Contact":
                     📱 Téléphone
                 </div>
 
-                <br>
-
                 <p>{telephone}</p>
 
             </div>
@@ -982,8 +1028,6 @@ elif menu == "📞 Contact":
                     📧 Email
                 </div>
 
-                <br>
-
                 <p>{email}</p>
 
             </div>
@@ -998,8 +1042,6 @@ elif menu == "📞 Contact":
             <div class="card-title">
                 📍 Adresse
             </div>
-
-            <br>
 
             <p>{adresse}</p>
 
@@ -1017,7 +1059,7 @@ st.markdown(
     """
     <div class="footer">
 
-        Curriculum Vitae • Hamidouche Redjdal
+        Curriculum Vitae • HAMIDOUCHE REDJDAL
 
         <br><br>
 
