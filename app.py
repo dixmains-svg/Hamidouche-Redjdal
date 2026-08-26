@@ -18,180 +18,191 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-    /* =========================
-       GENERAL
-       ========================= */
+.stApp {
+    background-color: #f4f7fb;
+}
 
-    .stApp {
-        background-color: #f4f7fb;
-    }
+.block-container {
+    max-width: 1250px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 
-    .block-container {
-        max-width: 1250px;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-    /* =========================
-       HEADER
-       ========================= */
+.header {
+    background: linear-gradient(135deg, #0b1f3a, #164f86);
+    padding: 45px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.header-name {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.header-title {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.header-subtitle {
+    margin-top: 18px;
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+/* =========================================================
+   TITRES
+   ========================================================= */
+
+.section-title {
+    color: #0b1f3a;
+    font-size: 28px;
+    font-weight: 800;
+    border-bottom: 3px solid #164f86;
+    padding-bottom: 8px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+}
+
+.card-title {
+    color: #0b1f3a;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.card-subtitle {
+    color: #164f86;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+.experience {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 6px solid #164f86;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+}
+
+.experience-title {
+    color: #0b1f3a;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.experience-company {
+    color: #164f86;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.experience-period {
+    color: #777;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.tag {
+    display: inline-block;
+    background-color: #e8f1fa;
+    color: #0b1f3a;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   COMPETENCES
+   ========================================================= */
+
+.skill {
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    text-align: center;
+    color: #777;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 13px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
 
     .header {
-        background: linear-gradient(
-            135deg,
-            #0b1f3a 0%,
-            #164f86 100%
-        );
-        padding: 40px;
-        border-radius: 20px;
-        color: white;
-        margin-bottom: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        padding: 28px;
     }
 
     .header-name {
-        font-size: 42px;
-        font-weight: 800;
-        margin-bottom: 8px;
+        font-size: 30px;
     }
 
     .header-title {
-        font-size: 21px;
-        font-weight: 400;
-        opacity: 0.95;
+        font-size: 18px;
     }
 
     .header-subtitle {
-        margin-top: 18px;
-        font-size: 16px;
-        opacity: 0.9;
-    }
-
-    /* =========================
-       TITRES
-       ========================= */
-
-    .section-title {
-        color: #0b1f3a;
-        font-size: 28px;
-        font-weight: 800;
-        border-bottom: 3px solid #164f86;
-        padding-bottom: 8px;
-        margin-top: 25px;
-        margin-bottom: 20px;
-    }
-
-    /* =========================
-       CARDS
-       ========================= */
-
-    .card {
-        background-color: white;
-        padding: 22px;
-        border-radius: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-    }
-
-    .card-title {
-        color: #0b1f3a;
-        font-size: 20px;
-        font-weight: 800;
-    }
-
-    .card-subtitle {
-        color: #164f86;
-        font-weight: 700;
-        margin-top: 5px;
-    }
-
-    .card-period {
-        color: #777;
         font-size: 14px;
-        margin-top: 5px;
     }
 
-    /* =========================
-       EXPERIENCE
-       ========================= */
-
-    .experience {
-        background-color: white;
-        padding: 25px;
-        border-radius: 15px;
-        border-left: 6px solid #164f86;
-        margin-bottom: 18px;
-        box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-    }
-
-    .experience-title {
-        color: #0b1f3a;
-        font-size: 21px;
-        font-weight: 800;
-    }
-
-    .experience-company {
-        color: #164f86;
-        font-weight: 700;
-        margin-top: 5px;
-    }
-
-    .experience-period {
-        color: #777;
-        font-size: 14px;
-        margin-top: 5px;
-        margin-bottom: 15px;
-    }
-
-    /* =========================
-       TAGS
-       ========================= */
-
-    .tag {
-        display: inline-block;
-        background-color: #e8f1fa;
-        color: #0b1f3a;
-        padding: 8px 14px;
-        border-radius: 20px;
-        margin: 4px;
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    /* =========================
-       SKILLS
-       ========================= */
-
-    .skill {
-        background-color: white;
-        padding: 15px;
-        border-radius: 12px;
-        margin-bottom: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    /* =========================
-       FOOTER
-       ========================= */
-
-    .footer {
-        text-align: center;
-        color: #777;
-        padding-top: 40px;
-        padding-bottom: 20px;
-        font-size: 13px;
-    }
+}
 
 </style>
 """, unsafe_allow_html=True)
 
+
 # ============================================================
-# DONNEES DU CV
+# INFORMATIONS PERSONNELLES
 # ============================================================
 
 nom = "HAMIDOUCHE REDJDAL"
 
-fonction = "Planificateur et Superviseur Logistique"
+fonction = "Planificateur & Superviseur Logistique"
 
 telephone = "00213775 73 79 30"
 
@@ -205,13 +216,21 @@ situation = "Marié"
 
 service_national = "Dégagé"
 
+
+# ============================================================
+# PROFIL
+# ============================================================
+
 profil = """
 Dynamique, sérieux et ayant de bonnes compétences relationnelles,
 avec 9 ans d'expérience dans le domaine de la logistique.
+
 Je suis très à l'aise avec les outils informatiques et j'aimerais
 mettre mes compétences et ma motivation au service de votre entreprise.
+
 Je suis prêt à relever le défi.
 """
+
 
 # ============================================================
 # EXPERIENCES PROFESSIONNELLES
@@ -288,6 +307,7 @@ experiences = [
 
 ]
 
+
 # ============================================================
 # FORMATIONS
 # ============================================================
@@ -350,6 +370,7 @@ formations = [
 
 ]
 
+
 # ============================================================
 # COMPETENCES
 # ============================================================
@@ -370,7 +391,7 @@ competences = [
 
     "Gestion des ressources humaines et matérielles",
 
-    "Élaboration de KPI et reporting",
+    "Élaboration des KPI et reporting",
 
     "Gestion des ordres de mission",
 
@@ -382,6 +403,7 @@ competences = [
 
 ]
 
+
 # ============================================================
 # LANGUES
 # ============================================================
@@ -392,6 +414,7 @@ langues = [
     "Français",
     "Anglais"
 ]
+
 
 # ============================================================
 # CENTRES D'INTERET
@@ -405,6 +428,7 @@ interets = [
     "Arts créatifs",
     "Informatique"
 ]
+
 
 # ============================================================
 # HEADER
@@ -423,11 +447,16 @@ st.markdown(
         </div>
 
         <div class="header-subtitle">
+
+            Master 2 en Recherche Opérationnelle
+            <br><br>
+
             Logistique &nbsp; • &nbsp;
             Transport &nbsp; • &nbsp;
             Planification &nbsp; • &nbsp;
             Supervision &nbsp; • &nbsp;
             Optimisation
+
         </div>
 
     </div>
@@ -435,11 +464,12 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
 # ============================================================
-# MENU
+# MENU LATERAL
 # ============================================================
 
-st.sidebar.title("📄 CV PROFESSIONNEL")
+st.sidebar.title("📄 MON CV")
 
 st.sidebar.markdown("---")
 
@@ -459,10 +489,20 @@ menu = st.sidebar.radio(
 
 st.sidebar.markdown("---")
 
-st.sidebar.info(
-    "CV professionnel de Hamidouche Redjdal\n\n"
-    "Planification • Logistique • Transport"
+st.sidebar.markdown(
+    """
+    ### 🚚 Domaine
+
+    **Logistique**
+
+    **Transport**
+
+    **Planification**
+
+    **Supervision**
+    """
 )
+
 
 # ============================================================
 # ACCUEIL
@@ -492,12 +532,15 @@ if menu == "🏠 Accueil":
         unsafe_allow_html=True
     )
 
-    # Statistiques
+    # --------------------------------------------------------
+    # STATISTIQUES
+    # --------------------------------------------------------
+
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.metric(
-            "Expérience indiquée",
+            "Expérience",
             "9 ans"
         )
 
@@ -518,6 +561,10 @@ if menu == "🏠 Accueil":
             "Langues",
             "4"
         )
+
+    # --------------------------------------------------------
+    # EXPERTISE
+    # --------------------------------------------------------
 
     st.markdown(
         '<div class="section-title">🎯 Domaines d’expertise</div>',
@@ -543,8 +590,12 @@ if menu == "🏠 Accueil":
             unsafe_allow_html=True
         )
 
+    # --------------------------------------------------------
+    # DERNIER POSTE
+    # --------------------------------------------------------
+
     st.markdown(
-        '<div class="section-title">💼 Dernier poste</div>',
+        '<div class="section-title">💼 Poste actuel</div>',
         unsafe_allow_html=True
     )
 
@@ -570,6 +621,7 @@ if menu == "🏠 Accueil":
         """,
         unsafe_allow_html=True
     )
+
 
 # ============================================================
 # PROFIL
@@ -612,7 +664,13 @@ elif menu == "👤 Profil":
             f"""
             <div class="card">
 
-                <b>👤 Nom :</b>
+                <div class="card-title">
+                    👤 Identité
+                </div>
+
+                <br>
+
+                <b>Nom :</b>
                 <p>{nom}</p>
 
                 <b>🇩🇿 Nationalité :</b>
@@ -632,6 +690,12 @@ elif menu == "👤 Profil":
             f"""
             <div class="card">
 
+                <div class="card-title">
+                    📋 Informations
+                </div>
+
+                <br>
+
                 <b>📍 Adresse :</b>
                 <p>{adresse}</p>
 
@@ -645,6 +709,7 @@ elif menu == "👤 Profil":
             """,
             unsafe_allow_html=True
         )
+
 
 # ============================================================
 # EXPERIENCES
@@ -690,6 +755,7 @@ elif menu == "💼 Expériences":
 
         st.markdown("")
 
+
 # ============================================================
 # FORMATIONS
 # ============================================================
@@ -732,6 +798,7 @@ elif menu == "🎓 Formations":
             unsafe_allow_html=True
         )
 
+
 # ============================================================
 # COMPETENCES
 # ============================================================
@@ -739,7 +806,7 @@ elif menu == "🎓 Formations":
 elif menu == "🛠️ Compétences":
 
     st.markdown(
-        '<div class="section-title">🛠️ Compétences</div>',
+        '<div class="section-title">🛠️ Compétences professionnelles</div>',
         unsafe_allow_html=True
     )
 
@@ -747,16 +814,32 @@ elif menu == "🛠️ Compétences":
 
     for index, competence in enumerate(competences):
 
-        with col1 if index % 2 == 0 else col2:
+        if index % 2 == 0:
 
-            st.markdown(
-                f"""
-                <div class="skill">
-                    <b>✓</b> {competence}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+            with col1:
+
+                st.markdown(
+                    f"""
+                    <div class="skill">
+                        ✅ {competence}
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+        else:
+
+            with col2:
+
+                st.markdown(
+                    f"""
+                    <div class="skill">
+                        ✅ {competence}
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
 
 # ============================================================
 # LANGUES
@@ -801,9 +884,10 @@ elif menu == "🌐 Langues":
 
     st.info(
         "Le CV fourni mentionne les langues Kabyle, Arabe, "
-        "Français et Anglais, mais ne précise pas les niveaux "
+        "Français et Anglais, sans préciser leurs niveaux "
         "de maîtrise."
     )
+
 
 # ============================================================
 # CENTRES D'INTERET
@@ -855,6 +939,7 @@ elif menu == "⭐ Centres d'intérêt":
                 unsafe_allow_html=True
             )
 
+
 # ============================================================
 # CONTACT
 # ============================================================
@@ -878,6 +963,8 @@ elif menu == "📞 Contact":
                     📱 Téléphone
                 </div>
 
+                <br>
+
                 <p>{telephone}</p>
 
             </div>
@@ -895,6 +982,8 @@ elif menu == "📞 Contact":
                     📧 Email
                 </div>
 
+                <br>
+
                 <p>{email}</p>
 
             </div>
@@ -910,12 +999,15 @@ elif menu == "📞 Contact":
                 📍 Adresse
             </div>
 
+            <br>
+
             <p>{adresse}</p>
 
         </div>
         """,
         unsafe_allow_html=True
     )
+
 
 # ============================================================
 # FOOTER
