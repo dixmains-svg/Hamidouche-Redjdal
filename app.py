@@ -587,7 +587,6 @@ st.sidebar.markdown(
     """
 )
 
-
 # ============================================================
 # ACCUEIL
 # ============================================================
@@ -595,7 +594,7 @@ st.sidebar.markdown(
 if page == "🏠 Accueil":
 
     st.markdown(
-        '<div class="section-title">Profil professionnel</div>',
+        "<div class='section-title'>Profil professionnel</div>",
         unsafe_allow_html=True
     )
 
@@ -612,6 +611,82 @@ if page == "🏠 Accueil":
         unsafe_allow_html=True
     )
 
+    # --------------------------------------------------------
+    # INDICATEURS
+    # --------------------------------------------------------
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric("Expérience", "9 ans")
+
+    with col2:
+        st.metric("Postes", "5")
+
+    with col3:
+        st.metric("Formations", "9")
+
+    with col4:
+        st.metric("Langues", "4")
+
+    # --------------------------------------------------------
+    # DOMAINES D'EXPERTISE
+    # --------------------------------------------------------
+
+    st.markdown(
+        "<div class='section-title'>Domaines d'expertise</div>",
+        unsafe_allow_html=True
+    )
+
+    domaines = [
+        "Logistique",
+        "Transport",
+        "Planification",
+        "Supervision",
+        "Optimisation",
+        "Reporting",
+        "KPI",
+        "Coordination",
+        "Gestion des ressources"
+    ]
+
+    for domaine in domaines:
+        st.markdown(
+            f"<span class='tag'>✓ {domaine}</span>",
+            unsafe_allow_html=True
+        )
+
+    # --------------------------------------------------------
+    # EXPERIENCE ACTUELLE
+    # --------------------------------------------------------
+
+    st.markdown(
+        "<div class='section-title'>Expérience actuelle</div>",
+        unsafe_allow_html=True
+    )
+
+    current = experiences[0]
+
+    st.markdown(
+        f"""
+        <div class="experience-card">
+
+            <div class="experience-position">
+                {current["poste"]}
+            </div>
+
+            <div class="experience-company">
+                🏢 {current["entreprise"]}
+            </div>
+
+            <div class="experience-date">
+                📅 {current["date"]}
+            </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     # --------------------------------------------------------
     # INDICATEURS
     # --------------------------------------------------------
