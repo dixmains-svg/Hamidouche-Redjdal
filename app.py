@@ -709,28 +709,6 @@ if page == "🏠 Accueil":
     # EXPERTISE
     # --------------------------------------------------------
 
-   st.markdown(
-    '<div class="section-title">Domaines d’expertise</div>',
-    unsafe_allow_html=True
-)
-
-    domaines = [
-        "Logistique",
-        "Transport",
-        "Planification",
-        "Supervision",
-        "Optimisation",
-        "Reporting",
-        "KPI",
-        "Coordination",
-        "Gestion des ressources"
-    ]
-
-    for domaine in domaines:
-        st.markdown(
-            f'<span class="tag">✓ {domaine}</span>',
-            unsafe_allow_html=True
-        )
 
     # --------------------------------------------------------
     # POSTE ACTUEL
