@@ -634,10 +634,10 @@ if page == "🏠 Accueil":
     # EXPERTISE
     # --------------------------------------------------------
 
-    st.markdown(
-        '<div class="section-title">Domaines d'expertise</div>',
-        unsafe_allow_html=True
-    )
+   st.markdown(
+    '<div class="section-title">Domaines d’expertise</div>',
+    unsafe_allow_html=True
+)
 
     domaines = [
         "Logistique",
