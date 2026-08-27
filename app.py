@@ -491,6 +491,43 @@ st.markdown(
     padding-bottom: 50px;
 }
 
+/* SIDEBAR & TEXTE GLOBAL */
+[data-testid="stSidebar"] {
+    background-color: #102a43;
+}
+
+[data-testid="stSidebar"] * {
+    color: white;
+}
+
+/* FIX SPÉCIFIQUE POUR LE SELECTBOX (Texte sombre sur fond blanc) */
+[data-testid="stSidebar"] div[data-baseweb="select"] div {
+    color: #102a43 !important;
+    font-weight: 600;
+}
+
+div[data-baseweb="popover"] ul li span {
+    color: #102a43 !important;
+}
+
+[data-testid="stSidebar"] div[data-baseweb="select"] svg {
+    fill: #102a43 !important;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    color: #829ab1;
+    font-size: 13px;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid #d9e2ec;
+}
+
+</style>
+""",
+    unsafe_allow_html=True,
+)
 /* ==========================================================
    HEADER
    ========================================================== */
