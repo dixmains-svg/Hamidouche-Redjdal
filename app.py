@@ -898,7 +898,7 @@ for index, (icone, titre, definition) in enumerate(domaines):
 # PROFIL
 # ============================================================
 
-elif page == "👤 Profil":
+ elif page == "👤 Profil":
 
     st.markdown(
         "<div class='section-title'>Profil professionnel</div>",
