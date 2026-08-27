@@ -721,7 +721,7 @@ st.sidebar.markdown(
 # ACCUEIL
 # ============================================================
 
-if page == "🏠 Accueil":
+ if page == "🏠 Accueil":
 
     st.markdown(
         "<div class='section-title'>Profil professionnel</div>",
