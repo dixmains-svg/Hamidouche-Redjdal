@@ -1,7 +1,6 @@
 import streamlit as st
 from pathlib import Path
 
-
 # ============================================================
 # CONFIGURATION
 # ============================================================
@@ -10,16 +9,14 @@ st.set_page_config(
     page_title="HAMIDOUCHE REDJDAL | CV",
     page_icon="🚚",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
-
 
 # ============================================================
 # PHOTO
 # ============================================================
 
 PHOTO = Path("photo.jpg")
-
 
 # ============================================================
 # STYLE CSS
@@ -314,30 +311,21 @@ st.markdown(
 
 </style>
 """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
-
 
 # ============================================================
 # INFORMATIONS PERSONNELLES
 # ============================================================
 
 nom = "HAMIDOUCHE REDJDAL"
-
 fonction = "Planificateur et Superviseur Logistique"
-
 telephone = "00213775 73 79 30"
-
 email = "hamidoucheredjdal@yahoo.fr"
-
 adresse = "Tazmalt 06039, wilaya de Bejaia"
-
 nationalite = "Algérienne"
-
 situation = "Marié"
-
 service_national = "Dégagé"
-
 
 # ============================================================
 # PROFIL
@@ -351,13 +339,11 @@ profil = (
     "et relever de nouveaux défis professionnels."
 )
 
-
 # ============================================================
 # EXPERIENCES PROFESSIONNELLES
 # ============================================================
 
 experiences = [
-
     {
         "poste": "Superviseur techno-commercial",
         "periode": "01/2024 - À ce jour",
@@ -367,10 +353,9 @@ experiences = [
             "Établir des reportings d'activité quotidiens, mensuels et annuels.",
             "Apporter des solutions pertinentes et adaptées.",
             "Suivre le bon déroulement de l'activité.",
-            "Contrôler les flux entrants et sortants de la zone d'entreposage."
-        ]
+            "Contrôler les flux entrants et sortants de la zone d'entreposage.",
+        ],
     },
-
     {
         "poste": "Superviseur exploitation",
         "periode": "06/2022 - 01/2024",
@@ -381,10 +366,9 @@ experiences = [
             "Contrôler les flux entrants et sortants de la zone d'entreposage.",
             "Planifier, organiser et contrôler l'activité d'une équipe.",
             "Réceptionner les commandes des clients et veiller à leur satisfaction.",
-            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus."
-        ]
+            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus.",
+        ],
     },
-
     {
         "poste": "Chargé de la planification",
         "periode": "02/2020 - 06/2022",
@@ -396,10 +380,9 @@ experiences = [
             "Réceptionner et traiter les demandes du service commercial.",
             "Optimiser les ressources logistiques en termes de coûts et de délais.",
             "Administrer et générer les ordres de mission.",
-            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus."
-        ]
+            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus.",
+        ],
     },
-
     {
         "poste": "Coordinateur logistique",
         "periode": "02/2019 - 02/2020",
@@ -409,10 +392,9 @@ experiences = [
             "Élaborer et mettre en place des indicateurs de suivi de transport.",
             "Gérer les partenariats avec les prestataires de transport.",
             "Piloter et contrôler les performances des activités à court, moyen et long terme.",
-            "Veiller au respect des procédures de travail et de la réglementation."
-        ]
+            "Veiller au respect des procédures de travail et de la réglementation.",
+        ],
     },
-
     {
         "poste": "Chargé de la programmation",
         "periode": "04/2016 - 10/2018",
@@ -421,150 +403,114 @@ experiences = [
             "Exécuter et suivre régulièrement la programmation et l'utilisation des ressources.",
             "Établir un planning optimal en optimisant les coûts et les délais.",
             "Anticiper les situations imprévues et prendre rapidement les décisions correctives.",
-            "Étudier la faisabilité d'une mission avant d'affecter les ressources."
-        ]
-    }
+            "Étudier la faisabilité d'une mission avant d'affecter les ressources.",
+        ],
+    },
 ]
-
 
 # ============================================================
 # FORMATIONS
 # ============================================================
 
 formations = [
-
     {
         "annee": "2021",
         "titre": "Formation en Transport international des marchandises",
-        "organisme": "Chambre algérienne de commerce et d'industrie, Alger - Algérie"
+        "organisme": "Chambre algérienne de commerce et d'industrie, Alger - Algérie",
     },
-
     {
         "annee": "2020",
         "titre": "Formation en Planification et optimisation logistique",
-        "organisme": "Institut international de Management, Bejaia - Algérie"
+        "organisme": "Institut international de Management, Bejaia - Algérie",
     },
-
     {
         "annee": "2019",
         "titre": "Formation en Logistique et transport",
-        "organisme": "Institut international de management, Bejaia - Algérie"
+        "organisme": "Institut international de management, Bejaia - Algérie",
     },
-
     {
         "annee": "2019",
         "titre": "Formation en Gestion des temps et des priorités",
-        "organisme": "Institut international de management, Bejaia - Algérie"
+        "organisme": "Institut international de management, Bejaia - Algérie",
     },
-
     {
         "annee": "2018",
         "titre": "Formation en Gestion des opérations de transport",
-        "organisme": "Institut international de management, Bejaia - Algérie"
+        "organisme": "Institut international de management, Bejaia - Algérie",
     },
-
     {
         "annee": "2015",
         "titre": "Master 2 en Recherche opérationnelle",
         "organisme": (
             "Option : Fiabilité et évaluation des performances des réseaux. "
             "Université Abderrahmane Mira, Bejaia - Algérie"
-        )
+        ),
     },
-
     {
         "annee": "2012",
         "titre": "Licence en Recherche opérationnelle",
         "organisme": (
             "Option : Aide à la décision. "
             "Université Abderrahmane Mira, Bejaia - Algérie"
-        )
+        ),
     },
-
     {
         "annee": "2012",
         "titre": "Attestation de stage en gestion portuaire",
-        "organisme": "Entreprise portuaire de Bejaia, Bejaia - Algérie"
+        "organisme": "Entreprise portuaire de Bejaia, Bejaia - Algérie",
     },
-
     {
         "annee": "2008",
         "titre": "Diplôme Baccalauréat",
         "organisme": (
             "Option : Science de la nature et de la vie. "
             "Lycée Mohamed Boudiaf, Tazmalt - Algérie"
-        )
-    }
+        ),
+    },
 ]
-
 
 # ============================================================
 # COMPETENCES
 # ============================================================
 
 competences = [
-
     "Maîtrise du Pack Office : Excel, Word, PowerPoint et Outlook.",
-
     "Maîtrise de Matlab, LaTeX, Photoshop, Illustrator et InDesign.",
-
     "Langages de programmation : HTML, Java, Delphi et C++.",
-
     "Planification et optimisation des ressources.",
-
     "Gestion des opérations de transport.",
-
     "Supervision des opérations de transport.",
-
     "Élaboration et mise en place des indicateurs de suivi de transport.",
-
     "Élaboration des reportings et KPI liés à l'activité.",
-
     "Gestion des partenariats avec les prestataires de transport.",
-
     "Coordination avec les autres services.",
-
     "Gestion des ressources humaines et matérielles.",
-
-    "Gestion et génération des ordres de mission."
+    "Gestion et génération des ordres de mission.",
 ]
-
 
 # ============================================================
 # LANGUES
 # ============================================================
 
 langues = [
-
     ("Kabyle", "Maîtrise très bien"),
-
     ("Arabe", "Maîtrise très bien"),
-
     ("Français", "Maîtrise bien"),
-
-    ("Anglais", "Maîtrise moyenne")
+    ("Anglais", "Maîtrise moyenne"),
 ]
-
 
 # ============================================================
 # CENTRES D'INTERET
 # ============================================================
 
 interets = [
-
     ("✈️", "Voyage"),
-
     ("⚽", "Passion pour le sport"),
-
     ("🤝", "Activités associatives"),
-
     ("🎬", "Cinéma"),
-
     ("🎨", "Arts créatifs"),
-
-    ("💻", "Informatique")
+    ("💻", "Informatique"),
 ]
-
 
 # ============================================================
 # HEADER AVEC PHOTO
@@ -573,7 +519,6 @@ interets = [
 col_photo, col_header = st.columns([1, 4])
 
 with col_photo:
-
     st.markdown(
         """
 <div style="
@@ -584,18 +529,12 @@ height: 100%;
 text-align: center;
 ">
 """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     if PHOTO.exists():
-
-        st.image(
-            str(PHOTO),
-            width=180
-        )
-
+        st.image(str(PHOTO), width=180)
     else:
-
         st.markdown(
             """
 <div style="
@@ -605,21 +544,14 @@ padding:30px;
 👤
 </div>
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
-
         st.warning("Photo non trouvée")
 
-    st.markdown(
-        """
-</div>
-""",
-        unsafe_allow_html=True
-    )
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 with col_header:
-
     st.markdown(
         """
 <div class="cv-header">
@@ -644,9 +576,8 @@ Optimisation
 
 </div>
 """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
-
 
 # ============================================================
 # SIDEBAR
@@ -679,7 +610,7 @@ CURRICULUM VITAE
 
 </div>
 """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 st.sidebar.markdown("---")
@@ -694,8 +625,8 @@ page = st.sidebar.radio(
         "🛠️ Compétences",
         "🌐 Langues",
         "⭐ Centres d'intérêt",
-        "📞 Contact"
-    ]
+        "📞 Contact",
+    ],
 )
 
 st.sidebar.markdown("---")
@@ -716,7 +647,6 @@ st.sidebar.markdown(
 """
 )
 
-
 # ============================================================
 # ACCUEIL
 # ============================================================
@@ -725,7 +655,7 @@ if page == "🏠 Accueil":
 
     st.markdown(
         "<div class='section-title'>Profil professionnel</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     st.markdown(
@@ -738,9 +668,8 @@ if page == "🏠 Accueil":
 
 </div>
 """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
-
 
     # --------------------------------------------------------
     # INDICATEURS
@@ -749,117 +678,100 @@ if page == "🏠 Accueil":
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-
-        st.metric(
-            "Expérience",
-            "9 ans"
-        )
+        st.metric("Expérience", "9 ans")
 
     with col2:
-
-        st.metric(
-            "Postes",
-            "5"
-        )
+        st.metric("Postes", "5")
 
     with col3:
-
-        st.metric(
-            "Formations",
-            "9"
-        )
+        st.metric("Formations", "9")
 
     with col4:
+        st.metric("Langues", "4")
 
-        st.metric(
-            "Langues",
-            "4"
-        )
-
-
-   # --------------------------------------------------------
-   # DOMAINES D'EXPERTISE
-   # --------------------------------------------------------
+    # --------------------------------------------------------
+    # DOMAINES D'EXPERTISE
+    # --------------------------------------------------------
     st.markdown(
-    "<div class='section-title'>Domaines d'expertise</div>",
-    unsafe_allow_html=True,
-)
+        "<div class='section-title'>Domaines d'expertise</div>",
+        unsafe_allow_html=True,
+    )
 
-domaines = [
-    (
-        "🚚",
-        "Transport",
-        "Organisation, suivi et supervision des opérations de transport.",
-    ),
-    (
-        "📦",
-        "Logistique",
-        "Gestion des flux, des opérations logistiques et des ressources.",
-    ),
-    (
-        "📅",
-        "Planification",
-        "Élaboration des programmes et planification des ressources humaines et matérielles.",
-    ),
-    (
-        "👥",
-        "Supervision",
-        "Suivi des équipes et contrôle du bon déroulement des opérations.",
-    ),
-    (
-        "📈",
-        "Optimisation",
-        "Recherche de solutions permettant d'améliorer les coûts, les délais et l'utilisation des ressources.",
-    ),
-    (
-        "📊",
-        "Reporting",
-        "Élaboration et suivi des reportings d'activité pour faciliter le pilotage.",
-    ),
-    (
-        "🎯",
-        "KPI",
-        "Mise en place et suivi des indicateurs de performance liés à l'activité.",
-    ),
-    (
-        "🤝",
-        "Coordination",
-        "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations.",
-    ),
-    (
-        "⚙️",
-        "Gestion des ressources",
-        "Préparation, affectation et utilisation optimale des ressources disponibles.",
-    ),
-]
+    domaines = [
+        (
+            "🚚",
+            "Transport",
+            "Organisation, suivi et supervision des opérations de transport.",
+        ),
+        (
+            "📦",
+            "Logistique",
+            "Gestion des flux, des opérations logistiques et des ressources.",
+        ),
+        (
+            "📅",
+            "Planification",
+            "Élaboration des programmes et planification des ressources humaines et matérielles.",
+        ),
+        (
+            "👥",
+            "Supervision",
+            "Suivi des équipes et contrôle du bon déroulement des opérations.",
+        ),
+        (
+            "📈",
+            "Optimisation",
+            "Recherche de solutions permettant d'améliorer les coûts, les délais et l'utilisation des ressources.",
+        ),
+        (
+            "📊",
+            "Reporting",
+            "Élaboration et suivi des reportings d'activité pour faciliter le pilotage.",
+        ),
+        (
+            "🎯",
+            "KPI",
+            "Mise en place et suivi des indicateurs de performance liés à l'activité.",
+        ),
+        (
+            "🤝",
+            "Coordination",
+            "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations.",
+        ),
+        (
+            "⚙️",
+            "Gestion des ressources",
+            "Préparation, affectation et utilisation optimale des ressources disponibles.",
+        ),
+    ]
 
-col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
 
-for index, (icone, titre, definition) in enumerate(domaines):
-    if index % 3 == 0:
-        colonne = col1
-    elif index % 3 == 1:
-        colonne = col2
-    else:
-        colonne = col3
+    for index, (icone, titre, definition) in enumerate(domaines):
+        if index % 3 == 0:
+            colonne = col1
+        elif index % 3 == 1:
+            colonne = col2
+        else:
+            colonne = col3
 
-    with colonne:
-        st.markdown(
-            f"""
-            <div class="card" style="min-height: 190px;">
-                <div style="font-size: 34px; margin-bottom: 10px;">
-                    {icone}
+        with colonne:
+            st.markdown(
+                f"""
+                <div class="card" style="min-height: 190px;">
+                    <div style="font-size: 34px; margin-bottom: 10px;">
+                        {icone}
+                    </div>
+                    <div class="card-title">
+                        {titre}
+                    </div>
+                    <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">
+                        {definition}
+                    </div>
                 </div>
-                <div class="card-title">
-                    {titre}
-                </div>
-                <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">
-                    {definition}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+                """,
+                unsafe_allow_html=True,
+            )
 
     # --------------------------------------------------------
     # EXPERIENCE ACTUELLE
@@ -867,7 +779,7 @@ for index, (icone, titre, definition) in enumerate(domaines):
 
     st.markdown(
         "<div class='section-title'>Expérience actuelle</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     current = experiences[0]
@@ -890,17 +802,16 @@ for index, (icone, titre, definition) in enumerate(domaines):
 
 </div>
 """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
-
 
 # ============================================================
 # PROFIL
 # ============================================================
 elif page == "👤 Profil":
-   st.markdown(
+    st.markdown(
         "<div class='section-title'>Profil professionnel</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     st.markdown(
@@ -913,19 +824,17 @@ elif page == "👤 Profil":
 
 </div>
 """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
-
 
     st.markdown(
         "<div class='section-title'>Informations personnelles</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     col1, col2 = st.columns(2)
 
     with col1:
-
         st.markdown(
             f"""
 <div class="card">
@@ -951,12 +860,10 @@ elif page == "👤 Profil":
 
 </div>
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
 
-
     with col2:
-
         st.markdown(
             f"""
 <div class="card">
@@ -982,9 +889,8 @@ elif page == "👤 Profil":
 
 </div>
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
-
 
 # ============================================================
 # EXPERIENCES
@@ -993,11 +899,10 @@ elif page == "💼 Expériences":
 
     st.markdown(
         "<div class='section-title'>Expériences professionnelles</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     for exp in experiences:
-
         st.markdown(
             f"""
 <div class="experience-card">
@@ -1017,27 +922,20 @@ elif page == "💼 Expériences":
 <strong>Principales missions</strong>
 
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
 
         for mission in exp["missions"]:
-
             st.markdown(
                 f"""
 <div class="mission">
 ✓ {mission}
 </div>
 """,
-                unsafe_allow_html=True
+                unsafe_allow_html=True,
             )
 
-        st.markdown(
-            """
-</div>
-""",
-            unsafe_allow_html=True
-        )
-
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # ============================================================
 # DIPLOMES ET FORMATIONS
@@ -1046,11 +944,10 @@ elif page == "🎓 Diplômes & Formations":
 
     st.markdown(
         "<div class='section-title'>Diplômes & Formations</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     for formation in formations:
-
         st.markdown(
             f"""
 <div class="education-card">
@@ -1069,9 +966,8 @@ elif page == "🎓 Diplômes & Formations":
 
 </div>
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
-
 
 # ============================================================
 # COMPETENCES
@@ -1080,39 +976,32 @@ elif page == "🛠️ Compétences":
 
     st.markdown(
         "<div class='section-title'>Compétences professionnelles</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     col1, col2 = st.columns(2)
 
     for index, competence in enumerate(competences):
-
         if index % 2 == 0:
-
             with col1:
-
                 st.markdown(
                     f"""
 <div class="skill-card">
 ✓ {competence}
 </div>
 """,
-                    unsafe_allow_html=True
+                    unsafe_allow_html=True,
                 )
-
         else:
-
             with col2:
-
                 st.markdown(
                     f"""
 <div class="skill-card">
 ✓ {competence}
 </div>
 """,
-                    unsafe_allow_html=True
+                    unsafe_allow_html=True,
                 )
-
 
 # ============================================================
 # LANGUES
@@ -1120,16 +1009,13 @@ elif page == "🛠️ Compétences":
 elif page == "🌐 Langues":
 
     st.markdown(
-        "<div class='section-title'>Langues</div>",
-        unsafe_allow_html=True
+        "<div class='section-title'>Langues</div>", unsafe_allow_html=True
     )
 
     columns = st.columns(4)
 
     for index, langue in enumerate(langues):
-
         with columns[index]:
-
             st.markdown(
                 f"""
 <div class="card" style="text-align:center;">
@@ -1152,30 +1038,26 @@ margin-top:10px;
 
 </div>
 """,
-                unsafe_allow_html=True
+                unsafe_allow_html=True,
             )
-
 
 # ============================================================
 # CENTRES D'INTERET
 # ============================================================
-
 elif page == "⭐ Centres d'intérêt":
 
     st.markdown(
         "<div class='section-title'>Centres d'intérêt</div>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
     columns = st.columns(3)
 
     for index, item in enumerate(interets):
-
         icone = item[0]
         titre = item[1]
 
         with columns[index % 3]:
-
             st.markdown(
                 f"""
 <div class="card" style="text-align:center;">
@@ -1190,25 +1072,21 @@ elif page == "⭐ Centres d'intérêt":
 
 </div>
 """,
-                unsafe_allow_html=True
+                unsafe_allow_html=True,
             )
-
 
 # ============================================================
 # CONTACT
 # ============================================================
-
 elif page == "📞 Contact":
 
     st.markdown(
-        "<div class='section-title'>Contact</div>",
-        unsafe_allow_html=True
+        "<div class='section-title'>Contact</div>", unsafe_allow_html=True
     )
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
-
         st.markdown(
             f"""
 <div class="contact-card">
@@ -1227,12 +1105,10 @@ Téléphone
 
 </div>
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
 
-
     with col2:
-
         st.markdown(
             f"""
 <div class="contact-card">
@@ -1251,12 +1127,10 @@ Email
 
 </div>
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
 
-
     with col3:
-
         st.markdown(
             f"""
 <div class="contact-card">
@@ -1275,9 +1149,8 @@ Adresse
 
 </div>
 """,
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
-
 
 # ============================================================
 # FOOTER
@@ -1299,5 +1172,5 @@ Logistique • Transport • Planification • Supervision • Optimisation
 
 </div>
 """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
