@@ -591,7 +591,7 @@ padding:15px 5px 20px 5px;
 ">
 
 <div style="font-size:45px;">
-🚚
+👨‍🎓
 </div>
 
 <div style="
