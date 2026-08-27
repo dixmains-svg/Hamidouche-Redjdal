@@ -721,7 +721,7 @@ st.sidebar.markdown(
 # ACCUEIL
 # ============================================================
 
- if page == "🏠 Accueil":
+if page == "🏠 Accueil":
 
     st.markdown(
         "<div class='section-title'>Profil professionnel</div>",
@@ -777,10 +777,10 @@ st.sidebar.markdown(
         )
 
 
-    # --------------------------------------------------------
-    # DOMAINES D'EXPERTISE
-    # --------------------------------------------------------
-st.markdown(
+   # --------------------------------------------------------
+   # DOMAINES D'EXPERTISE
+   # --------------------------------------------------------
+ st.markdown(
     "<div class='section-title'>Domaines d'expertise</div>",
     unsafe_allow_html=True,
 )
@@ -897,8 +897,7 @@ for index, (icone, titre, definition) in enumerate(domaines):
 # ============================================================
 # PROFIL
 # ============================================================
-
- elif page == "👤 Profil":
+elif page == "👤 Profil":
 
     st.markdown(
         "<div class='section-title'>Profil professionnel</div>",
@@ -991,7 +990,6 @@ for index, (icone, titre, definition) in enumerate(domaines):
 # ============================================================
 # EXPERIENCES
 # ============================================================
-
 elif page == "💼 Expériences":
 
     st.markdown(
@@ -1045,7 +1043,6 @@ elif page == "💼 Expériences":
 # ============================================================
 # DIPLOMES ET FORMATIONS
 # ============================================================
-
 elif page == "🎓 Diplômes & Formations":
 
     st.markdown(
@@ -1080,7 +1077,6 @@ elif page == "🎓 Diplômes & Formations":
 # ============================================================
 # COMPETENCES
 # ============================================================
-
 elif page == "🛠️ Compétences":
 
     st.markdown(
@@ -1122,7 +1118,6 @@ elif page == "🛠️ Compétences":
 # ============================================================
 # LANGUES
 # ============================================================
-
 elif page == "🌐 Langues":
 
     st.markdown(
