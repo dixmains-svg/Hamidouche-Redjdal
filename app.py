@@ -756,7 +756,7 @@ with col_header:
 st.sidebar.markdown(
     f"""
     <div style="text-align:center; padding:15px 5px 20px 5px;">
-        <div style="font-size:45px;">🚚</div>
+        <div style="font-size:45px;">👨‍💼</div>
         <div style="font-size:20px; font-weight:800;">{nom}</div>
         <div style="font-size:13px; margin-top:6px;">CURRICULUM VITAE</div>
     </div>
