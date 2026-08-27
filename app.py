@@ -484,10 +484,10 @@ competences = [
 # ============================================================
 
 langues = [
-    "Kabyle",
-    "Arabe",
-    "Français",
-    "Anglais"
+    ("Kabyle", "Maîtrise très bien"),
+    ("Arabe", "Maîtrise très bien"),
+    ("Français", "Maîtrise bien"),
+    ("Anglais", "Maîtrise moyenne")
 ]
 
 
