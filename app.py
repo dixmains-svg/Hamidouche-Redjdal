@@ -780,7 +780,7 @@ if page == "🏠 Accueil":
    # --------------------------------------------------------
    # DOMAINES D'EXPERTISE
    # --------------------------------------------------------
- st.markdown(
+    st.markdown(
     "<div class='section-title'>Domaines d'expertise</div>",
     unsafe_allow_html=True,
 )
