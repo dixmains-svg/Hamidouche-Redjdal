@@ -1,1176 +1,262 @@
 import streamlit as st
-from pathlib import Path
 
 # ============================================================
-# CONFIGURATION
+# CONFIGURATION DE LA PAGE
 # ============================================================
-
 st.set_page_config(
-    page_title="HAMIDOUCHE REDJDAL | CV",
-    page_icon="👨‍🎓",
+    page_title="CV - Brahim Terki",
+    page_icon="📄",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="expanded"
 )
 
 # ============================================================
-# PHOTO
+# SELECTION DE LA LANGUE DANS LA SIDEBAR
 # ============================================================
-
-PHOTO = Path("photo.jpg")
+langue = st.sidebar.selectbox(
+    "🌐 Langue / Language",
+    ["Français", "English"]
+)
 
 # ============================================================
-# STYLE CSS
+# DICTIONNAIRE MULTILINGUE
 # ============================================================
+TEXTES = {
+    "Français": {
+        "nav": [
+            "🏠 Accueil", "👤 Profil", "💼 Expériences", 
+            "🎓 Diplômes & Formations", "🛠️ Compétences", 
+            "🌐 Langues", "⭐ Centres d'intérêt", "📞 Contact"
+        ],
+        "titre_poste": "Planificateur et Superviseur Logistique",
+        "profil_court": (
+            "Dynamique, sérieux et ayant de bonnes compétences relationnelles, "
+            "avec 9 ans d'expérience dans le domaine de la logistique. "
+            "Très à l'aise avec les outils informatiques, je souhaite mettre "
+            "mes compétences et ma motivation au service d'une entreprise "
+            "et relever de nouveaux défis professionnels."
+        ),
+        "stat_exp": "Expérience",
+        "stat_exp_val": "9 ans",
+        "stat_postes": "Postes",
+        "stat_dip": "Formations",
+        "stat_langues": "Langues",
+        "experience_actuelle": "Poste Actuel",
+        "actuel_periode": "01/2024 - À ce jour",
+        "competences_techniques": "Compétences Techniques",
+        "competences_orga": "Compétences Organisationnelles",
+        "certifications": "Certifications & Attestations",
+        "activites": "Activités sportives & bénévolat",
+        "contact_prompt": "N'hésitez pas à me contacter pour toute opportunité !",
+        "exp_list": [
+            {
+                "titre": "Planificateur et Superviseur Logistique",
+                "entreprise": "Entreprise Agroalimentaire",
+                "periode": "01/2024 - À ce jour",
+                "lieu": "Béjaïa, Algérie",
+                "taches": [
+                    "Planification et suivi des approvisionnements et livraisons.",
+                    "Gestion et optimisation de la flotte de transport.",
+                    "Supervision des équipes logistiques et gestion des stocks."
+                ]
+            },
+            {
+                "titre": "Responsable de Stock et Distribution",
+                "entreprise": "Société de Distribution",
+                "periode": "06/2019 - 12/2023",
+                "lieu": "Béjaïa, Algérie",
+                "taches": [
+                    "Supervision du magasinage et contrôle de l'inventaire.",
+                    "Coordination avec l'équipe commerciale pour les commandes prioritaires."
+                ]
+            }
+        ],
+        "form_list": [
+            {"annee": "2023", "diplome": "Attestation en Gestion des Stocks & ERP"},
+            {"annee": "2018", "diplome": "Diplôme en Logistique et Transport"},
+            {"annee": "2015", "diplome": "Baccalauréat"}
+        ],
+        "langues_list": [
+            {"nom": "Arabe", "niveau": "Langue maternelle / Native"},
+            {"nom": "Kabyle", "niveau": "Langue maternelle / Native"},
+            {"nom": "Français", "niveau": "Courant / Fluent"},
+            {"nom": "Anglais", "niveau": "Intermédiaire / Intermediate"}
+        ]
+    },
+    "English": {
+        "nav": [
+            "🏠 Home", "👤 Profile", "💼 Experience", 
+            "🎓 Education & Training", "🛠️ Skills", 
+            "🌐 Languages", "⭐ Interests", "📞 Contact"
+        ],
+        "titre_poste": "Logistics Planner & Supervisor",
+        "profil_court": (
+            "Dynamic, reliable, and possessing strong interpersonal skills, "
+            "with 9 years of experience in the logistics field. "
+            "Highly proficient with IT tools, I aim to apply my skills and motivation "
+            "to serve a growing company and take on new professional challenges."
+        ),
+        "stat_exp": "Experience",
+        "stat_exp_val": "9 years",
+        "stat_postes": "Positions",
+        "stat_dip": "Education",
+        "stat_langues": "Languages",
+        "experience_actuelle": "Current Position",
+        "actuel_periode": "01/2024 - Present",
+        "competences_techniques": "Technical Skills",
+        "competences_orga": "Organizational Skills",
+        "certifications": "Certifications & Training",
+        "activites": "Sports & Volunteer Activities",
+        "contact_prompt": "Feel free to reach out for any opportunities!",
+        "exp_list": [
+            {
+                "titre": "Logistics Planner & Supervisor",
+                "entreprise": "Agro-industrial Company",
+                "periode": "01/2024 - Present",
+                "lieu": "Béjaïa, Algeria",
+                "taches": [
+                    "Planning and tracking supplies and deliveries.",
+                    "Fleet management and route optimization.",
+                    "Supervising logistics teams and inventory management."
+                ]
+            },
+            {
+                "titre": "Stock & Distribution Manager",
+                "entreprise": "Distribution Company",
+                "periode": "06/2019 - 12/2023",
+                "lieu": "Béjaïa, Algeria",
+                "taches": [
+                    "Warehousing supervision and inventory control.",
+                    "Coordination with sales team for priority shipments."
+                ]
+            }
+        ],
+        "form_list": [
+            {"annee": "2023", "diplome": "Certificate in Stock Management & ERP"},
+            {"annee": "2018", "diplome": "Diploma in Logistics & Transport"},
+            {"annee": "2015", "diplome": "High School Diploma (Baccalaureate)"}
+        ],
+        "langues_list": [
+            {"nom": "Arabic", "niveau": "Native"},
+            {"nom": "Kabyle", "niveau": "Native"},
+            {"nom": "French", "niveau": "Fluent"},
+            {"nom": "English", "niveau": "Intermediate"}
+        ]
+    }
+}
 
-st.markdown(
-    """
+# Variable raccourci vers les données de la langue choisie
+t = TEXTES[langue]
+
+# ============================================================
+# STYLES CSS PERSONNALISÉS
+# ============================================================
+st.markdown("""
 <style>
-
-.stApp {
-    background-color: #f4f7fb;
-}
-
-.block-container {
-    max-width: 1200px;
-    padding-top: 25px;
-    padding-bottom: 50px;
-}
-
-/* ==========================================================
-   HEADER
-   ========================================================== */
-
-.cv-header {
-    background: linear-gradient(135deg, #102a43, #1f5f8b);
-    color: white;
-    padding: 40px 45px;
-    border-radius: 22px;
-    margin-bottom: 30px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    min-height: 260px;
-}
-
-.cv-name {
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-}
-
-.cv-title {
-    font-size: 23px;
-    font-weight: 600;
-    margin-bottom: 18px;
-}
-
-.cv-subtitle {
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* ==========================================================
-   PHOTO
-   ========================================================== */
-
-.photo-container {
-    text-align: center;
-    padding-top: 10px;
-}
-
-.photo-title {
-    color: white;
-    font-size: 13px;
-    margin-top: 10px;
-}
-
-/* ==========================================================
-   TITRES
-   ========================================================== */
-
-.section-title {
-    color: #102a43;
-    font-size: 27px;
-    font-weight: 800;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #1f5f8b;
-}
-
-/* ==========================================================
-   CARTES
-   ========================================================== */
-
-.card {
-    background-color: white;
-    border-radius: 17px;
-    padding: 25px;
-    margin-bottom: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.card-title {
-    color: #102a43;
-    font-size: 19px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.card-text {
-    color: #52606d;
-    font-size: 16px;
-    line-height: 1.9;
-}
-
-/* ==========================================================
-   EXPERIENCES
-   ========================================================== */
-
-.experience-card {
-    background-color: white;
-    border-left: 5px solid #1f5f8b;
-    border-radius: 17px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.experience-position {
-    color: #102a43;
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.experience-company {
-    color: #1f5f8b;
-    font-size: 16px;
-    font-weight: 700;
-    margin-top: 6px;
-}
-
-.experience-date {
-    color: #829ab1;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 18px;
-}
-
-.mission {
-    color: #52606d;
-    line-height: 1.7;
-    margin-top: 9px;
-}
-
-/* ==========================================================
-   FORMATIONS
-   ========================================================== */
-
-.education-card {
-    background-color: white;
-    border-radius: 17px;
-    padding: 22px;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.year {
-    display: inline-block;
-    background-color: #102a43;
-    color: white;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.education-title {
-    color: #102a43;
-    font-size: 17px;
-    font-weight: 800;
-}
-
-.education-school {
-    color: #627d98;
-    font-size: 14px;
-    margin-top: 7px;
-    line-height: 1.6;
-}
-
-/* ==========================================================
-   COMPETENCES
-   ========================================================== */
-
-.skill-card {
-    background-color: white;
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    color: #334e68;
-    line-height: 1.6;
-}
-
-/* ==========================================================
-   TAGS
-   ========================================================== */
-
-.tag {
-    display: inline-block;
-    background-color: #e9f2f9;
-    color: #102a43;
-    padding: 9px 15px;
-    margin: 4px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* ==========================================================
-   CONTACT
-   ========================================================== */
-
-.contact-card {
-    background-color: white;
-    border-radius: 17px;
-    padding: 25px;
-    text-align: center;
-    min-height: 145px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.contact-icon {
-    font-size: 32px;
-    margin-bottom: 8px;
-}
-
-.contact-title {
-    color: #102a43;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.contact-value {
-    color: #52606d;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* ==========================================================
-   SIDEBAR
-   ========================================================== */
-
-[data-testid="stSidebar"] {
-    background-color: #102a43;
-}
-
-[data-testid="stSidebar"] * {
-    color: white;
-}
-
-/* ==========================================================
-   FOOTER
-   ========================================================== */
-
-.footer {
-    text-align: center;
-    color: #829ab1;
-    font-size: 13px;
-    margin-top: 50px;
-    padding-top: 25px;
-    border-top: 1px solid #d9e2ec;
-}
-
-/* ==========================================================
-   MOBILE
-   ========================================================== */
-
-@media (max-width: 768px) {
-
-    .cv-header {
-        padding: 30px 25px;
-    }
-
-    .cv-name {
-        font-size: 30px;
-    }
-
-    .cv-title {
-        font-size: 18px;
-    }
-
-    .cv-subtitle {
-        font-size: 14px;
-    }
-
-    .section-title {
-        font-size: 23px;
-    }
-
-}
-
+    .main-title { font-size: 2.2rem; font-weight: 700; color: #1E3A8A; margin-bottom: 0.2rem; }
+    .sub-title { font-size: 1.2rem; color: #4B5563; font-weight: 500; margin-bottom: 1.5rem; }
+    .section-title { font-size: 1.4rem; font-weight: 600; color: #1E3A8A; border-bottom: 2px solid #E5E7EB; padding-bottom: 0.3rem; margin-top: 1rem; margin-bottom: 1rem; }
+    .card { background-color: #F9FAFB; padding: 1.2rem; border-radius: 8px; border-left: 4px solid #1E3A8A; margin-bottom: 1rem; }
+    .card-title { font-size: 1.1rem; font-weight: 600; color: #1F2937; }
+    .card-sub { font-size: 0.9rem; color: #6B7280; font-style: italic; margin-bottom: 0.5rem; }
 </style>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 # ============================================================
-# INFORMATIONS PERSONNELLES
+# NAVIGATION MENU LATÉRAL
 # ============================================================
-
-nom = "HAMIDOUCHE REDJDAL"
-fonction = "Planificateur et Superviseur Logistique"
-telephone = "00213775 73 79 30"
-email = "hamidoucheredjdal@yahoo.fr"
-adresse = "Tazmalt 06039, wilaya de Bejaia"
-nationalite = "Algérienne"
-situation = "Marié"
-service_national = "Dégagé"
-
-# ============================================================
-# PROFIL
-# ============================================================
-
-profil = (
-    "Dynamique, sérieux et ayant de bonnes compétences relationnelles, "
-    "avec 9 ans d'expérience dans le domaine de la logistique. "
-    "Très à l'aise avec les outils informatiques, je souhaite mettre "
-    "mes compétences et ma motivation au service d'une entreprise "
-    "et relever de nouveaux défis professionnels."
-)
-
-# ============================================================
-# EXPERIENCES PROFESSIONNELLES
-# ============================================================
-
-experiences = [
-    {
-        "poste": "Superviseur techno-commercial",
-        "periode": "01/2024 - À ce jour",
-        "entreprise": "SPA TMF Logistics",
-        "missions": [
-            "Analyser les besoins des clients.",
-            "Établir des reportings d'activité quotidiens, mensuels et annuels.",
-            "Apporter des solutions pertinentes et adaptées.",
-            "Suivre le bon déroulement de l'activité.",
-            "Contrôler les flux entrants et sortants de la zone d'entreposage.",
-        ],
-    },
-    {
-        "poste": "Superviseur exploitation",
-        "periode": "06/2022 - 01/2024",
-        "entreprise": "SPA TMF Logistics",
-        "missions": [
-            "Piloter et superviser les opérations de transport.",
-            "Suivre le bon déroulement de l'activité.",
-            "Contrôler les flux entrants et sortants de la zone d'entreposage.",
-            "Planifier, organiser et contrôler l'activité d'une équipe.",
-            "Réceptionner les commandes des clients et veiller à leur satisfaction.",
-            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus.",
-        ],
-    },
-    {
-        "poste": "Chargé de la planification",
-        "periode": "02/2020 - 06/2022",
-        "entreprise": "SPA TMF Logistics",
-        "missions": [
-            "Préparer la disponibilité des ressources humaines et matérielles.",
-            "Planifier les commandes de chaque client.",
-            "Élaborer les reportings et les KPI liés à l'activité.",
-            "Réceptionner et traiter les demandes du service commercial.",
-            "Optimiser les ressources logistiques en termes de coûts et de délais.",
-            "Administrer et générer les ordres de mission.",
-            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus.",
-        ],
-    },
-    {
-        "poste": "Coordinateur logistique",
-        "periode": "02/2019 - 02/2020",
-        "entreprise": "SPA TMF Logistics",
-        "missions": [
-            "Élaborer et maintenir une parfaite coordination avec les autres services.",
-            "Élaborer et mettre en place des indicateurs de suivi de transport.",
-            "Gérer les partenariats avec les prestataires de transport.",
-            "Piloter et contrôler les performances des activités à court, moyen et long terme.",
-            "Veiller au respect des procédures de travail et de la réglementation.",
-        ],
-    },
-    {
-        "poste": "Chargé de la programmation",
-        "periode": "04/2016 - 10/2018",
-        "entreprise": "SPA TMF Logistics",
-        "missions": [
-            "Exécuter et suivre régulièrement la programmation et l'utilisation des ressources.",
-            "Établir un planning optimal en optimisant les coûts et les délais.",
-            "Anticiper les situations imprévues et prendre rapidement les décisions correctives.",
-            "Étudier la faisabilité d'une mission avant d'affecter les ressources.",
-        ],
-    },
-]
-
-# ============================================================
-# FORMATIONS
-# ============================================================
-
-formations = [
-    {
-        "annee": "2021",
-        "titre": "Formation en Transport international des marchandises",
-        "organisme": "Chambre algérienne de commerce et d'industrie, Alger - Algérie",
-    },
-    {
-        "annee": "2020",
-        "titre": "Formation en Planification et optimisation logistique",
-        "organisme": "Institut international de Management, Bejaia - Algérie",
-    },
-    {
-        "annee": "2019",
-        "titre": "Formation en Logistique et transport",
-        "organisme": "Institut international de management, Bejaia - Algérie",
-    },
-    {
-        "annee": "2019",
-        "titre": "Formation en Gestion des temps et des priorités",
-        "organisme": "Institut international de management, Bejaia - Algérie",
-    },
-    {
-        "annee": "2018",
-        "titre": "Formation en Gestion des opérations de transport",
-        "organisme": "Institut international de management, Bejaia - Algérie",
-    },
-    {
-        "annee": "2015",
-        "titre": "Master 2 en Recherche opérationnelle",
-        "organisme": (
-            "Option : Fiabilité et évaluation des performances des réseaux. "
-            "Université Abderrahmane Mira, Bejaia - Algérie"
-        ),
-    },
-    {
-        "annee": "2012",
-        "titre": "Licence en Recherche opérationnelle",
-        "organisme": (
-            "Option : Aide à la décision. "
-            "Université Abderrahmane Mira, Bejaia - Algérie"
-        ),
-    },
-    {
-        "annee": "2012",
-        "titre": "Attestation de stage en gestion portuaire",
-        "organisme": "Entreprise portuaire de Bejaia, Bejaia - Algérie",
-    },
-    {
-        "annee": "2008",
-        "titre": "Diplôme Baccalauréat",
-        "organisme": (
-            "Option : Science de la nature et de la vie. "
-            "Lycée Mohamed Boudiaf, Tazmalt - Algérie"
-        ),
-    },
-]
-
-# ============================================================
-# COMPETENCES
-# ============================================================
-
-competences = [
-    "Maîtrise du Pack Office : Excel, Word, PowerPoint et Outlook.",
-    "Maîtrise de Matlab, LaTeX, Photoshop, Illustrator et InDesign.",
-    "Langages de programmation : HTML, Java, Delphi et C++.",
-    "Planification et optimisation des ressources.",
-    "Gestion des opérations de transport.",
-    "Supervision des opérations de transport.",
-    "Élaboration et mise en place des indicateurs de suivi de transport.",
-    "Élaboration des reportings et KPI liés à l'activité.",
-    "Gestion des partenariats avec les prestataires de transport.",
-    "Coordination avec les autres services.",
-    "Gestion des ressources humaines et matérielles.",
-    "Gestion et génération des ordres de mission.",
-]
-
-# ============================================================
-# LANGUES
-# ============================================================
-
-langues = [
-    ("Kabyle", "Maîtrise très bien"),
-    ("Arabe", "Maîtrise très bien"),
-    ("Français", "Maîtrise bien"),
-    ("Anglais", "Maîtrise moyenne"),
-]
-
-# ============================================================
-# CENTRES D'INTERET
-# ============================================================
-
-interets = [
-    ("✈️", "Voyage"),
-    ("⚽", "Passion pour le sport"),
-    ("🤝", "Activités associatives"),
-    ("🎬", "Cinéma"),
-    ("🎨", "Arts créatifs"),
-    ("💻", "Informatique"),
-]
-
-# ============================================================
-# HEADER AVEC PHOTO
-# ============================================================
-
-col_photo, col_header = st.columns([1, 4])
-
-with col_photo:
-    st.markdown(
-        """
-<div style="
-background: linear-gradient(135deg, #102a43, #1f5f8b);
-padding: 25px;
-border-radius: 22px;
-height: 100%;
-text-align: center;
-">
-""",
-        unsafe_allow_html=True,
-    )
-
-    if PHOTO.exists():
-        st.image(str(PHOTO), width=180)
-    else:
-        st.markdown(
-            """
-<div style="
-font-size:100px;
-padding:30px;
-">
-👤
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-        st.warning("Photo non trouvée")
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-
-with col_header:
-    st.markdown(
-        """
-<div class="cv-header">
-
-<div class="cv-name">
-HAMIDOUCHE REDJDAL
-</div>
-
-<div class="cv-title">
-🚚 Planificateur &amp; Superviseur Logistique
-</div>
-
-<div class="cv-subtitle">
-Master 2 en Recherche Opérationnelle
-<br><br>
-Logistique &nbsp; • &nbsp;
-Transport &nbsp; • &nbsp;
-Planification &nbsp; • &nbsp;
-Supervision &nbsp; • &nbsp;
-Optimisation
-</div>
-
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-# ============================================================
-# SIDEBAR
-# ============================================================
-
-st.sidebar.markdown(
-    """
-<div style="
-text-align:center;
-padding:15px 5px 20px 5px;
-">
-
-<div style="font-size:45px;">
-👨‍🎓
-</div>
-
-<div style="
-font-size:20px;
-font-weight:800;
-">
-HAMIDOUCHE REDJDAL
-</div>
-
-<div style="
-font-size:13px;
-margin-top:6px;
-">
-CURRICULUM VITAE
-</div>
-
-</div>
-""",
-    unsafe_allow_html=True,
-)
-
 st.sidebar.markdown("---")
+page = st.sidebar.radio("NAVIGATION", t["nav"])
 
-page = st.sidebar.radio(
-    "NAVIGATION",
-    [
-        "🏠 Accueil",
-        "👤 Profil",
-        "💼 Expériences",
-        "🎓 Diplômes & Formations",
-        "🛠️ Compétences",
-        "🌐 Langues",
-        "⭐ Centres d'intérêt",
-        "📞 Contact",
-    ],
-)
-
-st.sidebar.markdown("---")
-
-st.sidebar.markdown(
-    """
-**DOMAINES PROFESSIONNELS**
-
-🚚 Transport
-
-📦 Logistique
-
-📊 Planification
-
-👥 Supervision
-
-📈 Optimisation
-"""
-)
+# Header fixe haut de page
+st.markdown("<div class='main-title'>Brahim TERKI</div>", unsafe_allow_html=True)
+st.markdown(f"<div class='sub-title'>{t['titre_poste']}</div>", unsafe_allow_html=True)
 
 # ============================================================
-# ACCUEIL
+# PAGES DE L'APPLICATION
 # ============================================================
 
-if page == "🏠 Accueil":
-
-    st.markdown(
-        "<div class='section-title'>Profil professionnel</div>",
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        f"""
-<div class="card">
-
-<p class="card-text">
-{profil}
-</p>
-
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-    # --------------------------------------------------------
-    # INDICATEURS
-    # --------------------------------------------------------
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        st.metric("Expérience", "9 ans")
-
-    with col2:
-        st.metric("Postes", "5")
-
-    with col3:
-        st.metric("Formations", "9")
-
-    with col4:
-        st.metric("Langues", "4")
-
-    # --------------------------------------------------------
-    # DOMAINES D'EXPERTISE
-    # --------------------------------------------------------
-    st.markdown(
-        "<div class='section-title'>Domaines d'expertise</div>",
-        unsafe_allow_html=True,
-    )
-
-    domaines = [
-        (
-            "🚚",
-            "Transport",
-            "Organisation, suivi et supervision des opérations de transport.",
-        ),
-        (
-            "📦",
-            "Logistique",
-            "Gestion des flux, des opérations logistiques et des ressources.",
-        ),
-        (
-            "📅",
-            "Planification",
-            "Élaboration des programmes et planification des ressources humaines et matérielles.",
-        ),
-        (
-            "👥",
-            "Supervision",
-            "Suivi des équipes et contrôle du bon déroulement des opérations.",
-        ),
-        (
-            "📈",
-            "Optimisation",
-            "Recherche de solutions permettant d'améliorer les coûts, les délais et l'utilisation des ressources.",
-        ),
-        (
-            "📊",
-            "Reporting",
-            "Élaboration et suivi des reportings d'activité pour faciliter le pilotage.",
-        ),
-        (
-            "🎯",
-            "KPI",
-            "Mise en place et suivi des indicateurs de performance liés à l'activité.",
-        ),
-        (
-            "🤝",
-            "Coordination",
-            "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations.",
-        ),
-        (
-            "⚙️",
-            "Gestion des ressources",
-            "Préparation, affectation et utilisation optimale des ressources disponibles.",
-        ),
-    ]
-
-    col1, col2, col3 = st.columns(3)
-
-    for index, (icone, titre, definition) in enumerate(domaines):
-        if index % 3 == 0:
-            colonne = col1
-        elif index % 3 == 1:
-            colonne = col2
-        else:
-            colonne = col3
-
-        with colonne:
-            st.markdown(
-                f"""
-                <div class="card" style="min-height: 190px;">
-                    <div style="font-size: 34px; margin-bottom: 10px;">
-                        {icone}
-                    </div>
-                    <div class="card-title">
-                        {titre}
-                    </div>
-                    <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">
-                        {definition}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-    # --------------------------------------------------------
-    # EXPERIENCE ACTUELLE
-    # --------------------------------------------------------
-
-    st.markdown(
-        "<div class='section-title'>Expérience actuelle</div>",
-        unsafe_allow_html=True,
-    )
-
-    current = experiences[0]
-
-    st.markdown(
-        f"""
-<div class="experience-card">
-
-<div class="experience-position">
-{current["poste"]}
-</div>
-
-<div class="experience-company">
-🏢 {current["entreprise"]}
-</div>
-
-<div class="experience-date">
-📅 {current["periode"]}
-</div>
-
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-# ============================================================
-# PROFIL
-# ============================================================
-elif page == "👤 Profil":
-    st.markdown(
-        "<div class='section-title'>Profil professionnel</div>",
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        f"""
-<div class="card">
-
-<p class="card-text">
-{profil}
-</p>
-
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        "<div class='section-title'>Informations personnelles</div>",
-        unsafe_allow_html=True,
-    )
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.markdown(
-            f"""
-<div class="card">
-
-<div class="card-title">
-👤 Identité
-</div>
-
-<p>
-<strong>Nom :</strong><br>
-{nom}
-</p>
-
-<p>
-<strong>Nationalité :</strong><br>
-{nationalite}
-</p>
-
-<p>
-<strong>Situation familiale :</strong><br>
-{situation}
-</p>
-
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-
-    with col2:
-        st.markdown(
-            f"""
-<div class="card">
-
-<div class="card-title">
-📋 Informations professionnelles
-</div>
-
-<p>
-<strong>Fonction :</strong><br>
-{fonction}
-</p>
-
-<p>
-<strong>Adresse :</strong><br>
-{adresse}
-</p>
-
-<p>
-<strong>Service national :</strong><br>
-{service_national}
-</p>
-
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-
-# ============================================================
-# EXPERIENCES
-# ============================================================
-elif page == "💼 Expériences":
-
-    st.markdown(
-        "<div class='section-title'>Expériences professionnelles</div>",
-        unsafe_allow_html=True,
-    )
-
-    for exp in experiences:
-        st.markdown(
-            f"""
-<div class="experience-card">
-
-<div class="experience-position">
-{exp["poste"]}
-</div>
-
-<div class="experience-company">
-🏢 {exp["entreprise"]}
-</div>
-
-<div class="experience-date">
-📅 {exp["periode"]}
-</div>
-
-<strong>Principales missions</strong>
-
-""",
-            unsafe_allow_html=True,
-        )
-
-        for mission in exp["missions"]:
-            st.markdown(
-                f"""
-<div class="mission">
-✓ {mission}
-</div>
-""",
-                unsafe_allow_html=True,
-            )
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-# ============================================================
-# DIPLOMES ET FORMATIONS
-# ============================================================
-elif page == "🎓 Diplômes & Formations":
-
-    st.markdown(
-        "<div class='section-title'>Diplômes & Formations</div>",
-        unsafe_allow_html=True,
-    )
-
-    for formation in formations:
-        st.markdown(
-            f"""
-<div class="education-card">
-
-<div class="year">
-{formation["annee"]}
-</div>
-
-<div class="education-title">
-{formation["titre"]}
-</div>
-
-<div class="education-school">
-🏫 {formation["organisme"]}
-</div>
-
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-
-# ============================================================
-# COMPETENCES
-# ============================================================
-elif page == "🛠️ Compétences":
-
-    st.markdown(
-        "<div class='section-title'>Compétences professionnelles</div>",
-        unsafe_allow_html=True,
-    )
-
-    col1, col2 = st.columns(2)
-
-    for index, competence in enumerate(competences):
-        if index % 2 == 0:
-            with col1:
-                st.markdown(
-                    f"""
-<div class="skill-card">
-✓ {competence}
-</div>
-""",
-                    unsafe_allow_html=True,
-                )
-        else:
-            with col2:
-                st.markdown(
-                    f"""
-<div class="skill-card">
-✓ {competence}
-</div>
-""",
-                    unsafe_allow_html=True,
-                )
-
-# ============================================================
-# LANGUES
-# ============================================================
-elif page == "🌐 Langues":
-
-    st.markdown(
-        "<div class='section-title'>Langues</div>", unsafe_allow_html=True
-    )
-
-    columns = st.columns(4)
-
-    for index, langue in enumerate(langues):
-        with columns[index]:
-            st.markdown(
-                f"""
-<div class="card" style="text-align:center;">
-
-<div style="font-size:38px;">
-🌐
-</div>
-
-<div class="card-title">
-{langue[0]}
-</div>
-
-<div style="
-color:#1f5f8b;
-font-weight:700;
-margin-top:10px;
-">
-{langue[1]}
-</div>
-
-</div>
-""",
-                unsafe_allow_html=True,
-            )
-
-# ============================================================
-# CENTRES D'INTERET
-# ============================================================
-elif page == "⭐ Centres d'intérêt":
-
-    st.markdown(
-        "<div class='section-title'>Centres d'intérêt</div>",
-        unsafe_allow_html=True,
-    )
-
-    columns = st.columns(3)
-
-    for index, item in enumerate(interets):
-        icone = item[0]
-        titre = item[1]
-
-        with columns[index % 3]:
-            st.markdown(
-                f"""
-<div class="card" style="text-align:center;">
-
-<div style="font-size:40px;">
-{icone}
-</div>
-
-<div class="card-title">
-{titre}
-</div>
-
-</div>
-""",
-                unsafe_allow_html=True,
-            )
-
-# ============================================================
-# CONTACT
-# ============================================================
-elif page == "📞 Contact":
-
-    st.markdown(
-        "<div class='section-title'>Contact</div>", unsafe_allow_html=True
-    )
-
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.markdown(
-            f"""
-<div class="contact-card">
-
-<div class="contact-icon">
-📱
-</div>
-
-<div class="contact-title">
-Téléphone
-</div>
-
-<div class="contact-value">
-{telephone}
-</div>
-
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-
-    with col2:
-        st.markdown(
-            f"""
-<div class="contact-card">
-
-<div class="contact-icon">
-📧
-</div>
-
-<div class="contact-title">
-Email
-</div>
-
-<div class="contact-value">
-{email}
-</div>
-
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-
-    with col3:
-        st.markdown(
-            f"""
-<div class="contact-card">
-
-<div class="contact-icon">
-📍
-</div>
-
-<div class="contact-title">
-Adresse
-</div>
-
-<div class="contact-value">
-{adresse}
-</div>
-
-</div>
-""",
-            unsafe_allow_html=True,
-        )
-
-# ============================================================
-# FOOTER
-# ============================================================
-
-st.markdown(
-    """
-<div class="footer">
-
-<strong>HAMIDOUCHE REDJDAL</strong>
-
-<br><br>
-
-Planificateur &amp; Superviseur Logistique
-
-<br>
-
-Logistique • Transport • Planification • Supervision • Optimisation
-
-</div>
-""",
-    unsafe_allow_html=True,
-)
+# --- ACCUEIL ---
+if page in ["🏠 Accueil", "🏠 Home"]:
+    col_img, col_info = st.columns([1, 2])
+    
+    with col_img:
+        # Remplacer par st.image("photo.jpg") si vous avez une photo locale
+        st.info("📷 Photo de profil")
+        
+    with col_info:
+        st.markdown(f"<div class='section-title'>{page}</div>", unsafe_allow_html=True)
+        st.write(t["profil_court"])
+        
+    st.markdown("---")
+    
+    # Indicateurs clés
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric(t["stat_exp"], t["stat_exp_val"])
+    c2.metric(t["stat_postes"], len(t["exp_list"]))
+    c3.metric(t["stat_dip"], len(t["form_list"]))
+    c4.metric(t["stat_langues"], len(t["langues_list"]))
+
+# --- PROFIL ---
+elif page in ["👤 Profil", "👤 Profile"]:
+    st.markdown(f"<div class='section-title'>{page}</div>", unsafe_allow_html=True)
+    st.markdown(f"""
+    <div class="card">
+        <p>{t['profil_court']}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# --- EXPÉRIENCES ---
+elif page in ["💼 Expériences", "💼 Experience"]:
+    st.markdown(f"<div class='section-title'>{page}</div>", unsafe_allow_html=True)
+    
+    for exp in t["exp_list"]:
+        st.markdown(f"""
+        <div class="card">
+            <div class="card-title">{exp['titre']}</div>
+            <div class="card-sub">{exp['entreprise']} | {exp['periode']} | {exp['lieu']}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        for tache in exp["taches"]:
+            st.write(f"- {tache}")
+        st.write("")
+
+# --- DIPLÔMES & FORMATIONS ---
+elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training"]:
+    st.markdown(f"<div class='section-title'>{page}</div>", unsafe_allow_html=True)
+    
+    for item in t["form_list"]:
+        st.markdown(f"**{item['annee']}** : {item['diplome']}")
+
+# --- COMPÉTENCES ---
+elif page in ["🛠️ Compétences", "🛠️ Skills"]:
+    st.markdown(f"<div class='section-title'>{t['competences_techniques']}</div>", unsafe_allow_html=True)
+    st.progress(0.90, text="Gestion des stocks & Approvisionnements (90%)")
+    st.progress(0.85, text="Planification & Supervision Flotte (85%)")
+    st.progress(0.80, text="Outils Informatiques / ERP / Excel (80%)")
+    
+    st.markdown(f"<div class='section-title'>{t['competences_orga']}</div>", unsafe_allow_html=True)
+    st.write("✔️ Gestion d'équipe & Leadership")
+    st.write("✔️ Sens de la communication & Relationnel")
+    st.write("✔️ Rigueur & Organisation")
+
+# --- LANGUES ---
+elif page in ["🌐 Langues", "🌐 Languages"]:
+    st.markdown(f"<div class='section-title'>{page}</div>", unsafe_allow_html=True)
+    for lang in t["langues_list"]:
+        st.write(f"• **{lang['nom']}** : {lang['niveau']}")
+
+# --- CENTRES D'INTÉRÊT ---
+elif page in ["⭐ Centres d'intérêt", "⭐ Interests"]:
+    st.markdown(f"<div class='section-title'>{page}</div>", unsafe_allow_html=True)
+    st.write("⚽ Sports d'équipe")
+    st.write("📚 Lecture & Veille technologique")
+    st.write("🚗 Voyages")
+
+# --- CONTACT ---
+elif page in ["📞 Contact"]:
+    st.markdown(f"<div class='section-title'>{page}</div>", unsafe_allow_html=True)
+    st.info(t["contact_prompt"])
+    st.write("📧 **Email** : brahim.terki@example.com")
+    st.write("📱 **Téléphone** : +213 X XX XX XX XX")
+    st.write("📍 **Adresse** : Béjaïa, Algérie")
