@@ -7,7 +7,7 @@ from pathlib import Path
 
 st.set_page_config(
     page_title="HAMIDOUCHE REDJDAL | CV",
-    page_icon="🚚",
+    page_icon="👨‍💼",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -738,7 +738,7 @@ with col_header:
         f"""
         <div class="cv-header">
             <div class="cv-name">{nom}</div>
-            <div class="cv-title">🚚 {t['fonction']}</div>
+            <div class="cv-title">👨‍💼 {t['fonction']}</div>
             <div class="cv-subtitle">
                 {t['labels']['degree_subtitle']}
                 <br><br>
