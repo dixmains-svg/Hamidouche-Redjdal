@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 
 
 # ============================================================
@@ -11,6 +12,13 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+
+# ============================================================
+# PHOTO
+# ============================================================
+
+PHOTO = Path("photo.jpg")
 
 
 # ============================================================
@@ -38,14 +46,15 @@ st.markdown(
 .cv-header {
     background: linear-gradient(135deg, #102a43, #1f5f8b);
     color: white;
-    padding: 45px 50px;
+    padding: 40px 45px;
     border-radius: 22px;
     margin-bottom: 30px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    min-height: 260px;
 }
 
 .cv-name {
-    font-size: 44px;
+    font-size: 42px;
     font-weight: 800;
     letter-spacing: 1px;
     margin-bottom: 12px;
@@ -54,12 +63,27 @@ st.markdown(
 .cv-title {
     font-size: 23px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .cv-subtitle {
     font-size: 16px;
     line-height: 1.8;
+}
+
+/* ==========================================================
+   PHOTO
+   ========================================================== */
+
+.photo-container {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.photo-title {
+    color: white;
+    font-size: 13px;
+    margin-top: 10px;
 }
 
 /* ==========================================================
@@ -92,6 +116,7 @@ st.markdown(
     color: #102a43;
     font-size: 19px;
     font-weight: 800;
+    margin-bottom: 10px;
 }
 
 .card-text {
@@ -136,7 +161,7 @@ st.markdown(
 .mission {
     color: #52606d;
     line-height: 1.7;
-    margin-top: 8px;
+    margin-top: 9px;
 }
 
 /* ==========================================================
@@ -270,7 +295,7 @@ st.markdown(
     }
 
     .cv-name {
-        font-size: 31px;
+        font-size: 30px;
     }
 
     .cv-title {
@@ -294,7 +319,7 @@ st.markdown(
 
 
 # ============================================================
-# INFORMATIONS
+# INFORMATIONS PERSONNELLES
 # ============================================================
 
 nom = "HAMIDOUCHE REDJDAL"
@@ -321,17 +346,18 @@ service_national = "Dégagé"
 profil = (
     "Dynamique, sérieux et ayant de bonnes compétences relationnelles, "
     "avec 9 ans d'expérience dans le domaine de la logistique. "
-    "Je suis très à l'aise avec les outils informatiques et j'aimerais "
-    "mettre mes compétences et ma motivation au service de votre entreprise. "
-    "Je suis prêt à relever le défi."
+    "Très à l'aise avec les outils informatiques, je souhaite mettre "
+    "mes compétences et ma motivation au service d'une entreprise "
+    "et relever de nouveaux défis professionnels."
 )
 
 
 # ============================================================
-# EXPERIENCES
+# EXPERIENCES PROFESSIONNELLES
 # ============================================================
 
 experiences = [
+
     {
         "poste": "Superviseur techno-commercial",
         "periode": "01/2024 - À ce jour",
@@ -344,6 +370,7 @@ experiences = [
             "Contrôler les flux entrants et sortants de la zone d'entreposage."
         ]
     },
+
     {
         "poste": "Superviseur exploitation",
         "periode": "06/2022 - 01/2024",
@@ -357,6 +384,7 @@ experiences = [
             "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus."
         ]
     },
+
     {
         "poste": "Chargé de la planification",
         "periode": "02/2020 - 06/2022",
@@ -365,12 +393,13 @@ experiences = [
             "Préparer la disponibilité des ressources humaines et matérielles.",
             "Planifier les commandes de chaque client.",
             "Élaborer les reportings et les KPI liés à l'activité.",
-            "Réceptionner et traiter les demandes de service commercial.",
+            "Réceptionner et traiter les demandes du service commercial.",
             "Optimiser les ressources logistiques en termes de coûts et de délais.",
             "Administrer et générer les ordres de mission.",
-            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus et de l'environnement externe."
+            "Assurer la bonne réalisation du programme et le réadapter en fonction des imprévus."
         ]
     },
+
     {
         "poste": "Coordinateur logistique",
         "periode": "02/2019 - 02/2020",
@@ -380,9 +409,10 @@ experiences = [
             "Élaborer et mettre en place des indicateurs de suivi de transport.",
             "Gérer les partenariats avec les prestataires de transport.",
             "Piloter et contrôler les performances des activités à court, moyen et long terme.",
-            "Veiller au respect des procédures de travail et à la réglementation."
+            "Veiller au respect des procédures de travail et de la réglementation."
         ]
     },
+
     {
         "poste": "Chargé de la programmation",
         "periode": "04/2016 - 10/2018",
@@ -402,39 +432,46 @@ experiences = [
 # ============================================================
 
 formations = [
+
     {
         "annee": "2021",
         "titre": "Formation en Transport international des marchandises",
         "organisme": "Chambre algérienne de commerce et d'industrie, Alger - Algérie"
     },
+
     {
         "annee": "2020",
         "titre": "Formation en Planification et optimisation logistique",
         "organisme": "Institut international de Management, Bejaia - Algérie"
     },
+
     {
         "annee": "2019",
         "titre": "Formation en Logistique et transport",
         "organisme": "Institut international de management, Bejaia - Algérie"
     },
+
     {
         "annee": "2019",
         "titre": "Formation en Gestion des temps et des priorités",
         "organisme": "Institut international de management, Bejaia - Algérie"
     },
+
     {
         "annee": "2018",
         "titre": "Formation en Gestion des opérations de transport",
         "organisme": "Institut international de management, Bejaia - Algérie"
     },
+
     {
         "annee": "2015",
         "titre": "Master 2 en Recherche opérationnelle",
         "organisme": (
-            "Option : fiabilité et évaluation des Performances des Réseaux. "
+            "Option : Fiabilité et évaluation des performances des réseaux. "
             "Université Abderrahmane Mira, Bejaia - Algérie"
         )
     },
+
     {
         "annee": "2012",
         "titre": "Licence en Recherche opérationnelle",
@@ -443,11 +480,13 @@ formations = [
             "Université Abderrahmane Mira, Bejaia - Algérie"
         )
     },
+
     {
         "annee": "2012",
         "titre": "Attestation de stage en gestion portuaire",
         "organisme": "Entreprise portuaire de Bejaia, Bejaia - Algérie"
     },
+
     {
         "annee": "2008",
         "titre": "Diplôme Baccalauréat",
@@ -464,17 +503,29 @@ formations = [
 # ============================================================
 
 competences = [
+
     "Maîtrise du Pack Office : Excel, Word, PowerPoint et Outlook.",
+
     "Maîtrise de Matlab, LaTeX, Photoshop, Illustrator et InDesign.",
+
     "Langages de programmation : HTML, Java, Delphi et C++.",
+
     "Planification et optimisation des ressources.",
+
     "Gestion des opérations de transport.",
+
     "Supervision des opérations de transport.",
+
     "Élaboration et mise en place des indicateurs de suivi de transport.",
+
     "Élaboration des reportings et KPI liés à l'activité.",
+
     "Gestion des partenariats avec les prestataires de transport.",
+
     "Coordination avec les autres services.",
+
     "Gestion des ressources humaines et matérielles.",
+
     "Gestion et génération des ordres de mission."
 ]
 
@@ -484,9 +535,13 @@ competences = [
 # ============================================================
 
 langues = [
+
     ("Kabyle", "Maîtrise très bien"),
+
     ("Arabe", "Maîtrise très bien"),
+
     ("Français", "Maîtrise bien"),
+
     ("Anglais", "Maîtrise moyenne")
 ]
 
@@ -496,21 +551,77 @@ langues = [
 # ============================================================
 
 interets = [
+
     ("✈️", "Voyage"),
+
     ("⚽", "Passion pour le sport"),
+
     ("🤝", "Activités associatives"),
+
     ("🎬", "Cinéma"),
+
     ("🎨", "Arts créatifs"),
+
     ("💻", "Informatique")
 ]
 
 
 # ============================================================
-# HEADER
+# HEADER AVEC PHOTO
 # ============================================================
 
-st.markdown(
-    """
+col_photo, col_header = st.columns([1, 4])
+
+with col_photo:
+
+    st.markdown(
+        """
+<div style="
+background: linear-gradient(135deg, #102a43, #1f5f8b);
+padding: 25px;
+border-radius: 22px;
+height: 100%;
+text-align: center;
+">
+""",
+        unsafe_allow_html=True
+    )
+
+    if PHOTO.exists():
+
+        st.image(
+            str(PHOTO),
+            width=180
+        )
+
+    else:
+
+        st.markdown(
+            """
+<div style="
+font-size:100px;
+padding:30px;
+">
+👤
+</div>
+""",
+            unsafe_allow_html=True
+        )
+
+        st.warning("Photo non trouvée")
+
+    st.markdown(
+        """
+</div>
+""",
+        unsafe_allow_html=True
+    )
+
+
+with col_header:
+
+    st.markdown(
+        """
 <div class="cv-header">
 
 <div class="cv-name">
@@ -533,8 +644,8 @@ Optimisation
 
 </div>
 """,
-    unsafe_allow_html=True
-)
+        unsafe_allow_html=True
+    )
 
 
 # ============================================================
@@ -543,17 +654,26 @@ Optimisation
 
 st.sidebar.markdown(
     """
-<div style="text-align:center; padding:15px 5px 20px 5px;">
+<div style="
+text-align:center;
+padding:15px 5px 20px 5px;
+">
 
 <div style="font-size:45px;">
 🚚
 </div>
 
-<div style="font-size:20px; font-weight:800;">
+<div style="
+font-size:20px;
+font-weight:800;
+">
 HAMIDOUCHE REDJDAL
 </div>
 
-<div style="font-size:13px; margin-top:6px;">
+<div style="
+font-size:13px;
+margin-top:6px;
+">
 CURRICULUM VITAE
 </div>
 
@@ -621,23 +741,45 @@ if page == "🏠 Accueil":
         unsafe_allow_html=True
     )
 
+
+    # --------------------------------------------------------
     # INDICATEURS
+    # --------------------------------------------------------
 
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.metric("Expérience", "9 ans")
+
+        st.metric(
+            "Expérience",
+            "9 ans"
+        )
 
     with col2:
-        st.metric("Postes", "5")
+
+        st.metric(
+            "Postes",
+            "5"
+        )
 
     with col3:
-        st.metric("Formations", "9")
+
+        st.metric(
+            "Formations",
+            "9"
+        )
 
     with col4:
-        st.metric("Langues", "4")
 
-    # EXPERTISE
+        st.metric(
+            "Langues",
+            "4"
+        )
+
+
+    # --------------------------------------------------------
+    # DOMAINES D'EXPERTISE
+    # --------------------------------------------------------
 
     st.markdown(
         "<div class='section-title'>Domaines d'expertise</div>",
@@ -663,7 +805,10 @@ if page == "🏠 Accueil":
             unsafe_allow_html=True
         )
 
+
+    # --------------------------------------------------------
     # EXPERIENCE ACTUELLE
+    # --------------------------------------------------------
 
     st.markdown(
         "<div class='section-title'>Expérience actuelle</div>",
@@ -718,6 +863,7 @@ elif page == "👤 Profil":
         unsafe_allow_html=True
     )
 
+
     st.markdown(
         "<div class='section-title'>Informations personnelles</div>",
         unsafe_allow_html=True
@@ -754,6 +900,7 @@ elif page == "👤 Profil":
 """,
             unsafe_allow_html=True
         )
+
 
     with col2:
 
@@ -817,7 +964,6 @@ elif page == "💼 Expériences":
 
 <strong>Principales missions</strong>
 
-<div>
 """,
             unsafe_allow_html=True
         )
@@ -835,7 +981,6 @@ elif page == "💼 Expériences":
 
         st.markdown(
             """
-</div>
 </div>
 """,
             unsafe_allow_html=True
@@ -884,7 +1029,7 @@ elif page == "🎓 Diplômes & Formations":
 elif page == "🛠️ Compétences":
 
     st.markdown(
-        "<div class='section-title'>Compétences</div>",
+        "<div class='section-title'>Compétences professionnelles</div>",
         unsafe_allow_html=True
     )
 
@@ -945,18 +1090,21 @@ elif page == "🌐 Langues":
 </div>
 
 <div class="card-title">
-{langue}
+{langue[0]}
+</div>
+
+<div style="
+color:#1f5f8b;
+font-weight:700;
+margin-top:10px;
+">
+{langue[1]}
 </div>
 
 </div>
 """,
                 unsafe_allow_html=True
             )
-
-    st.info(
-        "Le CV mentionne les langues Kabyle, Arabe, Français et "
-        "Anglais, mais ne précise pas le niveau de maîtrise."
-    )
 
 
 # ============================================================
@@ -1033,6 +1181,7 @@ Téléphone
             unsafe_allow_html=True
         )
 
+
     with col2:
 
         st.markdown(
@@ -1055,6 +1204,7 @@ Email
 """,
             unsafe_allow_html=True
         )
+
 
     with col3:
 
