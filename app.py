@@ -610,18 +610,36 @@ interets = [
 
 st.markdown(
     """
-    <div class="cv-header">
+    <div style="
+        background: linear-gradient(135deg, #102a43, #1f5f8b);
+        color: white;
+        padding: 45px 50px;
+        border-radius: 22px;
+        margin-bottom: 30px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    ">
 
-        <div class="header-name">
+        <div style="
+            font-size: 44px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        ">
             HAMIDOUCHE REDJDAL
         </div>
 
-        <div class="header-title">
+        <div style="
+            font-size: 23px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        ">
             🚚 Planificateur &amp; Superviseur Logistique
         </div>
 
-        <div class="header-subtitle">
-
+        <div style="
+            font-size: 16px;
+            line-height: 1.8;
+        ">
             Master 2 en Recherche Opérationnelle
             <br><br>
 
@@ -630,14 +648,12 @@ st.markdown(
             Planification &nbsp; • &nbsp;
             Supervision &nbsp; • &nbsp;
             Optimisation
-
         </div>
 
     </div>
     """,
     unsafe_allow_html=True
 )
-
 
 # ============================================================
 # SIDEBAR
