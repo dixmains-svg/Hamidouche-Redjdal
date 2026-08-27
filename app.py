@@ -780,124 +780,86 @@ if page == "🏠 Accueil":
     # --------------------------------------------------------
     # DOMAINES D'EXPERTISE
     # --------------------------------------------------------
-
-   # --------------------------------------------------------
-# DOMAINES D'EXPERTISE
-# --------------------------------------------------------
-
 st.markdown(
     "<div class='section-title'>Domaines d'expertise</div>",
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 domaines = [
-
     (
         "🚚",
         "Transport",
-        "Organisation, suivi et supervision des opérations de transport."
+        "Organisation, suivi et supervision des opérations de transport.",
     ),
-
     (
         "📦",
         "Logistique",
-        "Gestion des flux, des opérations logistiques et des ressources."
+        "Gestion des flux, des opérations logistiques et des ressources.",
     ),
-
     (
         "📅",
         "Planification",
-        "Élaboration des programmes et planification des ressources humaines et matérielles."
+        "Élaboration des programmes et planification des ressources humaines et matérielles.",
     ),
-
     (
         "👥",
         "Supervision",
-        "Suivi des équipes et contrôle du bon déroulement des opérations."
+        "Suivi des équipes et contrôle du bon déroulement des opérations.",
     ),
-
     (
         "📈",
         "Optimisation",
-        "Recherche de solutions permettant d'améliorer les coûts, les délais et l'utilisation des ressources."
+        "Recherche de solutions permettant d'améliorer les coûts, les délais et l'utilisation des ressources.",
     ),
-
     (
         "📊",
         "Reporting",
-        "Élaboration et suivi des reportings d'activité pour faciliter le pilotage."
+        "Élaboration et suivi des reportings d'activité pour faciliter le pilotage.",
     ),
-
     (
         "🎯",
         "KPI",
-        "Mise en place et suivi des indicateurs de performance liés à l'activité."
+        "Mise en place et suivi des indicateurs de performance liés à l'activité.",
     ),
-
     (
         "🤝",
         "Coordination",
-        "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations."
+        "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations.",
     ),
-
     (
         "⚙️",
         "Gestion des ressources",
-        "Préparation, affectation et utilisation optimale des ressources disponibles."
-    )
+        "Préparation, affectation et utilisation optimale des ressources disponibles.",
+    ),
 ]
-
 
 col1, col2, col3 = st.columns(3)
 
-for index, domaine in enumerate(domaines):
-
-    icone = domaine[0]
-    titre = domaine[1]
-    definition = domaine[2]
-
+for index, (icone, titre, definition) in enumerate(domaines):
     if index % 3 == 0:
         colonne = col1
-
     elif index % 3 == 1:
         colonne = col2
-
     else:
         colonne = col3
 
     with colonne:
-
         st.markdown(
             f"""
-<div class="card" style="
-min-height: 190px;
-">
-
-<div style="
-font-size: 34px;
-margin-bottom: 10px;
-">
-{icone}
-</div>
-
-<div class="card-title">
-{titre}
-</div>
-
-<div style="
-color:#52606d;
-font-size:14px;
-line-height:1.7;
-margin-top:10px;
-">
-{definition}
-</div>
-
-</div>
-""",
-            unsafe_allow_html=True
+            <div class="card" style="min-height: 190px;">
+                <div style="font-size: 34px; margin-bottom: 10px;">
+                    {icone}
+                </div>
+                <div class="card-title">
+                    {titre}
+                </div>
+                <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">
+                    {definition}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
         )
-
 
     # --------------------------------------------------------
     # EXPERIENCE ACTUELLE
