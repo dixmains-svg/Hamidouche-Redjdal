@@ -423,7 +423,7 @@ st.markdown(
 .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
 .cv-header {
     background: linear-gradient(135deg, #102a43, #1f5f8b);
-    color: green; padding: 40px 45px; border-radius: 22px; margin-bottom: 30px;
+    color: white; padding: 40px 45px; border-radius: 22px; margin-bottom: 30px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15); min-height: 260px;
 }
 .cv-name { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; }
@@ -500,7 +500,7 @@ st.sidebar.markdown(
     f"""
     <div style="text-align:center; padding:10px 0px;">
         <div style="font-size:35px;">👨‍💼</div>
-        <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
+        <div style="font-size:18px; font-weight:800; color:green;">{nom}</div>
         <div style="font-size:12px; color:#829ab1;">CURRICULUM VITAE</div>
     </div>
     """,
