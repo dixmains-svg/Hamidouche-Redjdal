@@ -21,15 +21,6 @@ PHOTO = Path("photo.jpg")
 # ============================================================
 # SELECTION DE LA LANGUE
 # ============================================================
-
-langue_choisie = st.sidebar.selectbox(
-    "🌐 Langue / Language",
-    ["Français", "English"]
-)
-# ============================================================
-# LANGUE
-# ============================================================
-
 lang = st.sidebar.selectbox(
     "🌐 Langue / Language",
     ["Français", "English"]
@@ -37,6 +28,7 @@ lang = st.sidebar.selectbox(
 
 # Dictionnaire correspondant à la langue choisie
 t = translations[lang]
+
 # ============================================================
 # BASE DE DONNÉES MULTILINGUE
 # ============================================================
