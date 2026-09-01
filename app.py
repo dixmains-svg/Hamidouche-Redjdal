@@ -2,7 +2,7 @@ import streamlit as st
 from pathlib import Path
 
 # ============================================================
-# CONFIGURATION
+# CONFIGURATION & CONSTANTES
 # ============================================================
 
 st.set_page_config(
@@ -12,11 +12,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ============================================================
-# PHOTO & CONSTANTS
-# ============================================================
-
 PHOTO = Path("photo.jpg")
+PDF_PATH = Path("cv_hamidouche_redjdal.pdf")  # <--- Placez votre fichier PDF dans le même dossier
 
 nom = "HAMIDOUCHE REDJDAL"
 telephone = "00213775 73 79 30"
@@ -34,15 +31,10 @@ TEXTES = {
         "situation": "Marié",
         "service_national": "Dégagé",
         "nav_title": "NAVIGATION",
+        "download_btn": "📄 Télécharger le CV (PDF)",
         "nav": [
-            "🏠 Accueil",
-            "👤 Profil",
-            "💼 Expériences",
-            "🎓 Diplômes & Formations",
-            "🛠️ Compétences",
-            "🌐 Langues",
-            "⭐ Centres d'intérêt",
-            "📞 Contact",
+            "🏠 Accueil", "👤 Profil", "💼 Expériences", "🎓 Diplômes & Formations",
+            "🛠️ Compétences", "🌐 Langues", "⭐ Centres d'intérêt", "📞 Contact"
         ],
         "sidebar_domains": """
 **DOMAINES PROFESSIONNELS**
@@ -61,33 +53,18 @@ TEXTES = {
             "et relever de nouveaux défis professionnels."
         ),
         "sections": {
-            "profil": "Profil professionnel",
-            "expertise": "Domaines d'expertise",
-            "actuel": "Expérience actuelle",
-            "identite": "👤 Identité",
-            "infos_pro": "📋 Informations professionnelles",
-            "exp": "Expériences professionnelles",
-            "form": "Diplômes & Formations",
-            "comp": "Compétences professionnelles",
-            "langues": "Langues",
-            "interets": "Centres d'intérêt",
-            "contact": "Contact"
+            "profil": "Profil professionnel", "expertise": "Domaines d'expertise",
+            "actuel": "Expérience actuelle", "identite": "👤 Identité",
+            "infos_pro": "📋 Informations professionnelles", "exp": "Expériences professionnelles",
+            "form": "Diplômes & Formations", "comp": "Compétences professionnelles",
+            "langues": "Langues", "interets": "Centres d'intérêt", "contact": "Contact"
         },
         "labels": {
-            "nom": "Nom",
-            "nationalite": "Nationalité",
-            "situation": "Situation familiale",
-            "fonction": "Fonction",
-            "adresse": "Adresse",
-            "service": "Service national",
-            "stat_exp": "Expérience",
-            "stat_postes": "Postes",
-            "stat_form": "Formations",
-            "stat_langues": "Langues",
-            "missions": "Principales missions",
-            "tel": "Téléphone",
-            "email": "Email",
-            "adresse_title": "Adresse",
+            "nom": "Nom", "nationalite": "Nationalité", "situation": "Situation familiale",
+            "fonction": "Fonction", "adresse": "Adresse", "service": "Service national",
+            "stat_exp": "Expérience", "stat_postes": "Postes", "stat_form": "Formations",
+            "stat_langues": "Langues", "missions": "Principales missions", "tel": "Téléphone",
+            "email": "Email", "adresse_title": "Adresse",
             "degree_subtitle": "Master 2 en Recherche Opérationnelle",
             "sub_keywords": "Logistique &nbsp; • &nbsp; Transport &nbsp; • &nbsp; Planification &nbsp; • &nbsp; Supervision &nbsp; • &nbsp; Optimisation",
             "photo_missing": "Photo non trouvée"
@@ -105,9 +82,7 @@ TEXTES = {
         ],
         "experiences": [
             {
-                "poste": "Superviseur techno-commercial",
-                "periode": "01/2024 - À ce jour",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Superviseur techno-commercial", "periode": "01/2024 - À ce jour", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Analyser les besoins des clients.",
                     "Établir des reportings d'activité quotidiens, mensuels et annuels.",
@@ -117,9 +92,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Superviseur exploitation",
-                "periode": "06/2022 - 01/2024",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Superviseur exploitation", "periode": "06/2022 - 01/2024", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Piloter et superviser les opérations de transport.",
                     "Suivre le bon déroulement de l'activité.",
@@ -130,9 +103,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Chargé de la planification",
-                "periode": "02/2020 - 06/2022",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Chargé de la planification", "periode": "02/2020 - 06/2022", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Préparer la disponibilité des ressources humaines et matérielles.",
                     "Planifier les commandes de chaque client.",
@@ -144,9 +115,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Coordinateur logistique",
-                "periode": "02/2019 - 02/2020",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Coordinateur logistique", "periode": "02/2019 - 02/2020", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Élaborer et maintenir une parfaite coordination avec les autres services.",
                     "Élaborer et mettre en place des indicateurs de suivi de transport.",
@@ -156,9 +125,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Chargé de la programmation",
-                "periode": "04/2016 - 10/2018",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Chargé de la programmation", "periode": "04/2016 - 10/2018", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Exécuter et suivre régulièrement la programmation et l'utilisation des ressources.",
                     "Établir un planning optimal en optimisant les coûts et les délais.",
@@ -168,51 +135,15 @@ TEXTES = {
             },
         ],
         "formations": [
-            {
-                "annee": "2021",
-                "titre": "Formation en Transport international des marchandises",
-                "organisme": "Chambre algérienne de commerce et d'industrie, Alger - Algérie",
-            },
-            {
-                "annee": "2020",
-                "titre": "Formation en Planification et optimisation logistique",
-                "organisme": "Institut international de Management, Bejaia - Algérie",
-            },
-            {
-                "annee": "2019",
-                "titre": "Formation en Logistique et transport",
-                "organisme": "Institut international de management, Bejaia - Algérie",
-            },
-            {
-                "annee": "2019",
-                "titre": "Formation en Gestion des temps et des priorités",
-                "organisme": "Institut international de management, Bejaia - Algérie",
-            },
-            {
-                "annee": "2018",
-                "titre": "Formation en Gestion des opérations de transport",
-                "organisme": "Institut international de management, Bejaia - Algérie",
-            },
-            {
-                "annee": "2015",
-                "titre": "Master 2 en Recherche opérationnelle",
-                "organisme": "Option : Fiabilité et évaluation des performances des réseaux. Université Abderrahmane Mira, Bejaia - Algérie",
-            },
-            {
-                "annee": "2012",
-                "titre": "Licence en Recherche opérationnelle",
-                "organisme": "Option : Aide à la décision. Université Abderrahmane Mira, Bejaia - Algérie",
-            },
-            {
-                "annee": "2012",
-                "titre": "Attestation de stage en gestion portuaire",
-                "organisme": "Entreprise portuaire de Bejaia, Bejaia - Algérie",
-            },
-            {
-                "annee": "2008",
-                "titre": "Diplôme Baccalauréat",
-                "organisme": "Option : Science de la nature et de la vie. Lycée Mohamed Boudiaf, Tazmalt - Algérie",
-            },
+            {"annee": "2021", "titre": "Formation en Transport international des marchandises", "organisme": "Chambre algérienne de commerce et d'industrie, Alger - Algérie"},
+            {"annee": "2020", "titre": "Formation en Planification et optimisation logistique", "organisme": "Institut international de Management, Bejaia - Algérie"},
+            {"annee": "2019", "titre": "Formation en Logistique et transport", "organisme": "Institut international de management, Bejaia - Algérie"},
+            {"annee": "2019", "titre": "Formation en Gestion des temps et des priorités", "organisme": "Institut international de management, Bejaia - Algérie"},
+            {"annee": "2018", "titre": "Formation en Gestion des opérations de transport", "organisme": "Institut international de management, Bejaia - Algérie"},
+            {"annee": "2015", "titre": "Master 2 en Recherche opérationnelle", "organisme": "Option : Fiabilité et évaluation des performances des réseaux. Université Abderrahmane Mira, Bejaia - Algérie"},
+            {"annee": "2012", "titre": "Licence en Recherche opérationnelle", "organisme": "Option : Aide à la décision. Université Abderrahmane Mira, Bejaia - Algérie"},
+            {"annee": "2012", "titre": "Attestation de stage en gestion portuaire", "organisme": "Entreprise portuaire de Bejaia, Bejaia - Algérie"},
+            {"annee": "2008", "titre": "Diplôme Baccalauréat", "organisme": "Option : Science de la nature et de la vie. Lycée Mohamed Boudiaf, Tazmalt - Algérie"},
         ],
         "competences": [
             "Maîtrise du Pack Office : Excel, Word, PowerPoint et Outlook.",
@@ -249,15 +180,10 @@ TEXTES = {
         "situation": "Married",
         "service_national": "Exempted",
         "nav_title": "NAVIGATION",
+        "download_btn": "📄 Download CV (PDF)",
         "nav": [
-            "🏠 Home",
-            "👤 Profile",
-            "💼 Experience",
-            "🎓 Education & Training",
-            "🛠️ Skills",
-            "🌐 Languages",
-            "⭐ Interests",
-            "📞 Contact",
+            "🏠 Home", "👤 Profile", "💼 Experience", "🎓 Education & Training",
+            "🛠️ Skills", "🌐 Languages", "⭐ Interests", "📞 Contact"
         ],
         "sidebar_domains": """
 **PROFESSIONAL FIELDS**
@@ -276,33 +202,18 @@ TEXTES = {
             "and take on new professional challenges."
         ),
         "sections": {
-            "profil": "Professional Profile",
-            "expertise": "Fields of Expertise",
-            "actuel": "Current Position",
-            "identite": "👤 Identity",
-            "infos_pro": "📋 Professional Information",
-            "exp": "Work Experience",
-            "form": "Education & Training",
-            "comp": "Professional Skills",
-            "langues": "Languages",
-            "interets": "Interests",
-            "contact": "Contact"
+            "profil": "Professional Profile", "expertise": "Fields of Expertise",
+            "actuel": "Current Position", "identite": "👤 Identity",
+            "infos_pro": "📋 Professional Information", "exp": "Work Experience",
+            "form": "Education & Training", "comp": "Professional Skills",
+            "langues": "Languages", "interets": "Interests", "contact": "Contact"
         },
         "labels": {
-            "nom": "Name",
-            "nationalite": "Nationality",
-            "situation": "Marital Status",
-            "fonction": "Position",
-            "adresse": "Address",
-            "service": "Military Service",
-            "stat_exp": "Experience",
-            "stat_postes": "Positions",
-            "stat_form": "Training",
-            "stat_langues": "Languages",
-            "missions": "Key Responsibilities",
-            "tel": "Phone",
-            "email": "Email",
-            "adresse_title": "Address",
+            "nom": "Name", "nationalite": "Nationality", "situation": "Marital Status",
+            "fonction": "Position", "adresse": "Address", "service": "Military Service",
+            "stat_exp": "Experience", "stat_postes": "Positions", "stat_form": "Training",
+            "stat_langues": "Languages", "missions": "Key Responsibilities", "tel": "Phone",
+            "email": "Email", "adresse_title": "Address",
             "degree_subtitle": "Master 2 in Operational Research",
             "sub_keywords": "Logistics &nbsp; • &nbsp; Transport &nbsp; • &nbsp; Planning &nbsp; • &nbsp; Supervision &nbsp; • &nbsp; Optimization",
             "photo_missing": "Photo not found"
@@ -320,9 +231,7 @@ TEXTES = {
         ],
         "experiences": [
             {
-                "poste": "Technical & Commercial Supervisor",
-                "periode": "01/2024 - Present",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Technical & Commercial Supervisor", "periode": "01/2024 - Present", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Analyze customer requirements and needs.",
                     "Establish daily, monthly, and annual activity reports.",
@@ -332,9 +241,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Operations Supervisor",
-                "periode": "06/2022 - 01/2024",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Operations Supervisor", "periode": "06/2022 - 01/2024", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Lead and supervise transport operations.",
                     "Monitor operational smooth execution.",
@@ -345,9 +252,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Planning Officer",
-                "periode": "02/2020 - 06/2022",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Planning Officer", "periode": "02/2020 - 06/2022", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Prepare human and material resource availability.",
                     "Schedule order execution per customer.",
@@ -359,9 +264,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Logistics Coordinator",
-                "periode": "02/2019 - 02/2020",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Logistics Coordinator", "periode": "02/2019 - 02/2020", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Develop and maintain seamless coordination with other departments.",
                     "Design and deploy transport monitoring indicators.",
@@ -371,9 +274,7 @@ TEXTES = {
                 ],
             },
             {
-                "poste": "Scheduling Officer",
-                "periode": "04/2016 - 10/2018",
-                "entreprise": "SPA TMF Logistics",
+                "poste": "Scheduling Officer", "periode": "04/2016 - 10/2018", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Execute and regularly monitor resource scheduling and usage.",
                     "Establish optimal schedules balancing cost and delivery times.",
@@ -383,51 +284,15 @@ TEXTES = {
             },
         ],
         "formations": [
-            {
-                "annee": "2021",
-                "titre": "Training in International Freight Transport",
-                "organisme": "Algerian Chamber of Commerce and Industry, Algiers - Algeria",
-            },
-            {
-                "annee": "2020",
-                "titre": "Training in Logistics Planning & Optimization",
-                "organisme": "International Management Institute, Bejaia - Algeria",
-            },
-            {
-                "annee": "2019",
-                "titre": "Training in Logistics & Transport",
-                "organisme": "International Management Institute, Bejaia - Algeria",
-            },
-            {
-                "annee": "2019",
-                "titre": "Training in Time & Priority Management",
-                "organisme": "International Management Institute, Bejaia - Algeria",
-            },
-            {
-                "annee": "2018",
-                "titre": "Training in Transport Operations Management",
-                "organisme": "International Management Institute, Bejaia - Algeria",
-            },
-            {
-                "annee": "2015",
-                "titre": "Master's Degree (M2) in Operational Research",
-                "organisme": "Option: Network Reliability and Performance Evaluation. Abderrahmane Mira University, Bejaia - Algeria",
-            },
-            {
-                "annee": "2012",
-                "titre": "Bachelor's Degree in Operational Research",
-                "organisme": "Option: Decision Support Systems. Abderrahmane Mira University, Bejaia - Algeria",
-            },
-            {
-                "annee": "2012",
-                "titre": "Port Management Internship Certificate",
-                "organisme": "Bejaia Port Authority, Bejaia - Algeria",
-            },
-            {
-                "annee": "2008",
-                "titre": "High School Diploma (Baccalaureate)",
-                "organisme": "Option: Natural Sciences and Life. Mohamed Boudiaf High School, Tazmalt - Algeria",
-            },
+            {"annee": "2021", "titre": "Training in International Freight Transport", "organisme": "Algerian Chamber of Commerce and Industry, Algiers - Algeria"},
+            {"annee": "2020", "titre": "Training in Logistics Planning & Optimization", "organisme": "International Management Institute, Bejaia - Algeria"},
+            {"annee": "2019", "titre": "Training in Logistics & Transport", "organisme": "International Management Institute, Bejaia - Algeria"},
+            {"annee": "2019", "titre": "Training in Time & Priority Management", "organisme": "International Management Institute, Bejaia - Algeria"},
+            {"annee": "2018", "titre": "Training in Transport Operations Management", "organisme": "International Management Institute, Bejaia - Algeria"},
+            {"annee": "2015", "titre": "Master's Degree (M2) in Operational Research", "organisme": "Option: Network Reliability and Performance Evaluation. Abderrahmane Mira University, Bejaia - Algeria"},
+            {"annee": "2012", "titre": "Bachelor's Degree in Operational Research", "organisme": "Option: Decision Support Systems. Abderrahmane Mira University, Bejaia - Algeria"},
+            {"annee": "2012", "titre": "Port Management Internship Certificate", "organisme": "Bejaia Port Authority, Bejaia - Algeria"},
+            {"annee": "2008", "titre": "High School Diploma (Baccalaureate)", "organisme": "Option: Natural Sciences and Life. Mohamed Boudiaf High School, Tazmalt - Algeria"},
         ],
         "competences": [
             "Proficient in MS Office: Excel, Word, PowerPoint, and Outlook.",
@@ -469,7 +334,6 @@ langue_choisie = st.sidebar.selectbox(
     ["Français", "English"]
 )
 
-# Variable active selon la langue choisie
 t = TEXTES[langue_choisie]
 
 # ============================================================
@@ -479,224 +343,46 @@ t = TEXTES[langue_choisie]
 st.markdown(
     """
 <style>
-.stApp {
-    background-color: #f4f7fb;
-}
-
-.block-container {
-    max-width: 1200px;
-    padding-top: 25px;
-    padding-bottom: 50px;
-}
-
-/* HEADER */
+.stApp { background-color: #f4f7fb; }
+.block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
 .cv-header {
     background: linear-gradient(135deg, #102a43, #1f5f8b);
-    color: white;
-    padding: 40px 45px;
-    border-radius: 22px;
-    margin-bottom: 30px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    min-height: 260px;
+    color: white; padding: 40px 45px; border-radius: 22px; margin-bottom: 30px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15); min-height: 260px;
 }
-
-.cv-name {
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-}
-
-.cv-title {
-    font-size: 23px;
-    font-weight: 600;
-    margin-bottom: 18px;
-}
-
-.cv-subtitle {
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* TITRES */
+.cv-name { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; }
+.cv-title { font-size: 23px; font-weight: 600; margin-bottom: 18px; }
+.cv-subtitle { font-size: 16px; line-height: 1.8; }
 .section-title {
-    color: #102a43;
-    font-size: 27px;
-    font-weight: 800;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #1f5f8b;
+    color: #102a43; font-size: 27px; font-weight: 800; margin-top: 30px; margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 3px solid #1f5f8b;
 }
-
-/* CARTES */
-.card {
-    background-color: white;
-    border-radius: 17px;
-    padding: 25px;
-    margin-bottom: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.card-title {
-    color: #102a43;
-    font-size: 19px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.card-text {
-    color: #52606d;
-    font-size: 16px;
-    line-height: 1.9;
-}
-
-/* EXPERIENCES */
+.card { background-color: white; border-radius: 17px; padding: 25px; margin-bottom: 18px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+.card-title { color: #102a43; font-size: 19px; font-weight: 800; margin-bottom: 10px; }
+.card-text { color: #52606d; font-size: 16px; line-height: 1.9; }
 .experience-card {
-    background-color: white;
-    border-left: 5px solid #1f5f8b;
-    border-radius: 17px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    background-color: white; border-left: 5px solid #1f5f8b; border-radius: 17px;
+    padding: 25px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06);
 }
-
-.experience-position {
-    color: #102a43;
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.experience-company {
-    color: #1f5f8b;
-    font-size: 16px;
-    font-weight: 700;
-    margin-top: 6px;
-}
-
-.experience-date {
-    color: #829ab1;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 18px;
-}
-
-.mission {
-    color: #52606d;
-    line-height: 1.7;
-    margin-top: 9px;
-}
-
-/* FORMATIONS */
-.education-card {
-    background-color: white;
-    border-radius: 17px;
-    padding: 22px;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.year {
-    display: inline-block;
-    background-color: #102a43;
-    color: white;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.education-title {
-    color: #102a43;
-    font-size: 17px;
-    font-weight: 800;
-}
-
-.education-school {
-    color: #627d98;
-    font-size: 14px;
-    margin-top: 7px;
-    line-height: 1.6;
-}
-
-/* COMPETENCES */
-.skill-card {
-    background-color: white;
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    color: #334e68;
-    line-height: 1.6;
-}
-
-/* CONTACT */
-.contact-card {
-    background-color: white;
-    border-radius: 17px;
-    padding: 25px;
-    text-align: center;
-    min-height: 145px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.contact-icon {
-    font-size: 32px;
-    margin-bottom: 8px;
-}
-
-.contact-title {
-    color: #102a43;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.contact-value {
-    color: #52606d;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* SIDEBAR ET FIX SELECTBOX */
-[data-testid="stSidebar"] {
-    background-color: #102a43;
-}
-
-[data-testid="stSidebar"] * {
-    color: white;
-}
-
-[data-testid="stSidebar"] div[data-baseweb="select"] div {
-    color: #102a43 !important;
-    font-weight: 600;
-}
-
-div[data-baseweb="popover"] ul li span {
-    color: #102a43 !important;
-}
-
-[data-testid="stSidebar"] div[data-baseweb="select"] svg {
-    fill: #102a43 !important;
-}
-
-.footer {
-    text-align: center;
-    color: #829ab1;
-    font-size: 13px;
-    margin-top: 50px;
-    padding-top: 25px;
-    border-top: 1px solid #d9e2ec;
-}
-
-@media (max-width: 768px) {
-    .cv-header { padding: 30px 25px; }
-    .cv-name { font-size: 30px; }
-    .cv-title { font-size: 18px; }
-    .cv-subtitle { font-size: 14px; }
-    .section-title { font-size: 23px; }
-}
-
+.experience-position { color: #102a43; font-size: 21px; font-weight: 800; }
+.experience-company { color: #1f5f8b; font-size: 16px; font-weight: 700; margin-top: 6px; }
+.experience-date { color: #829ab1; font-size: 14px; margin-top: 5px; margin-bottom: 18px; }
+.mission { color: #52606d; line-height: 1.7; margin-top: 9px; }
+.education-card { background-color: white; border-radius: 17px; padding: 22px; margin-bottom: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+.year { display: inline-block; background-color: #102a43; color: white; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+.education-title { color: #102a43; font-size: 17px; font-weight: 800; }
+.education-school { color: #627d98; font-size: 14px; margin-top: 7px; line-height: 1.6; }
+.skill-card { background-color: white; border-radius: 14px; padding: 18px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); color: #334e68; line-height: 1.6; }
+.contact-card { background-color: white; border-radius: 17px; padding: 25px; text-align: center; min-height: 145px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+.contact-icon { font-size: 32px; margin-bottom: 8px; }
+.contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
+.contact-value { color: #52606d; font-size: 14px; line-height: 1.6; }
+[data-testid="stSidebar"] { background-color: #102a43; }
+[data-testid="stSidebar"] * { color: white; }
+[data-testid="stSidebar"] div[data-baseweb="select"] div { color: #102a43 !important; font-weight: 600; }
+div[data-baseweb="popover"] ul li span { color: #102a43 !important; }
+[data-testid="stSidebar"] div[data-baseweb="select"] svg { fill: #102a43 !important; }
+.footer { text-align: center; color: #829ab1; font-size: 13px; margin-top: 50px; padding-top: 25px; border-top: 1px solid #d9e2ec; }
 </style>
 """,
     unsafe_allow_html=True,
@@ -709,26 +395,13 @@ div[data-baseweb="popover"] ul li span {
 col_photo, col_header = st.columns([1, 4])
 
 with col_photo:
-    st.markdown(
-        """
-        <div style="background: linear-gradient(135deg, #102a43, #1f5f8b); padding: 25px; border-radius: 22px; height: 100%; text-align: center;">
-        """,
-        unsafe_allow_html=True,
-    )
-
+    st.markdown('<div style="background: linear-gradient(135deg, #102a43, #1f5f8b); padding: 25px; border-radius: 22px; height: 100%; text-align: center;">', unsafe_allow_html=True)
     if PHOTO.exists():
         st.image(str(PHOTO), width=180)
     else:
-        st.markdown(
-            """
-            <div style="font-size:100px; padding:30px;">👤</div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown('<div style="font-size:100px; padding:30px;">👤</div>', unsafe_allow_html=True)
         st.warning(t["labels"]["photo_missing"])
-
     st.markdown("</div>", unsafe_allow_html=True)
-
 
 with col_header:
     st.markdown(
@@ -763,8 +436,22 @@ st.sidebar.markdown(
 
 st.sidebar.markdown("---")
 
-page = st.sidebar.radio(t["nav_title"], t["nav"])
+# BOUTON TÉLÉCHARGEMENT DANS LA SIDEBAR
+if PDF_PATH.exists():
+    with open(PDF_PATH, "rb") as f:
+        pdf_bytes = f.read()
+    st.sidebar.download_button(
+        label=t["download_btn"],
+        data=pdf_bytes,
+        file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
+        mime="application/pdf",
+        use_container_width=True,
+    )
+else:
+    st.sidebar.caption("📄 *cv_hamidouche_redjdal.pdf non trouvé*")
 
+st.sidebar.markdown("---")
+page = st.sidebar.radio(t["nav_title"], t["nav"])
 st.sidebar.markdown("---")
 st.sidebar.markdown(t["sidebar_domains"])
 
@@ -772,70 +459,35 @@ st.sidebar.markdown(t["sidebar_domains"])
 # PAGES DE L'APPLICATION
 # ============================================================
 
-# --- ACCUEIL ---
 if page in ["🏠 Accueil", "🏠 Home"]:
+    st.markdown(f"<div class='section-title'>{t['sections']['profil']}</div>", unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><p class="card-text">{t["profil"]}</p></div>', unsafe_allow_html=True)
 
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['profil']}</div>",
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        f"""
-        <div class="card">
-            <p class="card-text">{t['profil']}</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # --- INDICATEURS METRICS ---
     col1, col2, col3, col4 = st.columns(4)
-
     experience_value = "09 Ans" if langue_choisie == "Français" else "09 Yrs"
+    with col1: st.metric(t["labels"]["stat_exp"], experience_value)
+    with col2: st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
+    with col3: st.metric(t["labels"]["stat_form"], len(t["formations"]))
+    with col4: st.metric(t["labels"]["stat_langues"], len(t["langues"]))
 
-    with col1:
-        st.metric(t["labels"]["stat_exp"], experience_value)
-    with col2:
-        st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
-    with col3:
-        st.metric(t["labels"]["stat_form"], len(t["formations"]))
-    with col4:
-        st.metric(t["labels"]["stat_langues"], len(t["langues"]))
-
-    # --- DOMAINES D'EXPERTISE ---
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['expertise']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['expertise']}</div>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
-
     for index, (icone, titre, definition) in enumerate(t["domaines"]):
         colonne = col1 if index % 3 == 0 else (col2 if index % 3 == 1 else col3)
-
         with colonne:
             st.markdown(
                 f"""
                 <div class="card" style="min-height: 190px; margin-bottom: 20px;">
                     <div style="font-size: 34px; margin-bottom: 10px;">{icone}</div>
                     <div class="card-title">{titre}</div>
-                    <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">
-                        {definition}
-                    </div>
+                    <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">{definition}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
-    # --- EXPÉRIENCE ACTUELLE ---
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['actuel']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['actuel']}</div>", unsafe_allow_html=True)
     current = t["experiences"][0]
-
     st.markdown(
         f"""
         <div class="experience-card">
@@ -847,214 +499,103 @@ if page in ["🏠 Accueil", "🏠 Home"]:
         unsafe_allow_html=True,
     )
 
-# --- PROFIL ---
 elif page in ["👤 Profil", "👤 Profile"]:
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['profil']}</div>",
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        f"""
-        <div class="card">
-            <p class="card-text">{t['profil']}</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['identite']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['profil']}</div>", unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><p class="card-text">{t["profil"]}</p></div>', unsafe_allow_html=True)
+    st.markdown(f"<div class='section-title'>{t['sections']['identite']}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
-
     with col1:
-        st.markdown(
-            f"""
-            <div class="card">
-                <div class="card-title">{t['sections']['identite']}</div>
-                <p class="card-text"><strong>{t['labels']['nom']} :</strong> {nom}</p>
-                <p class="card-text"><strong>{t['labels']['nationalite']} :</strong> {t['nationalite']}</p>
-                <p class="card-text"><strong>{t['labels']['situation']} :</strong> {t['situation']}</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        st.markdown(f"""
+        <div class="card">
+            <div class="card-title">{t['sections']['identite']}</div>
+            <p class="card-text"><strong>{t['labels']['nom']} :</strong> {nom}</p>
+            <p class="card-text"><strong>{t['labels']['nationalite']} :</strong> {t['nationalite']}</p>
+            <p class="card-text"><strong>{t['labels']['situation']} :</strong> {t['situation']}</p>
+        </div>
+        """, unsafe_allow_html=True)
     with col2:
-        st.markdown(
-            f"""
-            <div class="card">
-                <div class="card-title">{t['sections']['infos_pro']}</div>
-                <p class="card-text"><strong>{t['labels']['fonction']} :</strong> {t['fonction']}</p>
-                <p class="card-text"><strong>{t['labels']['service']} :</strong> {t['service_national']}</p>
-                <p class="card-text"><strong>{t['labels']['adresse']} :</strong> {adresse}</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown(f"""
+        <div class="card">
+            <div class="card-title">{t['sections']['infos_pro']}</div>
+            <p class="card-text"><strong>{t['labels']['fonction']} :</strong> {t['fonction']}</p>
+            <p class="card-text"><strong>{t['labels']['service']} :</strong> {t['service_national']}</p>
+            <p class="card-text"><strong>{t['labels']['adresse']} :</strong> {adresse}</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-# --- EXPÉRIENCES ---
 elif page in ["💼 Expériences", "💼 Experience"]:
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['exp']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['exp']}</div>", unsafe_allow_html=True)
     for exp in t["experiences"]:
         missions_html = "".join([f"<li class='mission'>{m}</li>" for m in exp["missions"]])
-        st.markdown(
-            f"""
-            <div class="experience-card">
-                <div class="experience-position">{exp['poste']}</div>
-                <div class="experience-company">🏢 {exp['entreprise']}</div>
-                <div class="experience-date">📅 {exp['periode']}</div>
-                <strong>{t['labels']['missions']} :</strong>
-                <ul style="margin-top: 8px;">
-                    {missions_html}
-                </ul>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown(f"""
+        <div class="experience-card">
+            <div class="experience-position">{exp['poste']}</div>
+            <div class="experience-company">🏢 {exp['entreprise']}</div>
+            <div class="experience-date">📅 {exp['periode']}</div>
+            <strong>{t['labels']['missions']} :</strong>
+            <ul style="margin-top: 8px;">{missions_html}</ul>
+        </div>
+        """, unsafe_allow_html=True)
 
-# --- DIPLÔMES & FORMATIONS ---
 elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training"]:
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['form']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['form']}</div>", unsafe_allow_html=True)
     for form in t["formations"]:
-        st.markdown(
-            f"""
-            <div class="education-card">
-                <span class="year">{form['annee']}</span>
-                <div class="education-title">{form['titre']}</div>
-                <div class="education-school">📍 {form['organisme']}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown(f"""
+        <div class="education-card">
+            <span class="year">{form['annee']}</span>
+            <div class="education-title">{form['titre']}</div>
+            <div class="education-school">📍 {form['organisme']}</div>
+        </div>
+        """, unsafe_allow_html=True)
 
-# --- COMPÉTENCES ---
 elif page in ["🛠️ Compétences", "🛠️ Skills"]:
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['comp']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['comp']}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     for index, comp in enumerate(t["competences"]):
         col = col1 if index % 2 == 0 else col2
         with col:
-            st.markdown(
-                f"""
-                <div class="skill-card">
-                    ✅ {comp}
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+            st.markdown(f'<div class="skill-card">✅ {comp}</div>', unsafe_allow_html=True)
 
-# --- LANGUES ---
 elif page in ["🌐 Langues", "🌐 Languages"]:
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['langues']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['langues']}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     for index, (langue, niveau) in enumerate(t["langues"]):
         col = col1 if index % 2 == 0 else col2
         with col:
-            st.markdown(
-                f"""
-                <div class="card">
-                    <div class="card-title">🗣️ {langue}</div>
-                    <div class="card-text">{niveau}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+            st.markdown(f'<div class="card"><div class="card-title">🗣️ {langue}</div><div class="card-text">{niveau}</div></div>', unsafe_allow_html=True)
 
-# --- CENTRES D'INTÉRÊT ---
 elif page in ["⭐ Centres d'intérêt", "⭐ Interests"]:
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['interets']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['interets']}</div>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     for index, (icone, interet) in enumerate(t["interets"]):
         col = col1 if index % 3 == 0 else (col2 if index % 3 == 1 else col3)
         with col:
-            st.markdown(
-                f"""
-                <div class="card" style="text-align: center;">
-                    <div style="font-size: 36px; margin-bottom: 8px;">{icone}</div>
-                    <div class="card-title">{interet}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+            st.markdown(f'<div class="card" style="text-align: center;"><div style="font-size: 36px; margin-bottom: 8px;">{icone}</div><div class="card-title">{interet}</div></div>', unsafe_allow_html=True)
 
-# --- CONTACT ---
 elif page in ["📞 Contact", "📞 Contact"]:
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['contact']}</div>",
-        unsafe_allow_html=True,
-    )
-
+    st.markdown(f"<div class='section-title'>{t['sections']['contact']}</div>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
-
     with col1:
-        st.markdown(
-            f"""
-            <div class="contact-card">
-                <div class="contact-icon">📱</div>
-                <div class="contact-title">{t['labels']['tel']}</div>
-                <div class="contact-value"><a href="tel:{telephone}">{telephone}</a></div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        st.markdown(f'<div class="contact-card"><div class="contact-icon">📱</div><div class="contact-title">{t["labels"]["tel"]}</div><div class="contact-value"><a href="tel:{telephone}">{telephone}</a></div></div>', unsafe_allow_html=True)
     with col2:
-        st.markdown(
-            f"""
-            <div class="contact-card">
-                <div class="contact-icon">✉️</div>
-                <div class="contact-title">{t['labels']['email']}</div>
-                <div class="contact-value"><a href="mailto:{email}">{email}</a></div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        st.markdown(f'<div class="contact-card"><div class="contact-icon">✉️</div><div class="contact-title">{t["labels"]["email"]}</div><div class="contact-value"><a href="mailto:{email}">{email}</a></div></div>', unsafe_allow_html=True)
     with col3:
-        st.markdown(
-            f"""
-            <div class="contact-card">
-                <div class="contact-icon">📍</div>
-                <div class="contact-title">{t['labels']['adresse_title']}</div>
-                <div class="contact-value">{adresse}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
+        st.markdown(f'<div class="contact-card"><div class="contact-icon">📍</div><div class="contact-title">{t["labels"]["adresse_title"]}</div><div class="contact-value">{adresse}</div></div>', unsafe_allow_html=True)
+
+    # Optionnel: Ajouter également le bouton de téléchargement en bas de la page Contact
+    if PDF_PATH.exists():
+        with open(PDF_PATH, "rb") as f:
+            pdf_bytes = f.read()
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.download_button(
+            label=t["download_btn"],
+            data=pdf_bytes,
+            file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
+            mime="application/pdf",
         )
 
 # ============================================================
 # FOOTER
 # ============================================================
 
-st.markdown(
-    f"""
-    <div class="footer">
-        © {nom} • All Rights Reserved
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+st.markdown(f'<div class="footer">© {nom} • All Rights Reserved</div>', unsafe_allow_html=True)
