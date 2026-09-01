@@ -453,7 +453,7 @@ st.markdown(
 .contact-icon { font-size: 32px; margin-bottom: 8px; }
 .contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
 .contact-value { color: #52606d; font-size: 14px; line-height: 1.6; }
-[data-testid="stSidebar"] { background-color: #102a43; color: white; }
+[data-testid="stSidebar"] { background-color: #102a43; color: blue; }
 .footer { text-align: center; color: #829ab1; font-size: 13px; margin-top: 50px; padding-top: 25px; border-top: 1px solid #d9e2ec; }
 </style>
 """,
