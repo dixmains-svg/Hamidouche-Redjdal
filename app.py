@@ -500,7 +500,7 @@ st.sidebar.markdown(
     f"""
     <div style="text-align:center; padding:10px 0px;">
         <div style="font-size:35px;">👨‍💼</div>
-        <div style="font-size:18px; font-weight:800; color:green;">{nom}</div>
+        <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
         <div style="font-size:12px; color:#829ab1;">CURRICULUM VITAE</div>
     </div>
     """,
@@ -548,7 +548,7 @@ if page in ["🏠 Accueil", "🏠 Home"]:
                 <div class="card" style="min-height: 190px; margin-bottom: 20px;">
                     <div style="font-size: 34px; margin-bottom: 10px;">{icone}</div>
                     <div class="card-title">{titre}</div>
-                    <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">{definition}</div>
+                    <div style="color:#1F5F8B; font-size:14px; line-height:1.7; margin-top:10px;">{definition}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
