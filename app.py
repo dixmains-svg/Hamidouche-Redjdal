@@ -792,50 +792,85 @@ if page in ["🏠 Accueil", "🏠 Home"]:
         unsafe_allow_html=True,
     )
 
-    # Indicateurs
-    col1, col2, col3, col4 = st.columns(4)
-   with col1:
+  # Indicateurs
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
     experience_value = "09 Ans" if lang == "fr" else "09 Yrs"
 
     st.metric(
         t["labels"]["stat_exp"],
         experience_value
     )
-    with col2:
-        st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
-    with col3:
-        st.metric(t["labels"]["stat_form"], len(t["formations"]))
-    with col4:
-        st.metric(t["labels"]["stat_langues"], len(t["langues"]))
 
-    # Domaines d'expertise
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['expertise']}</div>",
-        unsafe_allow_html=True,
+with col2:
+    st.metric(
+        t["labels"]["stat_postes"],
+        len(t["experiences"])
     )
 
-    col1, col2, col3 = st.columns(3)
-    for index, (icone, titre, definition) in enumerate(t["domaines"]):
-        if index % 3 == 0:
-            colonne = col1
-        elif index % 3 == 1:
-            colonne = col2
-        else:
-            colonne = col3
+with col3:
+    st.metric(
+        t["labels"]["stat_form"],
+        len(t["formations"])
+    )
 
-        with colonne:
-            st.markdown(
-                f"""
-                <div class="card" style="min-height: 190px;">
-                    <div style="font-size: 34px; margin-bottom: 10px;">{icone}</div>
-                    <div class="card-title">{titre}</div>
-                    <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">
-                        {definition}
-                    </div>
+with col4:
+    st.metric(
+        t["labels"]["stat_langues"],
+        len(t["langues"])
+    )
+
+
+# Domaines d'expertise
+st.markdown(
+    f"<div class='section-title'>{t['sections']['expertise']}</div>",
+    unsafe_allow_html=True,
+)
+
+col1, col2, col3 = st.columns(3)
+
+for index, (icone, titre, definition) in enumerate(t["domaines"]):
+
+    if index % 3 == 0:
+        colonne = col1
+
+    elif index % 3 == 1:
+        colonne = col2
+
+    else:
+        colonne = col3
+
+    with colonne:
+
+        st.markdown(
+            f"""
+            <div class="card" style="min-height: 190px;">
+
+                <div style="
+                    font-size: 34px;
+                    margin-bottom: 10px;
+                ">
+                    {icone}
                 </div>
-                """,
-                unsafe_allow_html=True,
-            )
+
+                <div class="card-title">
+                    {titre}
+                </div>
+
+                <div style="
+                    color:#52606d;
+                    font-size:14px;
+                    line-height:1.7;
+                    margin-top:10px;
+                ">
+                    {definition}
+                </div>
+
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )  )
 
     # Expérience actuelle
     st.markdown(
