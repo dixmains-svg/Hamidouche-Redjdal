@@ -26,7 +26,17 @@ langue_choisie = st.sidebar.selectbox(
     "🌐 Langue / Language",
     ["Français", "English"]
 )
+# ============================================================
+# LANGUE
+# ============================================================
 
+lang = st.sidebar.selectbox(
+    "🌐 Langue / Language",
+    ["Français", "English"]
+)
+
+# Dictionnaire correspondant à la langue choisie
+t = translations[lang]
 # ============================================================
 # BASE DE DONNÉES MULTILINGUE
 # ============================================================
