@@ -501,7 +501,7 @@ st.sidebar.markdown(
     <div style="text-align:center; padding:10px 0px;">
         <div style="font-size:35px;">👨‍💼</div>
         <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
-        <div style="font-size:12px; color:#829ab1;">CURRICULUM VITAE</div>
+        <div style="font-size:12px; color:#1F5F8B;">CURRICULUM VITAE</div>
     </div>
     """,
     unsafe_allow_html=True,
