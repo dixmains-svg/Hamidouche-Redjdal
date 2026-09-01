@@ -794,8 +794,13 @@ if page in ["🏠 Accueil", "🏠 Home"]:
 
     # Indicateurs
     col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric(t["labels"]["stat_exp"], len(t["9 ans"]))
+   with col1:
+    experience_value = "09 Ans" if lang == "fr" else "09 Yrs"
+
+    st.metric(
+        t["labels"]["stat_exp"],
+        experience_value
+    )
     with col2:
         st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
     with col3:
