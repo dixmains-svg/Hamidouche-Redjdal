@@ -13,21 +13,15 @@ st.set_page_config(
 )
 
 # ============================================================
-# PHOTO
+# PHOTO & CONSTANTS
 # ============================================================
 
 PHOTO = Path("photo.jpg")
 
-# ============================================================
-# SELECTION DE LA LANGUE
-# ============================================================
-lang = st.sidebar.selectbox(
-    "🌐 Langue / Language",
-    ["Français", "English"]
-)
-
-# Dictionnaire correspondant à la langue choisie
-t = translations[lang]
+nom = "HAMIDOUCHE REDJDAL"
+telephone = "00213775 73 79 30"
+email = "hamidoucheredjdal@yahoo.fr"
+adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
 # BASE DE DONNÉES MULTILINGUE
@@ -466,14 +460,17 @@ TEXTES = {
     }
 }
 
+# ============================================================
+# SELECTION DE LA LANGUE
+# ============================================================
+
+langue_choisie = st.sidebar.selectbox(
+    "🌐 Langue / Language",
+    ["Français", "English"]
+)
+
 # Variable active selon la langue choisie
 t = TEXTES[langue_choisie]
-
-# Informations fixes
-nom = "HAMIDOUCHE REDJDAL"
-telephone = "00213775 73 79 30"
-email = "hamidoucheredjdal@yahoo.fr"
-adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
 # STYLE CSS
@@ -482,7 +479,6 @@ adresse = "Tazmalt 06039, wilaya de Bejaia"
 st.markdown(
     """
 <style>
-
 .stApp {
     background-color: #f4f7fb;
 }
@@ -671,7 +667,6 @@ st.markdown(
     color: white;
 }
 
-/* Fix du texte pour le champ de selection de langue */
 [data-testid="stSidebar"] div[data-baseweb="select"] div {
     color: #102a43 !important;
     font-weight: 600;
@@ -794,52 +789,21 @@ if page in ["🏠 Accueil", "🏠 Home"]:
         unsafe_allow_html=True,
     )
 
-    # ========================================================
-    # INDICATEURS
-    # ========================================================
-
+    # --- INDICATEURS METRICS ---
     col1, col2, col3, col4 = st.columns(4)
 
+    experience_value = "09 Ans" if langue_choisie == "Français" else "09 Yrs"
+
     with col1:
-
-        # Français : 09 Ans
-        # English : 09 Yrs
-        if lang == "Français":
-            experience_value = "09 Ans"
-        else:
-            experience_value = "09 Yrs"
-
-        st.metric(
-            t["labels"]["stat_exp"],
-            experience_value
-        )
-
+        st.metric(t["labels"]["stat_exp"], experience_value)
     with col2:
-
-        st.metric(
-            t["labels"]["stat_postes"],
-            len(t["experiences"])
-        )
-
+        st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
     with col3:
-
-        st.metric(
-            t["labels"]["stat_form"],
-            len(t["formations"])
-        )
-
+        st.metric(t["labels"]["stat_form"], len(t["formations"]))
     with col4:
+        st.metric(t["labels"]["stat_langues"], len(t["langues"]))
 
-        st.metric(
-            t["labels"]["stat_langues"],
-            len(t["langues"])
-        )
-
-
-    # ========================================================
-    # DOMAINES D'EXPERTISE
-    # ========================================================
-
+    # --- DOMAINES D'EXPERTISE ---
     st.markdown(
         f"<div class='section-title'>{t['sections']['expertise']}</div>",
         unsafe_allow_html=True,
@@ -847,58 +811,24 @@ if page in ["🏠 Accueil", "🏠 Home"]:
 
     col1, col2, col3 = st.columns(3)
 
-    for index, (icone, titre, definition) in enumerate(
-        t["domaines"]
-    ):
-
-        if index % 3 == 0:
-            colonne = col1
-
-        elif index % 3 == 1:
-            colonne = col2
-
-        else:
-            colonne = col3
+    for index, (icone, titre, definition) in enumerate(t["domaines"]):
+        colonne = col1 if index % 3 == 0 else (col2 if index % 3 == 1 else col3)
 
         with colonne:
-
             st.markdown(
                 f"""
-                <div class="card" style="
-                    min-height: 190px;
-                    margin-bottom: 20px;
-                ">
-
-                    <div style="
-                        font-size: 34px;
-                        margin-bottom: 10px;
-                    ">
-                        {icone}
-                    </div>
-
-                    <div class="card-title">
-                        {titre}
-                    </div>
-
-                    <div style="
-                        color:#52606d;
-                        font-size:14px;
-                        line-height:1.7;
-                        margin-top:10px;
-                    ">
+                <div class="card" style="min-height: 190px; margin-bottom: 20px;">
+                    <div style="font-size: 34px; margin-bottom: 10px;">{icone}</div>
+                    <div class="card-title">{titre}</div>
+                    <div style="color:#52606d; font-size:14px; line-height:1.7; margin-top:10px;">
                         {definition}
                     </div>
-
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
-
-    # ========================================================
-    # EXPÉRIENCE ACTUELLE
-    # ========================================================
-
+    # --- EXPÉRIENCE ACTUELLE ---
     st.markdown(
         f"<div class='section-title'>{t['sections']['actuel']}</div>",
         unsafe_allow_html=True,
@@ -909,19 +839,9 @@ if page in ["🏠 Accueil", "🏠 Home"]:
     st.markdown(
         f"""
         <div class="experience-card">
-
-            <div class="experience-position">
-                {current["poste"]}
-            </div>
-
-            <div class="experience-company">
-                🏢 {current["entreprise"]}
-            </div>
-
-            <div class="experience-date">
-                📅 {current["periode"]}
-            </div>
-
+            <div class="experience-position">{current["poste"]}</div>
+            <div class="experience-company">🏢 {current["entreprise"]}</div>
+            <div class="experience-date">📅 {current["periode"]}</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -955,9 +875,9 @@ elif page in ["👤 Profil", "👤 Profile"]:
             f"""
             <div class="card">
                 <div class="card-title">{t['sections']['identite']}</div>
-                <p><strong>{t['labels']['nom']} :</strong><br>{nom}</p>
-                <p><strong>{t['labels']['nationalite']} :</strong><br>{t['nationalite']}</p>
-                <p><strong>{t['labels']['situation']} :</strong><br>{t['situation']}</p>
+                <p class="card-text"><strong>{t['labels']['nom']} :</strong> {nom}</p>
+                <p class="card-text"><strong>{t['labels']['nationalite']} :</strong> {t['nationalite']}</p>
+                <p class="card-text"><strong>{t['labels']['situation']} :</strong> {t['situation']}</p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -968,136 +888,121 @@ elif page in ["👤 Profil", "👤 Profile"]:
             f"""
             <div class="card">
                 <div class="card-title">{t['sections']['infos_pro']}</div>
-                <p><strong>{t['labels']['fonction']} :</strong><br>{t['fonction']}</p>
-                <p><strong>{t['labels']['adresse']} :</strong><br>{adresse}</p>
-                <p><strong>{t['labels']['service']} :</strong><br>{t['service_national']}</p>
+                <p class="card-text"><strong>{t['labels']['fonction']} :</strong> {t['fonction']}</p>
+                <p class="card-text"><strong>{t['labels']['service']} :</strong> {t['service_national']}</p>
+                <p class="card-text"><strong>{t['labels']['adresse']} :</strong> {adresse}</p>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-# --- EXPERIENCES ---
+# --- EXPÉRIENCES ---
 elif page in ["💼 Expériences", "💼 Experience"]:
-
     st.markdown(
         f"<div class='section-title'>{t['sections']['exp']}</div>",
         unsafe_allow_html=True,
     )
 
     for exp in t["experiences"]:
+        missions_html = "".join([f"<li class='mission'>{m}</li>" for m in exp["missions"]])
         st.markdown(
             f"""
             <div class="experience-card">
-                <div class="experience-position">{exp["poste"]}</div>
-                <div class="experience-company">🏢 {exp["entreprise"]}</div>
-                <div class="experience-date">📅 {exp["periode"]}</div>
-                <strong>{t['labels']['missions']}</strong>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        for mission in exp["missions"]:
-            st.markdown(
-                f"""
-                <div class="mission">✓ {mission}</div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-# --- DIPLOMES ET FORMATIONS ---
-elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training"]:
-
-    st.markdown(
-        f"<div class='section-title'>{t['sections']['form']}</div>",
-        unsafe_allow_html=True,
-    )
-
-    for formation in t["formations"]:
-        st.markdown(
-            f"""
-            <div class="education-card">
-                <div class="year">{formation["annee"]}</div>
-                <div class="education-title">{formation["titre"]}</div>
-                <div class="education-school">🏫 {formation["organisme"]}</div>
+                <div class="experience-position">{exp['poste']}</div>
+                <div class="experience-company">🏢 {exp['entreprise']}</div>
+                <div class="experience-date">📅 {exp['periode']}</div>
+                <strong>{t['labels']['missions']} :</strong>
+                <ul style="margin-top: 8px;">
+                    {missions_html}
+                </ul>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-# --- COMPETENCES ---
-elif page in ["🛠️ Compétences", "🛠️ Skills"]:
+# --- DIPLÔMES & FORMATIONS ---
+elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training"]:
+    st.markdown(
+        f"<div class='section-title'>{t['sections']['form']}</div>",
+        unsafe_allow_html=True,
+    )
 
+    for form in t["formations"]:
+        st.markdown(
+            f"""
+            <div class="education-card">
+                <span class="year">{form['annee']}</span>
+                <div class="education-title">{form['titre']}</div>
+                <div class="education-school">📍 {form['organisme']}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+# --- COMPÉTENCES ---
+elif page in ["🛠️ Compétences", "🛠️ Skills"]:
     st.markdown(
         f"<div class='section-title'>{t['sections']['comp']}</div>",
         unsafe_allow_html=True,
     )
 
     col1, col2 = st.columns(2)
-
-    for index, competence in enumerate(t["competences"]):
-        colonne = col1 if index % 2 == 0 else col2
-        with colonne:
+    for index, comp in enumerate(t["competences"]):
+        col = col1 if index % 2 == 0 else col2
+        with col:
             st.markdown(
                 f"""
-                <div class="skill-card">✓ {competence}</div>
+                <div class="skill-card">
+                    ✅ {comp}
+                </div>
                 """,
                 unsafe_allow_html=True,
             )
 
 # --- LANGUES ---
 elif page in ["🌐 Langues", "🌐 Languages"]:
-
     st.markdown(
         f"<div class='section-title'>{t['sections']['langues']}</div>",
         unsafe_allow_html=True,
     )
 
-    columns = st.columns(4)
-
-    for index, langue in enumerate(t["langues"]):
-        with columns[index]:
+    col1, col2 = st.columns(2)
+    for index, (langue, niveau) in enumerate(t["langues"]):
+        col = col1 if index % 2 == 0 else col2
+        with col:
             st.markdown(
                 f"""
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:38px;">🌐</div>
-                    <div class="card-title">{langue[0]}</div>
-                    <div style="color:#1f5f8b; font-weight:700; margin-top:10px;">
-                        {langue[1]}
-                    </div>
+                <div class="card">
+                    <div class="card-title">🗣️ {langue}</div>
+                    <div class="card-text">{niveau}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
-# --- CENTRES D'INTERET ---
+# --- CENTRES D'INTÉRÊT ---
 elif page in ["⭐ Centres d'intérêt", "⭐ Interests"]:
-
     st.markdown(
         f"<div class='section-title'>{t['sections']['interets']}</div>",
         unsafe_allow_html=True,
     )
 
-    columns = st.columns(3)
-
-    for index, item in enumerate(t["interets"]):
-        icone, titre = item[0], item[1]
-
-        with columns[index % 3]:
+    col1, col2, col3 = st.columns(3)
+    for index, (icone, interet) in enumerate(t["interets"]):
+        col = col1 if index % 3 == 0 else (col2 if index % 3 == 1 else col3)
+        with col:
             st.markdown(
                 f"""
-                <div class="card" style="text-align:center;">
-                    <div style="font-size:40px;">{icone}</div>
-                    <div class="card-title">{titre}</div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 36px; margin-bottom: 8px;">{icone}</div>
+                    <div class="card-title">{interet}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
 # --- CONTACT ---
-elif page in ["📞 Contact"]:
-
+elif page in ["📞 Contact", "📞 Contact"]:
     st.markdown(
         f"<div class='section-title'>{t['sections']['contact']}</div>",
         unsafe_allow_html=True,
@@ -1111,7 +1016,7 @@ elif page in ["📞 Contact"]:
             <div class="contact-card">
                 <div class="contact-icon">📱</div>
                 <div class="contact-title">{t['labels']['tel']}</div>
-                <div class="contact-value">{telephone}</div>
+                <div class="contact-value"><a href="tel:{telephone}">{telephone}</a></div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -1121,9 +1026,9 @@ elif page in ["📞 Contact"]:
         st.markdown(
             f"""
             <div class="contact-card">
-                <div class="contact-icon">📧</div>
+                <div class="contact-icon">✉️</div>
                 <div class="contact-title">{t['labels']['email']}</div>
-                <div class="contact-value">{email}</div>
+                <div class="contact-value"><a href="mailto:{email}">{email}</a></div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -1148,11 +1053,7 @@ elif page in ["📞 Contact"]:
 st.markdown(
     f"""
     <div class="footer">
-        <strong>{nom}</strong>
-        <br><br>
-        {t['fonction']}
-        <br>
-        {t['labels']['sub_keywords']}
+        © {nom} • All Rights Reserved
     </div>
     """,
     unsafe_allow_html=True,
