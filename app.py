@@ -437,7 +437,7 @@ st.markdown(
 .card-title { color: #102a43; font-size: 19px; font-weight: 800; margin-bottom: 10px; }
 .card-text { color: #52606d; font-size: 16px; line-height: 1.9; }
 .experience-card {
-    background-color: white; border-left: 5px solid #1f5f8b; border-radius: 17px;
+    background-color: blue; border-left: 5px solid #1f5f8b; border-radius: 17px;
     padding: 25px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06);
 }
 .experience-position { color: #102a43; font-size: 21px; font-weight: 800; }
@@ -453,7 +453,7 @@ st.markdown(
 .contact-icon { font-size: 32px; margin-bottom: 8px; }
 .contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
 .contact-value { color: #52606d; font-size: 14px; line-height: 1.6; }
-[data-testid="stSidebar"] { background-color: #102a43; color: blue; }
+[data-testid="stSidebar"] { background-color: #102a43; color: white; }
 .footer { text-align: center; color: #829ab1; font-size: 13px; margin-top: 50px; padding-top: 25px; border-top: 1px solid #d9e2ec; }
 </style>
 """,
