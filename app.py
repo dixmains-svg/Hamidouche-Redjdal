@@ -359,7 +359,7 @@ def generer_pdf(filepath, data_langue):
     
     title_style = ParagraphStyle(
         'DocTitle', parent=styles['Heading1'],
-        fontSize=20, leading=24, textColor=colors.HexColor('#28a745'), spaceAfter=4
+        fontSize=20, leading=24, textColor=colors.HexColor('#102a43'), spaceAfter=4
     )
     subtitle_style = ParagraphStyle(
         'DocSubTitle', parent=styles['Normal'],
