@@ -795,7 +795,7 @@ if page in ["🏠 Accueil", "🏠 Home"]:
     # Indicateurs
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric(t["labels"]["stat_exp"], "9 ans / yrs")
+        st.metric(t["labels"]["stat_exp"], "9 ans/yrs")
     with col2:
         st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
     with col3:
