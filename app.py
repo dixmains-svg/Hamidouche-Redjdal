@@ -419,7 +419,7 @@ generer_pdf(PDF_PATH, t)
 st.markdown(
     """
 <style>
-.stApp { background-color: #f4f7fb; }
+.stApp { background-color: #f8f9fa; }
 .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
 .cv-header {
     background: linear-gradient(135deg, #102a43, #1f5f8b);
