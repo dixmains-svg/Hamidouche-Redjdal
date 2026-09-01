@@ -8,7 +8,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
 # ============================================================
-# CONFIGURATION & CONSTANTES
+# 1. CONFIGURATION DE LA PAGE
 # ============================================================
 
 st.set_page_config(
@@ -27,7 +27,18 @@ email = "hamidoucheredjdal@yahoo.fr"
 adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
-# BASE DE DONNÉES MULTILINGUE
+# 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR (EN PREMIER)
+# ============================================================
+
+st.sidebar.markdown("## 🌐 Langue / Language")
+langue_choisie = st.sidebar.selectbox(
+    "Choisir la langue / Select language",
+    ["Français", "English"],
+    label_visibility="collapsed"
+)
+
+# ============================================================
+# 3. BASE DE DONNÉES MULTILINGUE
 # ============================================================
 
 TEXTES = {
@@ -45,11 +56,11 @@ TEXTES = {
         "sidebar_domains": """
 **DOMAINES PROFESSIONNELS**
 
-🚚 Transport
-📦 Logistique
-📊 Planification
-👥 Supervision
-📈 Optimisation
+🚚 Transport  
+📦 Logistique  
+📊 Planification  
+👥 Supervision  
+📈 Optimisation  
 """,
         "profil": (
             "Dynamique, sérieux et ayant de bonnes compétences relationnelles, "
@@ -194,11 +205,11 @@ TEXTES = {
         "sidebar_domains": """
 **PROFESSIONAL FIELDS**
 
-🚚 Transport
-📦 Logistics
-📊 Planning
-👥 Supervision
-📈 Optimization
+🚚 Transport  
+📦 Logistics  
+📊 Planning  
+👥 Supervision  
+📈 Optimization  
 """,
         "profil": (
             "Dynamic, reliable, and possessing strong interpersonal skills, "
@@ -331,30 +342,19 @@ TEXTES = {
     }
 }
 
-# ============================================================
-# SÉLECTION DE LA LANGUE DANS LA SIDEBAR
-# ============================================================
-
-langue_choisie = st.sidebar.selectbox(
-    "🌐 Langue / Language",
-    ["Français", "English"]
-)
-
 t = TEXTES[langue_choisie]
 
 # ============================================================
-# FONCTION DE GÉNÉRATION DU PDF (Exécutée à chaque relance)
+# 4. GÉNÉRATION DU PDF
 # ============================================================
 
 def generer_pdf(filepath, data_langue):
-    """Génère et écrase le fichier PDF selon les données de la langue sélectionnée."""
     doc = SimpleDocTemplate(
         str(filepath),
         pagesize=letter,
         rightMargin=40, leftMargin=40,
         topMargin=40, bottomMargin=40
     )
-    
     styles = getSampleStyleSheet()
     
     title_style = ParagraphStyle(
@@ -375,20 +375,16 @@ def generer_pdf(filepath, data_langue):
     )
 
     story = []
-
-    # En-tête
     story.append(Paragraph(f"<b>{nom}</b>", title_style))
     story.append(Paragraph(f"<b>{data_langue['fonction']}</b>", subtitle_style))
     story.append(Paragraph(f"📞 {telephone} &nbsp;|&nbsp; ✉️ {email} &nbsp;|&nbsp; 📍 {adresse}", body_style))
     story.append(Spacer(1, 10))
     story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#1f5f8b'), spaceAfter=12))
 
-    # Profil
     story.append(Paragraph(data_langue['sections']['profil'].upper(), section_heading))
     story.append(Paragraph(data_langue['profil'], body_style))
     story.append(Spacer(1, 10))
 
-    # Expériences
     story.append(Paragraph(data_langue['sections']['exp'].upper(), section_heading))
     for exp in data_langue['experiences']:
         story.append(Paragraph(f"<b>{exp['poste']}</b> — <i>{exp['entreprise']}</i> ({exp['periode']})", body_style))
@@ -398,7 +394,6 @@ def generer_pdf(filepath, data_langue):
 
     story.append(Spacer(1, 6))
 
-    # Formations
     story.append(Paragraph(data_langue['sections']['form'].upper(), section_heading))
     for form in data_langue['formations']:
         story.append(Paragraph(f"<b>{form['annee']}</b> : {form['titre']} — <i>{form['organisme']}</i>", body_style))
@@ -406,7 +401,6 @@ def generer_pdf(filepath, data_langue):
 
     story.append(Spacer(1, 6))
 
-    # Compétences & Langues
     story.append(Paragraph(data_langue['sections']['comp'].upper(), section_heading))
     comp_text = ", ".join(data_langue['competences'])
     story.append(Paragraph(f"<b>{data_langue['sections']['comp']} :</b> {comp_text}", body_style))
@@ -414,15 +408,12 @@ def generer_pdf(filepath, data_langue):
     langues_text = ", ".join([f"{l} ({n})" for l, n in data_langue['langues']])
     story.append(Paragraph(f"<b>{data_langue['sections']['langues']} :</b> {langues_text}", body_style))
 
-    # Génération effective du fichier PDF
     doc.build(story)
 
-
-# RÉGÉNÉRATION SYSTÉMATIQUE DU PDF À CHAQUE LANCEMENT
 generer_pdf(PDF_PATH, t)
 
 # ============================================================
-# STYLE CSS STREAMLIT
+# 5. STYLE CSS NETTOYÉ (ACCESSIBILITÉ GARANTIE)
 # ============================================================
 
 st.markdown(
@@ -462,11 +453,7 @@ st.markdown(
 .contact-icon { font-size: 32px; margin-bottom: 8px; }
 .contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
 .contact-value { color: #52606d; font-size: 14px; line-height: 1.6; }
-[data-testid="stSidebar"] { background-color: #102a43; }
-[data-testid="stSidebar"] * { color: white; }
-[data-testid="stSidebar"] div[data-baseweb="select"] div { color: #102a43 !important; font-weight: 600; }
-div[data-baseweb="popover"] ul li span { color: #102a43 !important; }
-[data-testid="stSidebar"] div[data-baseweb="select"] svg { fill: #102a43 !important; }
+[data-testid="stSidebar"] { background-color: #102a43; color: white; }
 .footer { text-align: center; color: #829ab1; font-size: 13px; margin-top: 50px; padding-top: 25px; border-top: 1px solid #d9e2ec; }
 </style>
 """,
@@ -474,7 +461,7 @@ div[data-baseweb="popover"] ul li span { color: #102a43 !important; }
 )
 
 # ============================================================
-# HEADER AVEC PHOTO
+# 6. EN-TÊTE DU CV
 # ============================================================
 
 col_photo, col_header = st.columns([1, 4])
@@ -505,23 +492,21 @@ with col_header:
     )
 
 # ============================================================
-# SIDEBAR ET TÉLÉCHARGEMENT
+# 7. SUITE DE LA SIDEBAR ET NAVIGATION
 # ============================================================
 
+st.sidebar.markdown("---")
 st.sidebar.markdown(
     f"""
-    <div style="text-align:center; padding:15px 5px 20px 5px;">
-        <div style="font-size:45px;">👨‍💼</div>
-        <div style="font-size:20px; font-weight:800;">{nom}</div>
-        <div style="font-size:13px; margin-top:6px;">CURRICULUM VITAE</div>
+    <div style="text-align:center; padding:10px 0px;">
+        <div style="font-size:35px;">👨‍💼</div>
+        <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
+        <div style="font-size:12px; color:#829ab1;">CURRICULUM VITAE</div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-st.sidebar.markdown("---")
-
-# Lecture du PDF mis à jour à chaque rafraîchissement
 with open(PDF_PATH, "rb") as f:
     pdf_bytes = f.read()
 
@@ -539,7 +524,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown(t["sidebar_domains"])
 
 # ============================================================
-# PAGES DE L'APPLICATION STREAMLIT
+# 8. CONTENU PRINCIPAL
 # ============================================================
 
 if page in ["🏠 Accueil", "🏠 Home"]:
@@ -664,9 +649,5 @@ elif page in ["📞 Contact", "📞 Contact"]:
         st.markdown(f'<div class="contact-card"><div class="contact-icon">✉️</div><div class="contact-title">{t["labels"]["email"]}</div><div class="contact-value"><a href="mailto:{email}">{email}</a></div></div>', unsafe_allow_html=True)
     with col3:
         st.markdown(f'<div class="contact-card"><div class="contact-icon">📍</div><div class="contact-title">{t["labels"]["adresse_title"]}</div><div class="contact-value">{adresse}</div></div>', unsafe_allow_html=True)
-
-# ============================================================
-# FOOTER
-# ============================================================
 
 st.markdown(f'<div class="footer">© {nom} • All Rights Reserved</div>', unsafe_allow_html=True)
