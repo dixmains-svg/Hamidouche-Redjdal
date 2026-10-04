@@ -558,33 +558,50 @@ with col_header:
 # 7. SIDEBAR ET NAVIGATION
 # ============================================================
 
-st.sidebar.markdown("---")
-st.sidebar.markdown(
-    f"""
-    <div style="text-align:center; padding:10px 0px;">
-        <div style="font-size:35px;">👨‍💼</div>
-        <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
-        <div style="font-size:12px; color:#9fb3c8;">CURRICULUM VITAE</div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+/* Fond global de la barre latérale */
+[data-testid="stSidebar"] {
+    background-color: #0d1b2a !important;
+    color: #ffffff !important;
+}
 
-with open(PDF_PATH, "rb") as f:
-    pdf_bytes = f.read()
+/* Forcer la couleur du texte et des étiquettes dans la sidebar */
+[data-testid="stSidebar"] *, 
+[data-testid="stSidebar"] label, 
+[data-testid="stSidebar"] p, 
+[data-testid="stSidebar"] span {
+    color: #ffffff !important;
+}
 
-st.sidebar.download_button(
-    label=t["download_btn"],
-    data=pdf_bytes,
-    file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
-    mime="application/pdf",
-    use_container_width=True,
-)
+/* Boutons radio de navigation (Home, Profile, Experience...) */
+[data-testid="stSidebar"] div[role="radiogroup"] label span {
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
 
-st.sidebar.markdown("---")
-page = st.sidebar.radio(t["nav_title"], t["nav"])
-st.sidebar.markdown("---")
-st.sidebar.markdown(t["sidebar_domains"])
+/* Bouton de téléchargement PDF */
+[data-testid="stSidebar"] button {
+    background-color: #1f5f8b !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-testid="stSidebar"] button:hover {
+    background-color: #2b7bb9 !important;
+    border-color: #64ffda !important;
+    color: #ffffff !important;
+}
+
+/* Liste des domaines professionnels */
+[data-testid="stSidebar"] .stMarkdown p {
+    color: #e0e1dd !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+}
 
 # ============================================================
 # 8. CONTENU PRINCIPAL
