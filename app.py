@@ -520,14 +520,14 @@ st.markdown(
    ============================================================ */
 [data-testid="stSidebar"] {
     background-color: #0d1b2a !important;
-    color: #000000 !important;
+    color: #ffffff !important;
 }
 
 [data-testid="stSidebar"] *, 
 [data-testid="stSidebar"] label, 
 [data-testid="stSidebar"] p, 
 [data-testid="stSidebar"] span {
-    color: #ffffff !important;
+    color: #000000 !important;
 }
 
 [data-testid="stSidebar"] div[role="radiogroup"] label span {
