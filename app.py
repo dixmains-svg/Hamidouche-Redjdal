@@ -529,7 +529,7 @@ st.markdown(
 [data-testid="stSidebar"] label, 
 [data-testid="stSidebar"] p, 
 [data-testid="stSidebar"] span {
-    color: #ffffff !important;
+    color: #64FFDA !important;
 }
 
 [data-testid="stSidebar"] div[role="radiogroup"] label span {
@@ -549,7 +549,7 @@ st.markdown(
 }
 
 [data-testid="stSidebar"] button:hover {
-    background-color: #000000 !important;
+    background-color: #2b7bb9 !important;
     border-color: #64ffda !important;
     color: #ffffff !important;
 }
