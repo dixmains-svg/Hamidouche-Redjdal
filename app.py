@@ -521,7 +521,7 @@ st.markdown(
    CORRECTIF SIDEBAR & NAVIGATION (CONTRASTE OPTIMAL)
    ============================================================ */
 [data-testid="stSidebar"] {
-    background-color: #000000 !important;
+    background-color: #0d1b2a !important;
     color: #ffffff !important;
 }
 
@@ -549,7 +549,7 @@ st.markdown(
 }
 
 [data-testid="stSidebar"] button:hover {
-    background-color: #2b7bb9 !important;
+    background-color: #000000 !important;
     border-color: #64ffda !important;
     color: #ffffff !important;
 }
