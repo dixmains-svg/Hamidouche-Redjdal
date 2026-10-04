@@ -30,7 +30,8 @@ adresse = "Tazmalt 06039, wilaya de Bejaia"
 # 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR
 # ============================================================
 
-st.sidebar.markdown'<h2 style="color: #FFD166; font-size: 20px; font-weight: bold;">🌐 Langue / Language</h2>', 
+st.sidebar.markdown(
+    '<h2 style="color: #FFD166; font-size: 20px; font-weight: bold;">🌐 Langue / Language</h2>', 
     unsafe_allow_html=True
 )
 langue_choisie = st.sidebar.selectbox(
@@ -38,7 +39,6 @@ langue_choisie = st.sidebar.selectbox(
     ["Français", "English"],
     label_visibility="collapsed"
 )
-
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
 # ============================================================
