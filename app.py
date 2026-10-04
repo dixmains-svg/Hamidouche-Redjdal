@@ -27,7 +27,7 @@ email = "hamidoucheredjdal@yahoo.fr"
 adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
-# 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR (EN PREMIER)
+# 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR
 # ============================================================
 
 st.sidebar.markdown("## 🌐 Langue / Language")
@@ -83,7 +83,7 @@ TEXTES = {
             "stat_langues": "Langues", "missions": "Principales missions", "tel": "Téléphone",
             "email": "Email", "adresse_title": "Adresse",
             "degree_subtitle": "Master 2 en Recherche Opérationnelle",
-            "sub_keywords": "Logistique &nbsp; • &nbsp; Transport &nbsp; • &nbsp; Planification &nbsp; • &nbsp; Supervision &nbsp; • &nbsp; Optimisation",
+            "sub_keywords": "Logistique • Transport • Planification • Supervision • Optimisation",
             "photo_missing": "Photo non trouvée"
         },
         "domaines": [
@@ -232,7 +232,7 @@ TEXTES = {
             "stat_langues": "Languages", "missions": "Key Responsibilities", "tel": "Phone",
             "email": "Email", "adresse_title": "Address",
             "degree_subtitle": "Master 2 in Operational Research",
-            "sub_keywords": "Logistics &nbsp; • &nbsp; Transport &nbsp; • &nbsp; Planning &nbsp; • &nbsp; Supervision &nbsp; • &nbsp; Optimization",
+            "sub_keywords": "Logistics • Transport • Planning • Supervision • Optimization",
             "photo_missing": "Photo not found"
         },
         "domaines": [
@@ -413,48 +413,111 @@ def generer_pdf(filepath, data_langue):
 generer_pdf(PDF_PATH, t)
 
 # ============================================================
-# 5. STYLE CSS NETTOYÉ (ACCESSIBILITÉ GARANTIE)
+# 5. STYLE CSS OPTIMISÉ POUR UNE LISIBILITÉ MAXIMALE
 # ============================================================
 
 st.markdown(
     """
 <style>
-.stApp { background-color: #f8f9fa; }
+/* Fond global de l'application */
+.stApp { background-color: #f4f6f8; }
 .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
+
+/* En-tête CV */
 .cv-header {
     background: linear-gradient(135deg, #102a43, #1f5f8b);
-    color: white; padding: 40px 45px; border-radius: 22px; margin-bottom: 30px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15); min-height: 260px;
+    color: #ffffff; padding: 40px 45px; border-radius: 22px; margin-bottom: 30px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12); min-height: 260px;
 }
-.cv-name { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; }
-.cv-title { font-size: 23px; font-weight: 600; margin-bottom: 18px; }
-.cv-subtitle { font-size: 16px; line-height: 1.8; }
+.cv-name { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; color: #ffffff; }
+.cv-title { font-size: 23px; font-weight: 600; margin-bottom: 18px; color: #d9e2ec; }
+.cv-subtitle { font-size: 16px; line-height: 1.8; color: #bcccdc; }
+
+/* Titres de section */
 .section-title {
     color: #102a43; font-size: 27px; font-weight: 800; margin-top: 30px; margin-bottom: 20px;
     padding-bottom: 10px; border-bottom: 3px solid #1f5f8b;
 }
-.card { background-color: white; border-radius: 17px; padding: 25px; margin-bottom: 18px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+
+/* Cartes standards */
+.card { 
+    background-color: #ffffff; 
+    border-radius: 17px; 
+    padding: 25px; 
+    margin-bottom: 18px; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+    border: 1px solid #e4e7eb;
+}
 .card-title { color: #102a43; font-size: 19px; font-weight: 800; margin-bottom: 10px; }
-.card-text { color: #52606d; font-size: 16px; line-height: 1.9; }
+.card-text { color: #334e68; font-size: 16px; line-height: 1.8; }
+
+/* Cartes d'expériences professionnelles (Haute visibilité) */
 .experience-card {
-    background-color: blue; border-left: 5px solid #1f5f8b; border-radius: 17px;
-    padding: 25px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    background-color: #ffffff; 
+    border-left: 6px solid #1f5f8b; 
+    border-radius: 12px;
+    padding: 25px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 1px solid #f0f4f8;
+    border-right: 1px solid #f0f4f8;
+    border-bottom: 1px solid #f0f4f8;
 }
 .experience-position { color: #102a43; font-size: 21px; font-weight: 800; }
 .experience-company { color: #1f5f8b; font-size: 16px; font-weight: 700; margin-top: 6px; }
-.experience-date { color: #829ab1; font-size: 14px; margin-top: 5px; margin-bottom: 18px; }
-.mission { color: #52606d; line-height: 1.7; margin-top: 9px; }
-.education-card { background-color: white; border-radius: 17px; padding: 22px; margin-bottom: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
-.year { display: inline-block; background-color: #102a43; color: white; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+.experience-date { color: #627d98; font-size: 14px; margin-top: 5px; margin-bottom: 15px; font-weight: 600; }
+.mission { color: #334e68; line-height: 1.7; margin-top: 6px; font-size: 15px; }
+
+/* Diplômes et Formations */
+.education-card { 
+    background-color: #ffffff; 
+    border-radius: 17px; 
+    padding: 22px; 
+    margin-bottom: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border: 1px solid #e4e7eb;
+}
+.year { 
+    display: inline-block; 
+    background-color: #102a43; 
+    color: #ffffff; 
+    padding: 6px 14px; 
+    border-radius: 20px; 
+    font-size: 13px; 
+    font-weight: 700; 
+    margin-bottom: 10px; 
+}
 .education-title { color: #102a43; font-size: 17px; font-weight: 800; }
-.education-school { color: #627d98; font-size: 14px; margin-top: 7px; line-height: 1.6; }
-.skill-card { background-color: white; border-radius: 14px; padding: 18px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); color: #334e68; line-height: 1.6; }
-.contact-card { background-color: white; border-radius: 17px; padding: 25px; text-align: center; min-height: 145px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); }
+.education-school { color: #486581; font-size: 14px; margin-top: 7px; line-height: 1.6; }
+
+/* Compétences & Contact */
+.skill-card { 
+    background-color: #ffffff; 
+    border-radius: 14px; 
+    padding: 18px; 
+    margin-bottom: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    color: #102a43; 
+    font-weight: 600;
+    line-height: 1.6; 
+    border: 1px solid #e4e7eb;
+}
+.contact-card { 
+    background-color: #ffffff; 
+    border-radius: 17px; 
+    padding: 25px; 
+    text-align: center; 
+    min-height: 145px; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+    border: 1px solid #e4e7eb;
+}
 .contact-icon { font-size: 32px; margin-bottom: 8px; }
 .contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
-.contact-value { color: #52606d; font-size: 14px; line-height: 1.6; }
-[data-testid="stSidebar"] { background-color: #102a43; color: white; }
-.footer { text-align: center; color: #829ab1; font-size: 13px; margin-top: 50px; padding-top: 25px; border-top: 1px solid #d9e2ec; }
+.contact-value { color: #334e68; font-size: 15px; line-height: 1.6; font-weight: 600; }
+
+/* Sidebar */
+[data-testid="stSidebar"] { background-color: #102a43; color: #ffffff; }
+
 </style>
 """,
     unsafe_allow_html=True,
@@ -492,7 +555,7 @@ with col_header:
     )
 
 # ============================================================
-# 7. SUITE DE LA SIDEBAR ET NAVIGATION
+# 7. SIDEBAR ET NAVIGATION
 # ============================================================
 
 st.sidebar.markdown("---")
@@ -501,7 +564,7 @@ st.sidebar.markdown(
     <div style="text-align:center; padding:10px 0px;">
         <div style="font-size:35px;">👨‍💼</div>
         <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
-        <div style="font-size:12px; color:#52606d;">CURRICULUM VITAE</div>
+        <div style="font-size:12px; color:#9fb3c8;">CURRICULUM VITAE</div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -548,7 +611,7 @@ if page in ["🏠 Accueil", "🏠 Home"]:
                 <div class="card" style="min-height: 190px; margin-bottom: 20px;">
                     <div style="font-size: 34px; margin-bottom: 10px;">{icone}</div>
                     <div class="card-title">{titre}</div>
-                    <div style="color:#1F5F8B; font-size:14px; line-height:1.7; margin-top:10px;">{definition}</div>
+                    <div style="color:#334E68; font-size:14px; line-height:1.7; margin-top:10px;">{definition}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -600,8 +663,8 @@ elif page in ["💼 Expériences", "💼 Experience"]:
             <div class="experience-position">{exp['poste']}</div>
             <div class="experience-company">🏢 {exp['entreprise']}</div>
             <div class="experience-date">📅 {exp['periode']}</div>
-            <strong>{t['labels']['missions']} :</strong>
-            <ul style="margin-top: 8px;">{missions_html}</ul>
+            <strong style="color: #102a43;">{t['labels']['missions']} :</strong>
+            <ul style="margin-top: 8px; padding-left: 20px;">{missions_html}</ul>
         </div>
         """, unsafe_allow_html=True)
 
@@ -612,17 +675,14 @@ elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training"]:
         <div class="education-card">
             <span class="year">{form['annee']}</span>
             <div class="education-title">{form['titre']}</div>
-            <div class="education-school">📍 {form['organisme']}</div>
+            <div class="education-school">{form['organisme']}</div>
         </div>
         """, unsafe_allow_html=True)
 
 elif page in ["🛠️ Compétences", "🛠️ Skills"]:
     st.markdown(f"<div class='section-title'>{t['sections']['comp']}</div>", unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    for index, comp in enumerate(t["competences"]):
-        col = col1 if index % 2 == 0 else col2
-        with col:
-            st.markdown(f'<div class="skill-card">✅ {comp}</div>', unsafe_allow_html=True)
+    for comp in t["competences"]:
+        st.markdown(f'<div class="skill-card">✔ {comp}</div>', unsafe_allow_html=True)
 
 elif page in ["🌐 Langues", "🌐 Languages"]:
     st.markdown(f"<div class='section-title'>{t['sections']['langues']}</div>", unsafe_allow_html=True)
@@ -630,7 +690,12 @@ elif page in ["🌐 Langues", "🌐 Languages"]:
     for index, (langue, niveau) in enumerate(t["langues"]):
         col = col1 if index % 2 == 0 else col2
         with col:
-            st.markdown(f'<div class="card"><div class="card-title">🗣️ {langue}</div><div class="card-text">{niveau}</div></div>', unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="card">
+                <div class="card-title">🗣️ {langue}</div>
+                <div class="card-text">{niveau}</div>
+            </div>
+            """, unsafe_allow_html=True)
 
 elif page in ["⭐ Centres d'intérêt", "⭐ Interests"]:
     st.markdown(f"<div class='section-title'>{t['sections']['interets']}</div>", unsafe_allow_html=True)
@@ -638,16 +703,37 @@ elif page in ["⭐ Centres d'intérêt", "⭐ Interests"]:
     for index, (icone, interet) in enumerate(t["interets"]):
         col = col1 if index % 3 == 0 else (col2 if index % 3 == 1 else col3)
         with col:
-            st.markdown(f'<div class="card" style="text-align: center;"><div style="font-size: 36px; margin-bottom: 8px;">{icone}</div><div class="card-title">{interet}</div></div>', unsafe_allow_html=True)
+            st.markdown(f"""
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 36px; margin-bottom: 10px;">{icone}</div>
+                <div class="card-title">{interet}</div>
+            </div>
+            """, unsafe_allow_html=True)
 
-elif page in ["📞 Contact", "📞 Contact"]:
+elif page in ["📞 Contact"]:
     st.markdown(f"<div class='section-title'>{t['sections']['contact']}</div>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown(f'<div class="contact-card"><div class="contact-icon">📱</div><div class="contact-title">{t["labels"]["tel"]}</div><div class="contact-value"><a href="tel:{telephone}">{telephone}</a></div></div>', unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <div class="contact-title">{t['labels']['tel']}</div>
+            <div class="contact-value">{telephone}</div>
+        </div>
+        """, unsafe_allow_html=True)
     with col2:
-        st.markdown(f'<div class="contact-card"><div class="contact-icon">✉️</div><div class="contact-title">{t["labels"]["email"]}</div><div class="contact-value"><a href="mailto:{email}">{email}</a></div></div>', unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-title">{t['labels']['email']}</div>
+            <div class="contact-value">{email}</div>
+        </div>
+        """, unsafe_allow_html=True)
     with col3:
-        st.markdown(f'<div class="contact-card"><div class="contact-icon">📍</div><div class="contact-title">{t["labels"]["adresse_title"]}</div><div class="contact-value">{adresse}</div></div>', unsafe_allow_html=True)
-
-st.markdown(f'<div class="footer">© {nom} • All Rights Reserved</div>', unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <div class="contact-title">{t['labels']['adresse_title']}</div>
+            <div class="contact-value">{adresse}</div>
+        </div>
+        """, unsafe_allow_html=True)
