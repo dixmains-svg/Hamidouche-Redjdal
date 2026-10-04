@@ -37,7 +37,7 @@ st.sidebar.markdown(
 langue_choisie = st.sidebar.selectbox(
     "Choisir la langue / Select language",
     ["Français", "English"],
-    label_visibility="collapsed"
+    label_visibility="visible"
 )
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
