@@ -529,7 +529,7 @@ st.markdown(
 [data-testid="stSidebar"] label, 
 [data-testid="stSidebar"] p, 
 [data-testid="stSidebar"] span {
-    color: #64FFDA !important;
+    color: #000000 !important;
 }
 
 [data-testid="stSidebar"] div[role="radiogroup"] label span {
