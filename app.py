@@ -37,7 +37,7 @@ st.sidebar.markdown(
 langue_choisie = st.sidebar.selectbox(
     "Choisir la langue / Select language",
     ["Français", "English"],
-    label_visibility="visible"
+    label_visibility="collapsed"
 )
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
@@ -521,7 +521,7 @@ st.markdown(
    CORRECTIF SIDEBAR & NAVIGATION (CONTRASTE OPTIMAL)
    ============================================================ */
 [data-testid="stSidebar"] {
-    background-color: #0d1b2a !important;
+    background-color: #000000 !important;
     color: #ffffff !important;
 }
 
