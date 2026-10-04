@@ -451,7 +451,7 @@ st.markdown(
 .card-title { color: #102a43; font-size: 19px; font-weight: 800; margin-bottom: 10px; }
 .card-text { color: #334e68; font-size: 16px; line-height: 1.8; }
 
-/* Cartes d'expériences professionnelles (Haute visibilité) */
+/* Cartes d'expériences professionnelles */
 .experience-card {
     background-color: #ffffff; 
     border-left: 6px solid #1f5f8b; 
@@ -515,8 +515,48 @@ st.markdown(
 .contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
 .contact-value { color: #334e68; font-size: 15px; line-height: 1.6; font-weight: 600; }
 
-/* Sidebar */
-[data-testid="stSidebar"] { background-color: #102a43; color: #ffffff; }
+/* ============================================================
+   CORRECTIF SIDEBAR & NAVIGATION (CONTRASTE OPTIMAL)
+   ============================================================ */
+[data-testid="stSidebar"] {
+    background-color: #0d1b2a !important;
+    color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] *, 
+[data-testid="stSidebar"] label, 
+[data-testid="stSidebar"] p, 
+[data-testid="stSidebar"] span {
+    color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] div[role="radiogroup"] label span {
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stSidebar"] button {
+    background-color: #1f5f8b !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-testid="stSidebar"] button:hover {
+    background-color: #2b7bb9 !important;
+    border-color: #64ffda !important;
+    color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] .stMarkdown p {
+    color: #e0e1dd !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+}
 
 </style>
 """,
@@ -558,50 +598,33 @@ with col_header:
 # 7. SIDEBAR ET NAVIGATION
 # ============================================================
 
-/* Fond global de la barre latérale */
-[data-testid="stSidebar"] {
-    background-color: #0d1b2a !important;
-    color: #ffffff !important;
-}
+st.sidebar.markdown("---")
+st.sidebar.markdown(
+    f"""
+    <div style="text-align:center; padding:10px 0px;">
+        <div style="font-size:35px;">👨‍💼</div>
+        <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
+        <div style="font-size:12px; color:#9fb3c8;">CURRICULUM VITAE</div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-/* Forcer la couleur du texte et des étiquettes dans la sidebar */
-[data-testid="stSidebar"] *, 
-[data-testid="stSidebar"] label, 
-[data-testid="stSidebar"] p, 
-[data-testid="stSidebar"] span {
-    color: #ffffff !important;
-}
+with open(PDF_PATH, "rb") as f:
+    pdf_bytes = f.read()
 
-/* Boutons radio de navigation (Home, Profile, Experience...) */
-[data-testid="stSidebar"] div[role="radiogroup"] label span {
-    color: #ffffff !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-}
+st.sidebar.download_button(
+    label=t["download_btn"],
+    data=pdf_bytes,
+    file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
+    mime="application/pdf",
+    use_container_width=True,
+)
 
-/* Bouton de téléchargement PDF */
-[data-testid="stSidebar"] button {
-    background-color: #1f5f8b !important;
-    color: #ffffff !important;
-    border: 1px solid #ffffff !important;
-    font-weight: bold !important;
-    border-radius: 8px !important;
-    padding: 10px !important;
-    transition: all 0.3s ease !important;
-}
-
-[data-testid="stSidebar"] button:hover {
-    background-color: #2b7bb9 !important;
-    border-color: #64ffda !important;
-    color: #ffffff !important;
-}
-
-/* Liste des domaines professionnels */
-[data-testid="stSidebar"] .stMarkdown p {
-    color: #e0e1dd !important;
-    font-size: 15px !important;
-    line-height: 1.8 !important;
-}
+st.sidebar.markdown("---")
+page = st.sidebar.radio(t["nav_title"], t["nav"])
+st.sidebar.markdown("---")
+st.sidebar.markdown(t["sidebar_domains"])
 
 # ============================================================
 # 8. CONTENU PRINCIPAL
