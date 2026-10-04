@@ -521,7 +521,7 @@ st.markdown(
    CORRECTIF SIDEBAR & NAVIGATION (CONTRASTE OPTIMAL)
    ============================================================ */
 [data-testid="stSidebar"] {
-    background-color: #2d6a4f !important;
+    background-color: #f4f6f8 !important;
     color: #ffffff !important;
 }
 
