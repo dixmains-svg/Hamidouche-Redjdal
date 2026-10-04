@@ -540,7 +540,7 @@ st.markdown(
 
 [data-testid="stSidebar"] button {
     background-color: #1f5f8b !important;
-    color: #ffffff !important;
+    color: #4CC9F0 !important;
     border: 1px solid #ffffff !important;
     font-weight: bold !important;
     border-radius: 8px !important;
