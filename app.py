@@ -520,7 +520,7 @@ st.markdown(
    ============================================================ */
 [data-testid="stSidebar"] {
     background-color: #0d1b2a !important;
-    color: #ffffff !important;
+    color: #000000 !important;
 }
 
 [data-testid="stSidebar"] *, 
