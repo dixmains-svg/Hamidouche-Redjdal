@@ -513,7 +513,7 @@ st.markdown(
 }
 .contact-icon { font-size: 32px; margin-bottom: 8px; }
 .contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
-.contact-value { color: #000000; font-size: 15px; line-height: 1.6; font-weight: 600; }
+.contact-value { color: #334e68; font-size: 15px; line-height: 1.6; font-weight: 600; }
 
 /* ============================================================
    CORRECTIF SIDEBAR & NAVIGATION (CONTRASTE OPTIMAL)
