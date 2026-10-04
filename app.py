@@ -529,11 +529,11 @@ st.markdown(
 [data-testid="stSidebar"] label, 
 [data-testid="stSidebar"] p, 
 [data-testid="stSidebar"] span {
-    color: #000000 !important;
+    color: #ffffff !important;
 }
 
 [data-testid="stSidebar"] div[role="radiogroup"] label span {
-    color: #ffffff !important;
+    color: #4CC9F0 !important;
     font-size: 15px !important;
     font-weight: 600 !important;
 }
