@@ -33,15 +33,38 @@ adresse = "Tazmalt 06039, wilaya de Bejaia"
 st.markdown(
     """
     <style>
-    /* Couleur du texte à l'intérieur du champ selectbox dans la sidebar */
+    /* 1. Champ de sélection principal */
+    div[data-testid="stSidebar"] div[data-baseweb="select"] {
+        background-color: #ffffff !important;
+        border-radius: 8px !important;
+    }
+
+    /* 2. Texte sélectionné visible dans le champ */
     div[data-testid="stSidebar"] div[data-baseweb="select"] div {
-        color: #000000 !important;
+        color: #102a43 !important;
         font-weight: bold !important;
     }
 
-    /* Couleur du texte des options dans le menu déroulant qui s'ouvre */
+    /* 3. Icone de la flèche du menu déroulant */
+    div[data-testid="stSidebar"] div[data-baseweb="select"] svg {
+        fill: #102a43 !important;
+    }
+
+    /* 4. Fond et texte du menu déroulant (liste d'options) */
+    ul[data-baseweb="menu"] {
+        background-color: #ffffff !important;
+    }
+
     ul[data-baseweb="menu"] li {
-        color: #000000 !important;
+        color: #102a43 !important;
+        background-color: #ffffff !important;
+        font-weight: 600 !important;
+    }
+
+    /* 5. Survol (Hover) des options du menu déroulant */
+    ul[data-baseweb="menu"] li:hover {
+        background-color: #e4e7eb !important;
+        color: #102a43 !important;
     }
     </style>
     """,
@@ -49,7 +72,6 @@ st.markdown(
 )
 
 langue_choisie = st.sidebar.selectbox("🌐 Langue / Language", ["Français", "English"])
-
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
 # ============================================================
