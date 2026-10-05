@@ -27,68 +27,202 @@ email = "hamidoucheredjdal@yahoo.fr"
 adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
-# 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR (FOND BLANC / TEXTE NOIR)
+# 2. DESIGN CSS PROFESSIONNEL ET HAUT DE GAMME
 # ============================================================
 st.markdown(
     """
     <style>
-    /* 1. Titre du champ (label au-dessus) */
+    /* Import police Google */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Fond global de l'application (Gris Ardoise très clair) */
+    .stApp { background-color: #F8FAFC; }
+    .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
+
+    /* ============================================================
+       STYLE CORRIGÉ ET PROFESSIONNEL POUR LE SELECTBOX (LANGUE)
+       ============================================================ */
     div[data-testid="stSidebar"] label p {
-        color: #ffffff !important;
-        font-weight: bold !important;
-        font-size: 15px !important;
+        color: #F8FAFC !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
     }
 
-    /* 2. Boîte du champ sélectionné (Fond Blanc + Bordure Grise) */
+    /* Champ de sélection fermé (Fond blanc + texte noir net) */
     div[data-baseweb="select"] > div {
-        background-color: #ffffff !important;
-        border: 2px solid #cccccc !important;
+        background-color: #FFFFFF !important;
+        border: 1.5px solid #CBD5E1 !important;
         border-radius: 8px !important;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* 3. Écriture noire dans la boîte sélectionnée */
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
-        color: #000000 !important;
-        font-weight: bold !important;
-        -webkit-text-fill-color: #000000 !important;
+        color: #0F172A !important;
+        font-weight: 700 !important;
+        -webkit-text-fill-color: #0F172A !important;
     }
 
-    /* 4. Flèche du menu déroulant (Noire) */
+    /* Flèche du menu déroulant (Gris Foncé) */
     div[data-baseweb="select"] svg {
-        fill: #000000 !important;
+        fill: #0F172A !important;
     }
 
-    /* 5. Menu déroulant ouvert (Fond Blanc) */
+    /* Menu déroulant ouvert */
     ul[data-baseweb="menu"] {
-        background-color: #ffffff !important;
-        border: 2px solid #cccccc !important;
+        background-color: #FFFFFF !important;
+        border: 1.5px solid #CBD5E1 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
     }
 
-    /* 6. Écriture noire dans la liste des options */
+    /* Options du menu */
     ul[data-baseweb="menu"] li div,
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
-        color: #000000 !important;
-        background-color: #ffffff !important;
-        font-weight: bold !important;
-        -webkit-text-fill-color: #000000 !important;
+        color: #0F172A !important;
+        background-color: #FFFFFF !important;
+        font-weight: 600 !important;
+        -webkit-text-fill-color: #0F172A !important;
     }
 
-    /* 7. Passage de la souris (Survol / Hover) */
+    /* Effet survol professionnel (Bleu doux) */
     ul[data-baseweb="menu"] li:hover,
     ul[data-baseweb="menu"] li:hover * {
-        background-color: #e0e0e0 !important;
-        color: #000000 !important;
-        -webkit-text-fill-color: #000000 !important;
+        background-color: #EFF6FF !important;
+        color: #2563EB !important;
+        -webkit-text-fill-color: #2563EB !important;
     }
+
+    /* ============================================================
+       STYLES DES COMPOSANTS PRINCIPAUX (SIDEBAR & EN-TÊTE)
+       ============================================================ */
+    /* Sidebar sombre ultra-pro */
+    [data-testid="stSidebar"] {
+        background-color: #0F172A !important;
+        border-right: 1px solid #1E293B;
+    }
+
+    [data-testid="stSidebar"] *, 
+    [data-testid="stSidebar"] p, 
+    [data-testid="stSidebar"] span {
+        color: #E2E8F0 !important;
+    }
+
+    [data-testid="stSidebar"] div[role="radiogroup"] label span {
+        color: #38BDF8 !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+    }
+
+    /* Bouton Télécharger PDF */
+    [data-testid="stSidebar"] button {
+        background-color: #2563EB !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        font-weight: 700 !important;
+        border-radius: 8px !important;
+        padding: 10px 16px !important;
+        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3) !important;
+        transition: all 0.2s ease !important;
+    }
+
+    [data-testid="stSidebar"] button:hover {
+        background-color: #1D4ED8 !important;
+        transform: translateY(-1px);
+    }
+
+    /* En-tête CV élégant */
+    .cv-header {
+        background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        color: #FFFFFF;
+        padding: 35px 40px;
+        border-radius: 16px;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+        border: 1px solid #334155;
+    }
+    .cv-name { font-size: 38px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: #FFFFFF; }
+    .cv-title { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: #38BDF8; }
+    .cv-subtitle { font-size: 15px; line-height: 1.7; color: #94A3B8; }
+
+    /* Titres de section */
+    .section-title {
+        color: #0F172A;
+        font-size: 24px;
+        font-weight: 800;
+        margin-top: 30px;
+        margin-bottom: 18px;
+        padding-bottom: 8px;
+        border-bottom: 3px solid #2563EB;
+        display: inline-block;
+    }
+
+    /* Cartes */
+    .card { 
+        background-color: #FFFFFF; 
+        border-radius: 12px; 
+        padding: 22px; 
+        margin-bottom: 16px; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+        border: 1px solid #E2E8F0;
+    }
+    .card-title { color: #0F172A; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .card-text { color: #334155; font-size: 15px; line-height: 1.7; }
+
+    /* Cartes d'expérience */
+    .experience-card {
+        background-color: #FFFFFF; 
+        border-left: 5px solid #2563EB; 
+        border-radius: 10px;
+        padding: 22px; 
+        margin-bottom: 18px; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border-top: 1px solid #E2E8F0;
+        border-right: 1px solid #E2E8F0;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    .experience-position { color: #0F172A; font-size: 20px; font-weight: 800; }
+    .experience-company { color: #2563EB; font-size: 15px; font-weight: 700; margin-top: 4px; }
+    .experience-date { color: #64748B; font-size: 13px; margin-top: 4px; margin-bottom: 12px; font-weight: 600; }
+    .mission { color: #334155; line-height: 1.6; margin-top: 6px; font-size: 14px; }
+
+    /* Cartes de compétences & contact */
+    .skill-card { 
+        background-color: #FFFFFF; 
+        border-radius: 10px; 
+        padding: 16px; 
+        margin-bottom: 12px; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04); 
+        color: #0F172A; 
+        font-weight: 600;
+        border: 1px solid #E2E8F0;
+    }
+    .contact-card { 
+        background-color: #FFFFFF; 
+        border-radius: 12px; 
+        padding: 22px; 
+        text-align: center; 
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+        border: 1px solid #E2E8F0;
+    }
+    .contact-icon { font-size: 30px; margin-bottom: 6px; }
+    .contact-title { color: #0F172A; font-weight: 800; margin-bottom: 6px; }
+    .contact-value { color: #475569; font-size: 14px; font-weight: 600; }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Selection de la langue (Français, English, Español)
+# Selection de la langue
 langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma", ["Français", "English", "Español"])
 
 # ============================================================
@@ -562,19 +696,19 @@ def generer_pdf(filepath, data_langue):
     
     title_style = ParagraphStyle(
         'DocTitle', parent=styles['Heading1'],
-        fontSize=20, leading=24, textColor=colors.HexColor('#102a43'), spaceAfter=4
+        fontSize=20, leading=24, textColor=colors.HexColor('#0F172A'), spaceAfter=4
     )
     subtitle_style = ParagraphStyle(
         'DocSubTitle', parent=styles['Normal'],
-        fontSize=12, leading=16, textColor=colors.HexColor('#1f5f8b'), spaceAfter=12
+        fontSize=12, leading=16, textColor=colors.HexColor('#2563EB'), spaceAfter=12
     )
     section_heading = ParagraphStyle(
         'SectionHeading', parent=styles['Heading2'],
-        fontSize=13, leading=16, textColor=colors.HexColor('#102a43'), spaceBefore=10, spaceAfter=6
+        fontSize=13, leading=16, textColor=colors.HexColor('#0F172A'), spaceBefore=10, spaceAfter=6
     )
     body_style = ParagraphStyle(
         'BodyTextCustom', parent=styles['Normal'],
-        fontSize=9, leading=13, textColor=colors.HexColor('#334e68')
+        fontSize=9, leading=13, textColor=colors.HexColor('#334155')
     )
 
     story = []
@@ -582,7 +716,7 @@ def generer_pdf(filepath, data_langue):
     story.append(Paragraph(f"<b>{data_langue['fonction']}</b>", subtitle_style))
     story.append(Paragraph(f"📞 {telephone} &nbsp;|&nbsp; ✉️ {email} &nbsp;|&nbsp; 📍 {adresse}", body_style))
     story.append(Spacer(1, 10))
-    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#1f5f8b'), spaceAfter=12))
+    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#2563EB'), spaceAfter=12))
 
     story.append(Paragraph(data_langue['sections']['profil'].upper(), section_heading))
     story.append(Paragraph(data_langue['profil'], body_style))
@@ -616,165 +750,17 @@ def generer_pdf(filepath, data_langue):
 generer_pdf(PDF_PATH, t)
 
 # ============================================================
-# 5. STYLE CSS OPTIMISÉ POUR UNE LISIBILITÉ MAXIMALE
-# ============================================================
-
-st.markdown(
-    """
-<style>
-/* Fond global de l'application */
-.stApp { background-color: #f4f6f8; }
-.block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
-
-/* En-tête CV */
-.cv-header {
-    background: linear-gradient(135deg, #102a43, #1f5f8b);
-    color: #ffffff; padding: 40px 45px; border-radius: 22px; margin-bottom: 30px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12); min-height: 260px;
-}
-.cv-name { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; color: #ffffff; }
-.cv-title { font-size: 23px; font-weight: 600; margin-bottom: 18px; color: #d9e2ec; }
-.cv-subtitle { font-size: 16px; line-height: 1.8; color: #bcccdc; }
-
-/* Titres de section */
-.section-title {
-    color: #102a43; font-size: 27px; font-weight: 800; margin-top: 30px; margin-bottom: 20px;
-    padding-bottom: 10px; border-bottom: 3px solid #1f5f8b;
-}
-
-/* Cartes standards */
-.card { 
-    background-color: #ffffff; 
-    border-radius: 17px; 
-    padding: 25px; 
-    margin-bottom: 18px; 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
-    border: 1px solid #e4e7eb;
-}
-.card-title { color: #102a43; font-size: 19px; font-weight: 800; margin-bottom: 10px; }
-.card-text { color: #334e68; font-size: 16px; line-height: 1.8; }
-
-/* Cartes d'expériences professionnelles */
-.experience-card {
-    background-color: #ffffff; 
-    border-left: 6px solid #1f5f8b; 
-    border-radius: 12px;
-    padding: 25px; 
-    margin-bottom: 20px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border-top: 1px solid #f0f4f8;
-    border-right: 1px solid #f0f4f8;
-    border-bottom: 1px solid #f0f4f8;
-}
-.experience-position { color: #102a43; font-size: 21px; font-weight: 800; }
-.experience-company { color: #1f5f8b; font-size: 16px; font-weight: 700; margin-top: 6px; }
-.experience-date { color: #627d98; font-size: 14px; margin-top: 5px; margin-bottom: 15px; font-weight: 600; }
-.mission { color: #334e68; line-height: 1.7; margin-top: 6px; font-size: 15px; }
-
-/* Diplômes et Formations */
-.education-card { 
-    background-color: #ffffff; 
-    border-radius: 17px; 
-    padding: 22px; 
-    margin-bottom: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-    border: 1px solid #e4e7eb;
-}
-.year { 
-    display: inline-block; 
-    background-color: #102a43; 
-    color: #ffffff; 
-    padding: 6px 14px; 
-    border-radius: 20px; 
-    font-size: 13px; 
-    font-weight: 700; 
-    margin-bottom: 10px; 
-}
-.education-title { color: #102a43; font-size: 17px; font-weight: 800; }
-.education-school { color: #486581; font-size: 14px; margin-top: 7px; line-height: 1.6; }
-
-/* Compétences & Contact */
-.skill-card { 
-    background-color: #ffffff; 
-    border-radius: 14px; 
-    padding: 18px; 
-    margin-bottom: 12px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-    color: #102a43; 
-    font-weight: 600;
-    line-height: 1.6; 
-    border: 1px solid #e4e7eb;
-}
-.contact-card { 
-    background-color: #ffffff; 
-    border-radius: 17px; 
-    padding: 25px; 
-    text-align: center; 
-    min-height: 145px; 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
-    border: 1px solid #e4e7eb;
-}
-.contact-icon { font-size: 32px; margin-bottom: 8px; }
-.contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
-.contact-value { color: #334e68; font-size: 15px; line-height: 1.6; font-weight: 600; }
-
-/* Correctif Sidebar & Navigation */
-[data-testid="stSidebar"] {
-    background-color: #102a43 !important;
-    color: #ffffff !important;
-}
-
-[data-testid="stSidebar"] *, 
-[data-testid="stSidebar"] label, 
-[data-testid="stSidebar"] p, 
-[data-testid="stSidebar"] span {
-    color: #ffffff !important;
-}
-
-[data-testid="stSidebar"] div[role="radiogroup"] label span {
-    color: #4CC9F0 !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-}
-
-[data-testid="stSidebar"] button {
-    background-color: #102a43 !important;
-    color: #4CC9F0 !important;
-    border: 1px solid #ffffff !important;
-    font-weight: bold !important;
-    border-radius: 8px !important;
-    padding: 10px !important;
-    transition: all 0.3s ease !important;
-}
-
-[data-testid="stSidebar"] button:hover {
-    background-color: #2b7bb9 !important;
-    border-color: #64ffda !important;
-    color: #ffffff !important;
-}
-
-[data-testid="stSidebar"] .stMarkdown p {
-    color: #e0e1dd !important;
-    font-size: 15px !important;
-    line-height: 1.8 !important;
-}
-</style>
-""",
-    unsafe_allow_html=True,
-)
-
-# ============================================================
-# 6. EN-TÊTE DU CV
+# 5. EN-TÊTE DU CV
 # ============================================================
 
 col_photo, col_header = st.columns([1, 4])
 
 with col_photo:
-    st.markdown('<div style="background: linear-gradient(135deg, #102a43, #1f5f8b); padding: 25px; border-radius: 22px; height: 100%; text-align: center;">', unsafe_allow_html=True)
+    st.markdown('<div style="background: linear-gradient(135deg, #0F172A, #1E293B); padding: 20px; border-radius: 16px; height: 100%; text-align: center; border: 1px solid #334155;">', unsafe_allow_html=True)
     if PHOTO.exists():
         st.image(str(PHOTO), width=180)
     else:
-        st.markdown('<div style="font-size:100px; padding:30px;">👤</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-size:90px; padding:20px;">👤</div>', unsafe_allow_html=True)
         st.warning(t["labels"]["photo_missing"])
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -795,7 +781,7 @@ with col_header:
     )
 
 # ============================================================
-# 7. SIDEBAR ET NAVIGATION
+# 6. SIDEBAR ET NAVIGATION
 # ============================================================
 
 st.sidebar.markdown("---")
@@ -804,7 +790,7 @@ st.sidebar.markdown(
     <div style="text-align:center; padding:10px 0px;">
         <div style="font-size:35px;">👨‍💼</div>
         <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
-        <div style="font-size:12px; color:#9fb3c8;">CURRICULUM VITAE</div>
+        <div style="font-size:12px; color:#94A3B8;">CURRICULUM VITAE</div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -828,7 +814,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown(t["sidebar_domains"])
 
 # ============================================================
-# 8. CONTENU PRINCIPAL
+# 7. CONTENU PRINCIPAL
 # ============================================================
 
 if page in ["🏠 Accueil", "🏠 Home", "🏠 Inicio"]:
@@ -868,7 +854,7 @@ elif page in ["💼 Expériences", "💼 Experience", "💼 Experiencia"]:
                 <div class="experience-position">{exp['poste']}</div>
                 <div class="experience-company">🏢 {exp['entreprise']}</div>
                 <div class="experience-date">📅 {exp['periode']}</div>
-                <div style="font-weight:700; color:#102a43; margin-top:10px;">{t['labels']['missions']} :</div>
+                <div style="font-weight:700; color:#0F172A; margin-top:10px;">{t['labels']['missions']} :</div>
                 {missions_html}
             </div>
             """,
@@ -880,16 +866,16 @@ elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training", "🎓 
     for form in t["formations"]:
         st.markdown(
             f"""
-            <div class="education-card">
-                <span class="year">{form['annee']}</span>
-                <div class="education-title">{form['titre']}</div>
-                <div class="education-school">📍 {form['organisme']}</div>
+            <div class="card">
+                <span style="background-color:#0F172A; color:#FFFFFF; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700;">{form['annee']}</span>
+                <div class="card-title" style="margin-top:10px;">{form['titre']}</div>
+                <div style="color:#64748B; font-size:14px; font-weight:600;">📍 {form['organisme']}</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-elif page in ["🛠️ Compétences", "🛠️️ Skills", "🛠️ Habilidades"]:
+elif page in ["🛠️ Compétences", "🛠️ Skills", "🛠️ Habilidades"]:
     st.markdown(f"<div class='section-title'>{t['sections']['comp']}</div>", unsafe_allow_html=True)
     cols = st.columns(2)
     for idx, comp in enumerate(t["competences"]):
