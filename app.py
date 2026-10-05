@@ -34,7 +34,7 @@ st.markdown(
     <style>
     /* 1. Titre du champ (label au-dessus) */
     div[data-testid="stSidebar"] label p {
-        color: #ffffff !important; /* Texte de l'intitulé reste clair sur la sidebar */
+        color: #e0e0e0 !important; /* Texte de l'intitulé reste clair sur la sidebar */
         font-weight: bold !important;
         font-size: 15px !important;
     }
