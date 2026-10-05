@@ -34,14 +34,14 @@ st.markdown(
     <style>
     /* 1. Titre du champ (label au-dessus) */
     div[data-testid="stSidebar"] label p {
-        color: #e0e0e0 !important; /* Texte de l'intitulé reste clair sur la sidebar */
+        color: #ffffff !important; /* Texte de l'intitulé reste clair sur la sidebar */
         font-weight: bold !important;
         font-size: 15px !important;
     }
 
     /* 2. Boîte du champ sélectionné (Fond Blanc + Texte Noir) */
     div[data-baseweb="select"] > div {
-        background-color: #ffffff !important;
+        background-color: #e0e0e0 !important;
         border: 2px solid #cccccc !important;
         border-radius: 8px !important;
     }
