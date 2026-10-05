@@ -33,13 +33,13 @@ adresse = "Tazmalt 06039, wilaya de Bejaia"
 st.markdown(
     """
     <style>
-    /* 1. Couleur du texte à l'intérieur du champ selectbox dans la sidebar */
+    /* Couleur du texte à l'intérieur du champ selectbox dans la sidebar */
     div[data-testid="stSidebar"] div[data-baseweb="select"] div {
         color: #000000 !important;
         font-weight: bold !important;
     }
 
-    /* 2. Couleur du texte des options dans le menu déroulant qui s'ouvre */
+    /* Couleur du texte des options dans le menu déroulant qui s'ouvre */
     ul[data-baseweb="menu"] li {
         color: #000000 !important;
     }
@@ -47,6 +47,9 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+langue_choisie = st.sidebar.selectbox("🌐 Langue / Language", ["Français", "English"])
+
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
 # ============================================================
@@ -105,7 +108,7 @@ TEXTES = {
             ("📊", "Reporting", "Élaboration et suivi des reportings d'activité pour faciliter le pilotage."),
             ("🎯", "KPI", "Mise en place et suivi des indicateurs de performance liés à l'activité."),
             ("🤝", "Coordination", "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations."),
-            ("⚙️", "Gestion des ressources", "Préparation, affectation et utilisation optimale des ressources disponibles."),
+            ("⚙️️", "Gestion des ressources", "Préparation, affectation et utilisation optimale des ressources disponibles."),
         ],
         "experiences": [
             {
@@ -620,16 +623,17 @@ st.sidebar.markdown(
     unsafe_allow_html=True,
 )
 
-with open(PDF_PATH, "rb") as f:
-    pdf_bytes = f.read()
+if PDF_PATH.exists():
+    with open(PDF_PATH, "rb") as f:
+        pdf_bytes = f.read()
 
-st.sidebar.download_button(
-    label=t["download_btn"],
-    data=pdf_bytes,
-    file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
-    mime="application/pdf",
-    use_container_width=True,
-)
+    st.sidebar.download_button(
+        label=t["download_btn"],
+        data=pdf_bytes,
+        file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
+        mime="application/pdf",
+        use_container_width=True,
+    )
 
 st.sidebar.markdown("---")
 page = st.sidebar.radio(t["nav_title"], t["nav"])
@@ -686,104 +690,135 @@ elif page in ["👤 Profil", "👤 Profile"]:
     st.markdown(f"<div class='section-title'>{t['sections']['identite']}</div>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown(f"""
-        <div class="card">
-            <div class="card-title">{t['sections']['identite']}</div>
-            <p class="card-text"><strong>{t['labels']['nom']} :</strong> {nom}</p>
-            <p class="card-text"><strong>{t['labels']['nationalite']} :</strong> {t['nationalite']}</p>
-            <p class="card-text"><strong>{t['labels']['situation']} :</strong> {t['situation']}</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="card">
+                <p><b>{t['labels']['nom']} :</b> {nom}</p>
+                <p><b>{t['labels']['nationalite']} :</b> {t['nationalite']}</p>
+                <p><b>{t['labels']['situation']} :</b> {t['situation']}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with col2:
-        st.markdown(f"""
-        <div class="card">
-            <div class="card-title">{t['sections']['infos_pro']}</div>
-            <p class="card-text"><strong>{t['labels']['fonction']} :</strong> {t['fonction']}</p>
-            <p class="card-text"><strong>{t['labels']['service']} :</strong> {t['service_national']}</p>
-            <p class="card-text"><strong>{t['labels']['adresse']} :</strong> {adresse}</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="card">
+                <p><b>{t['labels']['fonction']} :</b> {t['fonction']}</p>
+                <p><b>{t['labels']['service']} :</b> {t['service_national']}</p>
+                <p><b>{t['labels']['adresse']} :</b> {adresse}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
 elif page in ["💼 Expériences", "💼 Experience"]:
     st.markdown(f"<div class='section-title'>{t['sections']['exp']}</div>", unsafe_allow_html=True)
     for exp in t["experiences"]:
         missions_html = "".join([f"<li class='mission'>{m}</li>" for m in exp["missions"]])
-        st.markdown(f"""
-        <div class="experience-card">
-            <div class="experience-position">{exp['poste']}</div>
-            <div class="experience-company">🏢 {exp['entreprise']}</div>
-            <div class="experience-date">📅 {exp['periode']}</div>
-            <strong style="color: #102a43;">{t['labels']['missions']} :</strong>
-            <ul style="margin-top: 8px; padding-left: 20px;">{missions_html}</ul>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="experience-card">
+                <div class="experience-position">{exp['poste']}</div>
+                <div class="experience-company">🏢 {exp['entreprise']}</div>
+                <div class="experience-date">📅 {exp['periode']}</div>
+                <div style="font-weight:bold; color:#102a43; margin-top:10px;">{t['labels']['missions']} :</div>
+                <ul>{missions_html}</ul>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
 elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training"]:
     st.markdown(f"<div class='section-title'>{t['sections']['form']}</div>", unsafe_allow_html=True)
     for form in t["formations"]:
-        st.markdown(f"""
-        <div class="education-card">
-            <span class="year">{form['annee']}</span>
-            <div class="education-title">{form['titre']}</div>
-            <div class="education-school">{form['organisme']}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="education-card">
+                <span class="year">{form['annee']}</span>
+                <div class="education-title">{form['titre']}</div>
+                <div class="education-school">🏢 {form['organisme']}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
 elif page in ["🛠️ Compétences", "🛠️ Skills"]:
     st.markdown(f"<div class='section-title'>{t['sections']['comp']}</div>", unsafe_allow_html=True)
-    for comp in t["competences"]:
-        st.markdown(f'<div class="skill-card">✔ {comp}</div>', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    for idx, comp in enumerate(t["competences"]):
+        col = col1 if idx % 2 == 0 else col2
+        with col:
+            st.markdown(
+                f'<div class="skill-card">✔️ {comp}</div>',
+                unsafe_allow_html=True,
+            )
 
 elif page in ["🌐 Langues", "🌐 Languages"]:
     st.markdown(f"<div class='section-title'>{t['sections']['langues']}</div>", unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    for index, (langue, niveau) in enumerate(t["langues"]):
-        col = col1 if index % 2 == 0 else col2
-        with col:
-            st.markdown(f"""
-            <div class="card">
-                <div class="card-title">🗣️ {langue}</div>
-                <div class="card-text">{niveau}</div>
-            </div>
-            """, unsafe_allow_html=True)
+    cols = st.columns(len(t["langues"]))
+    for idx, (langue, niveau) in enumerate(t["langues"]):
+        with cols[idx]:
+            st.markdown(
+                f"""
+                <div class="contact-card">
+                    <div class="contact-icon">🗣️</div>
+                    <div class="contact-title">{langue}</div>
+                    <div class="contact-value">{niveau}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
 elif page in ["⭐ Centres d'intérêt", "⭐ Interests"]:
     st.markdown(f"<div class='section-title'>{t['sections']['interets']}</div>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns(3)
-    for index, (icone, interet) in enumerate(t["interets"]):
-        col = col1 if index % 3 == 0 else (col2 if index % 3 == 1 else col3)
+    cols = st.columns(3)
+    for idx, (icone, interet) in enumerate(t["interets"]):
+        col = cols[idx % 3]
         with col:
-            st.markdown(f"""
-            <div class="card" style="text-align: center;">
-                <div style="font-size: 36px; margin-bottom: 10px;">{icone}</div>
-                <div class="card-title">{interet}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(
+                f"""
+                <div class="contact-card">
+                    <div class="contact-icon">{icone}</div>
+                    <div class="contact-title">{interet}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
-elif page in ["📞 Contact"]:
+elif page in ["📞 Contact", "📞 Contact"]:
     st.markdown(f"<div class='section-title'>{t['sections']['contact']}</div>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown(f"""
-        <div class="contact-card">
-            <div class="contact-icon">📞</div>
-            <div class="contact-title">{t['labels']['tel']}</div>
-            <div class="contact-value">{telephone}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-title">{t['labels']['tel']}</div>
+                <div class="contact-value">{telephone}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with col2:
-        st.markdown(f"""
-        <div class="contact-card">
-            <div class="contact-icon">✉️</div>
-            <div class="contact-title">{t['labels']['email']}</div>
-            <div class="contact-value">{email}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-title">{t['labels']['email']}</div>
+                <div class="contact-value">{email}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
     with col3:
-        st.markdown(f"""
-        <div class="contact-card">
-            <div class="contact-icon">📍</div>
-            <div class="contact-title">{t['labels']['adresse_title']}</div>
-            <div class="contact-value">{adresse}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <div class="contact-title">{t['labels']['adresse_title']}</div>
+                <div class="contact-value">{adresse}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
