@@ -88,7 +88,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Liste des langues avec l'ajout d'Español
+# Selection de la langue (Français, English, Español)
 langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma", ["Français", "English", "Español"])
 
 # ============================================================
@@ -144,4 +144,10 @@ TEXTES = {
             ("🚚", "Transport", "Organisation, suivi et supervision des opérations de transport."),
             ("📦", "Logistique", "Gestion des flux, des opérations logistiques et des ressources."),
             ("📅", "Planification", "Élaboration des programmes et planification des ressources humaines et matérielles."),
-            ("👥", "Supervision", "Suivi des équipes
+            ("👥", "Supervision", "Suivi des équipes et contrôle du bon déroulement des opérations."),
+            ("📈", "Optimisation", "Recherche de solutions permettant d'améliorer les coûts, les délais et l'utilisation des ressources."),
+            ("📊", "Reporting", "Élaboration et suivi des reportings d'activité pour faciliter le pilotage."),
+            ("🎯", "KPI", "Mise en place et suivi des indicateurs de performance liés à l'activité."),
+            ("🤝", "Coordination", "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations."),
+            ("⚙️", "Gestion des ressources", "Préparation, affectation et utilisation optimale des ressources disponibles."),
+        ],
