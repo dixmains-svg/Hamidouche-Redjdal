@@ -57,7 +57,7 @@ st.markdown(
 
     /* Champ de sélection fermé (Fond blanc + texte noir net) */
     div[data-baseweb="select"] > div {
-        background-color: #FFFFFF !important;
+        background-color: #000000 !important;
         border: 1.5px solid #CBD5E1 !important;
         border-radius: 8px !important;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
