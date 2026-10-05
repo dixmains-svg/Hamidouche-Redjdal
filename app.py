@@ -34,69 +34,61 @@ st.markdown(
     <style>
     /* 1. Titre du champ (label au-dessus) */
     div[data-testid="stSidebar"] label p {
-        color: #ffffff !important; /* Texte de l'intitulé (label) */
+        color: #ffffff !important; /* L'intitulé reste blanc dans la sidebar */
         font-weight: bold !important;
         font-size: 15px !important;
     }
 
-    /* 2. Boîte du champ sélectionné (Fond Blanc + Bordure Grise) */
+    /* 2. Boîte du champ sélectionné (Fond Blanc + Bordure Rouge) */
     div[data-baseweb="select"] > div {
         background-color: #ffffff !important;
-        border: 2px solid #cccccc !important;
+        border: 2px solid #d32f2f !important;
         border-radius: 8px !important;
     }
 
-    /* 3. Écriture noire dans la boîte sélectionnée */
+    /* 3. Écriture rouge dans la boîte sélectionnée */
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
-        color: #000000 !important;
+        color: #d32f2f !important;
         font-weight: bold !important;
-        -webkit-text-fill-color: #000000 !important; /* Force le noir net sans filtre gris */
+        -webkit-text-fill-color: #d32f2f !important; /* Force la couleur rouge sans transparence */
     }
 
-    /* 4. Flèche du menu déroulant (Noire) */
+    /* 4. Flèche du menu déroulant (Rouge) */
     div[data-baseweb="select"] svg {
-        fill: #000000 !important;
+        fill: #d32f2f !important;
     }
 
     /* 5. Menu déroulant ouvert (Fond Blanc) */
     ul[data-baseweb="menu"] {
         background-color: #ffffff !important;
-        border: 2px solid #cccccc !important;
+        border: 2px solid #d32f2f !important;
     }
 
-    /* 6. Écriture noire dans la liste des options */
+    /* 6. Écriture rouge dans la liste des options */
     ul[data-baseweb="menu"] li div,
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
-        color: #000000 !important;
+        color: #d32f2f !important;
         background-color: #ffffff !important;
         font-weight: bold !important;
-        -webkit-text-fill-color: #000000 !important;
+        -webkit-text-fill-color: #d32f2f !important;
     }
 
-    /* 7. Passage de la souris (Survol / Hover) */
+    /* 7. Effet au passage de la souris (Survol) */
     ul[data-baseweb="menu"] li:hover,
     ul[data-baseweb="menu"] li:hover * {
-        background-color: #e0e0e0 !important; /* Gris clair au survol */
-        color: #000000 !important;
-        -webkit-text-fill-color: #000000 !important;
+        background-color: #ffebee !important; /* Fond rouge très clair au survol */
+        color: #b71c1c !important; /* Rouge plus foncé au survol */
+        -webkit-text-fill-color: #b71c1c !important;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# 1. Sélection de la langue
 langue_choisie = st.sidebar.selectbox("🌐 Langue / Language", ["Français", "English"])
-
-# 2. Affichage de la langue sélectionnée dans la barre latérale
-st.sidebar.markdown(f"**Langue sélectionnée :** `{langue_choisie}`")
-
-# 3. Affichage dans la page principale
-st.title("Mon Application")
-st.success(f"La langue actuellement choisie est : **{langue_choisie}**")
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
 # ============================================================
