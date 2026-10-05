@@ -34,25 +34,25 @@ st.markdown(
     <style>
     /* 1. Titre du champ (label au-dessus) */
     div[data-testid="stSidebar"] label p {
-        color: #ffffff !important; /* Texte de l'intitulé reste clair sur la sidebar */
+        color: #ffffff !important; /* Texte de l'intitulé (label) */
         font-weight: bold !important;
         font-size: 15px !important;
     }
 
-    /* 2. Boîte du champ sélectionné (Fond Blanc + Texte Noir) */
+    /* 2. Boîte du champ sélectionné (Fond Blanc + Bordure Grise) */
     div[data-baseweb="select"] > div {
-        background-color: #ff0000 !important;
+        background-color: #ffffff !important;
         border: 2px solid #cccccc !important;
         border-radius: 8px !important;
     }
 
-    /* 3. Écriture de l'option choisie dans la boîte */
+    /* 3. Écriture noire dans la boîte sélectionnée */
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
         color: #000000 !important;
         font-weight: bold !important;
-        -webkit-text-fill-color: #000000 !important; /* Force le texte en noir foncé sans transparence */
+        -webkit-text-fill-color: #000000 !important; /* Force le noir net sans filtre gris */
     }
 
     /* 4. Flèche du menu déroulant (Noire) */
@@ -63,7 +63,7 @@ st.markdown(
     /* 5. Menu déroulant ouvert (Fond Blanc) */
     ul[data-baseweb="menu"] {
         background-color: #ffffff !important;
-        border: 1px solid #cccccc !important;
+        border: 2px solid #cccccc !important;
     }
 
     /* 6. Écriture noire dans la liste des options */
@@ -76,7 +76,7 @@ st.markdown(
         -webkit-text-fill-color: #000000 !important;
     }
 
-    /* 7. Effet au passage de la souris (Survol) */
+    /* 7. Passage de la souris (Survol / Hover) */
     ul[data-baseweb="menu"] li:hover,
     ul[data-baseweb="menu"] li:hover * {
         background-color: #e0e0e0 !important; /* Gris clair au survol */
@@ -88,7 +88,15 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# 1. Sélection de la langue
 langue_choisie = st.sidebar.selectbox("🌐 Langue / Language", ["Français", "English"])
+
+# 2. Affichage de la langue sélectionnée dans la barre latérale
+st.sidebar.markdown(f"**Langue sélectionnée :** `{langue_choisie}`")
+
+# 3. Affichage dans la page principale
+st.title("Mon Application")
+st.success(f"La langue actuellement choisie est : **{langue_choisie}**")
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
 # ============================================================
