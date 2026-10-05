@@ -27,68 +27,70 @@ email = "hamidoucheredjdal@yahoo.fr"
 adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
-# 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR
+# 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR (FOND BLANC / TEXTE NOIR)
 # ============================================================
 st.markdown(
     """
     <style>
     /* 1. Titre du champ (label au-dessus) */
     div[data-testid="stSidebar"] label p {
-        color: #ffffff !important; /* L'intitulé reste blanc dans la sidebar */
+        color: #ffffff !important;
         font-weight: bold !important;
         font-size: 15px !important;
     }
 
-    /* 2. Boîte du champ sélectionné (Fond Blanc + Bordure Rouge) */
+    /* 2. Boîte du champ sélectionné (Fond Blanc + Bordure Grise) */
     div[data-baseweb="select"] > div {
         background-color: #ffffff !important;
-        border: 2px solid #d32f2f !important;
+        border: 2px solid #cccccc !important;
         border-radius: 8px !important;
     }
 
-    /* 3. Écriture rouge dans la boîte sélectionnée */
+    /* 3. Écriture noire dans la boîte sélectionnée */
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
-        color: #d32f2f !important;
+        color: #000000 !important;
         font-weight: bold !important;
-        -webkit-text-fill-color: #d32f2f !important; /* Force la couleur rouge sans transparence */
+        -webkit-text-fill-color: #000000 !important;
     }
 
-    /* 4. Flèche du menu déroulant (Rouge) */
+    /* 4. Flèche du menu déroulant (Noire) */
     div[data-baseweb="select"] svg {
-        fill: #d32f2f !important;
+        fill: #000000 !important;
     }
 
     /* 5. Menu déroulant ouvert (Fond Blanc) */
     ul[data-baseweb="menu"] {
         background-color: #ffffff !important;
-        border: 2px solid #d32f2f !important;
+        border: 2px solid #cccccc !important;
     }
 
-    /* 6. Écriture rouge dans la liste des options */
+    /* 6. Écriture noire dans la liste des options */
     ul[data-baseweb="menu"] li div,
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
-        color: #d32f2f !important;
+        color: #000000 !important;
         background-color: #ffffff !important;
         font-weight: bold !important;
-        -webkit-text-fill-color: #d32f2f !important;
+        -webkit-text-fill-color: #000000 !important;
     }
 
-    /* 7. Effet au passage de la souris (Survol) */
+    /* 7. Passage de la souris (Survol / Hover) */
     ul[data-baseweb="menu"] li:hover,
     ul[data-baseweb="menu"] li:hover * {
-        background-color: #ffebee !important; /* Fond rouge très clair au survol */
-        color: #b71c1c !important; /* Rouge plus foncé au survol */
-        -webkit-text-fill-color: #b71c1c !important;
+        background-color: #e0e0e0 !important;
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-langue_choisie = st.sidebar.selectbox("🌐 Langue / Language", ["Français", "English"])
+# Ajout de Español dans la liste déroulante
+langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma", ["Français", "English", "Español"])
+
 # ============================================================
 # 3. BASE DE DONNÉES MULTILINGUE
 # ============================================================
@@ -147,7 +149,7 @@ TEXTES = {
             ("📊", "Reporting", "Élaboration et suivi des reportings d'activité pour faciliter le pilotage."),
             ("🎯", "KPI", "Mise en place et suivi des indicateurs de performance liés à l'activité."),
             ("🤝", "Coordination", "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations."),
-            ("⚙️️", "Gestion des ressources", "Préparation, affectation et utilisation optimale des ressources disponibles."),
+            ("⚙️", "Gestion des ressources", "Préparation, affectation et utilisation optimale des ressources disponibles."),
         ],
         "experiences": [
             {
@@ -391,473 +393,55 @@ TEXTES = {
             ("🎨", "Creative Arts"),
             ("💻", "IT & Technology"),
         ]
-    }
-}
+    },
+    "Español": {
+        "fonction": "Planificador y Supervisor Logístico",
+        "nationalite": "Argelina",
+        "situation": "Casado",
+        "service_national": "Eximido",
+        "nav_title": "NAVEGACIÓN",
+        "download_btn": "📄 Descargar CV (PDF)",
+        "nav": [
+            "🏠 Inicio", "👤 Perfil", "💼 Experiencia", "🎓 Educación y Formación",
+            "🛠️ Habilidades", "🌐 Idiomas", "⭐ Intereses", "📞 Contacto"
+        ],
+        "sidebar_domains": """
+**CAMPOS PROFESIONALES**
 
-t = TEXTES[langue_choisie]
-
-# ============================================================
-# 4. GÉNÉRATION DU PDF
-# ============================================================
-
-def generer_pdf(filepath, data_langue):
-    doc = SimpleDocTemplate(
-        str(filepath),
-        pagesize=letter,
-        rightMargin=40, leftMargin=40,
-        topMargin=40, bottomMargin=40
-    )
-    styles = getSampleStyleSheet()
-    
-    title_style = ParagraphStyle(
-        'DocTitle', parent=styles['Heading1'],
-        fontSize=20, leading=24, textColor=colors.HexColor('#102a43'), spaceAfter=4
-    )
-    subtitle_style = ParagraphStyle(
-        'DocSubTitle', parent=styles['Normal'],
-        fontSize=12, leading=16, textColor=colors.HexColor('#1f5f8b'), spaceAfter=12
-    )
-    section_heading = ParagraphStyle(
-        'SectionHeading', parent=styles['Heading2'],
-        fontSize=13, leading=16, textColor=colors.HexColor('#102a43'), spaceBefore=10, spaceAfter=6
-    )
-    body_style = ParagraphStyle(
-        'BodyTextCustom', parent=styles['Normal'],
-        fontSize=9, leading=13, textColor=colors.HexColor('#334e68')
-    )
-
-    story = []
-    story.append(Paragraph(f"<b>{nom}</b>", title_style))
-    story.append(Paragraph(f"<b>{data_langue['fonction']}</b>", subtitle_style))
-    story.append(Paragraph(f"📞 {telephone} &nbsp;|&nbsp; ✉️ {email} &nbsp;|&nbsp; 📍 {adresse}", body_style))
-    story.append(Spacer(1, 10))
-    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#1f5f8b'), spaceAfter=12))
-
-    story.append(Paragraph(data_langue['sections']['profil'].upper(), section_heading))
-    story.append(Paragraph(data_langue['profil'], body_style))
-    story.append(Spacer(1, 10))
-
-    story.append(Paragraph(data_langue['sections']['exp'].upper(), section_heading))
-    for exp in data_langue['experiences']:
-        story.append(Paragraph(f"<b>{exp['poste']}</b> — <i>{exp['entreprise']}</i> ({exp['periode']})", body_style))
-        for mission in exp['missions']:
-            story.append(Paragraph(f"• {mission}", body_style))
-        story.append(Spacer(1, 4))
-
-    story.append(Spacer(1, 6))
-
-    story.append(Paragraph(data_langue['sections']['form'].upper(), section_heading))
-    for form in data_langue['formations']:
-        story.append(Paragraph(f"<b>{form['annee']}</b> : {form['titre']} — <i>{form['organisme']}</i>", body_style))
-        story.append(Spacer(1, 2))
-
-    story.append(Spacer(1, 6))
-
-    story.append(Paragraph(data_langue['sections']['comp'].upper(), section_heading))
-    comp_text = ", ".join(data_langue['competences'])
-    story.append(Paragraph(f"<b>{data_langue['sections']['comp']} :</b> {comp_text}", body_style))
-    
-    langues_text = ", ".join([f"{l} ({n})" for l, n in data_langue['langues']])
-    story.append(Paragraph(f"<b>{data_langue['sections']['langues']} :</b> {langues_text}", body_style))
-
-    doc.build(story)
-
-generer_pdf(PDF_PATH, t)
-
-# ============================================================
-# 5. STYLE CSS OPTIMISÉ POUR UNE LISIBILITÉ MAXIMALE
-# ============================================================
-
-st.markdown(
-    """
-<style>
-/* Fond global de l'application */
-.stApp { background-color: #f4f6f8; }
-.block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
-
-/* En-tête CV */
-.cv-header {
-    background: linear-gradient(135deg, #102a43, #1f5f8b);
-    color: #ffffff; padding: 40px 45px; border-radius: 22px; margin-bottom: 30px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12); min-height: 260px;
-}
-.cv-name { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; color: #ffffff; }
-.cv-title { font-size: 23px; font-weight: 600; margin-bottom: 18px; color: #d9e2ec; }
-.cv-subtitle { font-size: 16px; line-height: 1.8; color: #bcccdc; }
-
-/* Titres de section */
-.section-title {
-    color: #102a43; font-size: 27px; font-weight: 800; margin-top: 30px; margin-bottom: 20px;
-    padding-bottom: 10px; border-bottom: 3px solid #1f5f8b;
-}
-
-/* Cartes standards */
-.card { 
-    background-color: #ffffff; 
-    border-radius: 17px; 
-    padding: 25px; 
-    margin-bottom: 18px; 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
-    border: 1px solid #e4e7eb;
-}
-.card-title { color: #102a43; font-size: 19px; font-weight: 800; margin-bottom: 10px; }
-.card-text { color: #334e68; font-size: 16px; line-height: 1.8; }
-
-/* Cartes d'expériences professionnelles */
-.experience-card {
-    background-color: #ffffff; 
-    border-left: 6px solid #1f5f8b; 
-    border-radius: 12px;
-    padding: 25px; 
-    margin-bottom: 20px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border-top: 1px solid #f0f4f8;
-    border-right: 1px solid #f0f4f8;
-    border-bottom: 1px solid #f0f4f8;
-}
-.experience-position { color: #102a43; font-size: 21px; font-weight: 800; }
-.experience-company { color: #1f5f8b; font-size: 16px; font-weight: 700; margin-top: 6px; }
-.experience-date { color: #627d98; font-size: 14px; margin-top: 5px; margin-bottom: 15px; font-weight: 600; }
-.mission { color: #334e68; line-height: 1.7; margin-top: 6px; font-size: 15px; }
-
-/* Diplômes et Formations */
-.education-card { 
-    background-color: #ffffff; 
-    border-radius: 17px; 
-    padding: 22px; 
-    margin-bottom: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-    border: 1px solid #e4e7eb;
-}
-.year { 
-    display: inline-block; 
-    background-color: #102a43; 
-    color: #ffffff; 
-    padding: 6px 14px; 
-    border-radius: 20px; 
-    font-size: 13px; 
-    font-weight: 700; 
-    margin-bottom: 10px; 
-}
-.education-title { color: #102a43; font-size: 17px; font-weight: 800; }
-.education-school { color: #486581; font-size: 14px; margin-top: 7px; line-height: 1.6; }
-
-/* Compétences & Contact */
-.skill-card { 
-    background-color: #ffffff; 
-    border-radius: 14px; 
-    padding: 18px; 
-    margin-bottom: 12px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-    color: #102a43; 
-    font-weight: 600;
-    line-height: 1.6; 
-    border: 1px solid #e4e7eb;
-}
-.contact-card { 
-    background-color: #ffffff; 
-    border-radius: 17px; 
-    padding: 25px; 
-    text-align: center; 
-    min-height: 145px; 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
-    border: 1px solid #e4e7eb;
-}
-.contact-icon { font-size: 32px; margin-bottom: 8px; }
-.contact-title { color: #102a43; font-weight: 800; margin-bottom: 8px; }
-.contact-value { color: #334e68; font-size: 15px; line-height: 1.6; font-weight: 600; }
-
-/* ============================================================
-   CORRECTIF SIDEBAR & NAVIGATION (CONTRASTE OPTIMAL)
-   ============================================================ */
-[data-testid="stSidebar"] {
-    background-color: #102a43 !important;
-    color: #ffffff !important;
-}
-
-[data-testid="stSidebar"] *, 
-[data-testid="stSidebar"] label, 
-[data-testid="stSidebar"] p, 
-[data-testid="stSidebar"] span {
-    color: #ffffff !important;
-}
-
-[data-testid="stSidebar"] div[role="radiogroup"] label span {
-    color: #4CC9F0 !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-}
-
-[data-testid="stSidebar"] button {
-    background-color: #102a43 !important;
-    color: #4CC9F0 !important;
-    border: 1px solid #ffffff !important;
-    font-weight: bold !important;
-    border-radius: 8px !important;
-    padding: 10px !important;
-    transition: all 0.3s ease !important;
-}
-
-[data-testid="stSidebar"] button:hover {
-    background-color: #2b7bb9 !important;
-    border-color: #64ffda !important;
-    color: #ffffff !important;
-}
-
-[data-testid="stSidebar"] .stMarkdown p {
-    color: #e0e1dd !important;
-    font-size: 15px !important;
-    line-height: 1.8 !important;
-}
-
-</style>
+🚚 Transporte  
+📦 Logística  
+📊 Planificación  
+👥 Supervisión  
+📈 Optimización  
 """,
-    unsafe_allow_html=True,
-)
-
-# ============================================================
-# 6. EN-TÊTE DU CV
-# ============================================================
-
-col_photo, col_header = st.columns([1, 4])
-
-with col_photo:
-    st.markdown('<div style="background: linear-gradient(135deg, #102a43, #1f5f8b); padding: 25px; border-radius: 22px; height: 100%; text-align: center;">', unsafe_allow_html=True)
-    if PHOTO.exists():
-        st.image(str(PHOTO), width=180)
-    else:
-        st.markdown('<div style="font-size:100px; padding:30px;">👤</div>', unsafe_allow_html=True)
-        st.warning(t["labels"]["photo_missing"])
-    st.markdown("</div>", unsafe_allow_html=True)
-
-with col_header:
-    st.markdown(
-        f"""
-        <div class="cv-header">
-            <div class="cv-name">{nom}</div>
-            <div class="cv-title">👨‍💼 {t['fonction']}</div>
-            <div class="cv-subtitle">
-                {t['labels']['degree_subtitle']}
-                <br><br>
-                {t['labels']['sub_keywords']}
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-# ============================================================
-# 7. SIDEBAR ET NAVIGATION
-# ============================================================
-
-st.sidebar.markdown("---")
-st.sidebar.markdown(
-    f"""
-    <div style="text-align:center; padding:10px 0px;">
-        <div style="font-size:35px;">👨‍💼</div>
-        <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
-        <div style="font-size:12px; color:#9fb3c8;">CURRICULUM VITAE</div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-if PDF_PATH.exists():
-    with open(PDF_PATH, "rb") as f:
-        pdf_bytes = f.read()
-
-    st.sidebar.download_button(
-        label=t["download_btn"],
-        data=pdf_bytes,
-        file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
-        mime="application/pdf",
-        use_container_width=True,
-    )
-
-st.sidebar.markdown("---")
-page = st.sidebar.radio(t["nav_title"], t["nav"])
-st.sidebar.markdown("---")
-st.sidebar.markdown(t["sidebar_domains"])
-
-# ============================================================
-# 8. CONTENU PRINCIPAL
-# ============================================================
-
-if page in ["🏠 Accueil", "🏠 Home"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['profil']}</div>", unsafe_allow_html=True)
-    st.markdown(f'<div class="card"><p class="card-text">{t["profil"]}</p></div>', unsafe_allow_html=True)
-
-    col1, col2, col3, col4 = st.columns(4)
-    experience_value = "09 Ans" if langue_choisie == "Français" else "09 Yrs"
-    with col1: st.metric(t["labels"]["stat_exp"], experience_value)
-    with col2: st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
-    with col3: st.metric(t["labels"]["stat_form"], len(t["formations"]))
-    with col4: st.metric(t["labels"]["stat_langues"], len(t["langues"]))
-
-    st.markdown(f"<div class='section-title'>{t['sections']['expertise']}</div>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns(3)
-    for index, (icone, titre, definition) in enumerate(t["domaines"]):
-        colonne = col1 if index % 3 == 0 else (col2 if index % 3 == 1 else col3)
-        with colonne:
-            st.markdown(
-                f"""
-                <div class="card" style="min-height: 190px; margin-bottom: 20px;">
-                    <div style="font-size: 34px; margin-bottom: 10px;">{icone}</div>
-                    <div class="card-title">{titre}</div>
-                    <div style="color:#334E68; font-size:14px; line-height:1.7; margin-top:10px;">{definition}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-    st.markdown(f"<div class='section-title'>{t['sections']['actuel']}</div>", unsafe_allow_html=True)
-    current = t["experiences"][0]
-    st.markdown(
-        f"""
-        <div class="experience-card">
-            <div class="experience-position">{current["poste"]}</div>
-            <div class="experience-company">🏢 {current["entreprise"]}</div>
-            <div class="experience-date">📅 {current["periode"]}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-elif page in ["👤 Profil", "👤 Profile"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['profil']}</div>", unsafe_allow_html=True)
-    st.markdown(f'<div class="card"><p class="card-text">{t["profil"]}</p></div>', unsafe_allow_html=True)
-    st.markdown(f"<div class='section-title'>{t['sections']['identite']}</div>", unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown(
-            f"""
-            <div class="card">
-                <p><b>{t['labels']['nom']} :</b> {nom}</p>
-                <p><b>{t['labels']['nationalite']} :</b> {t['nationalite']}</p>
-                <p><b>{t['labels']['situation']} :</b> {t['situation']}</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with col2:
-        st.markdown(
-            f"""
-            <div class="card">
-                <p><b>{t['labels']['fonction']} :</b> {t['fonction']}</p>
-                <p><b>{t['labels']['service']} :</b> {t['service_national']}</p>
-                <p><b>{t['labels']['adresse']} :</b> {adresse}</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-elif page in ["💼 Expériences", "💼 Experience"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['exp']}</div>", unsafe_allow_html=True)
-    for exp in t["experiences"]:
-        missions_html = "".join([f"<li class='mission'>{m}</li>" for m in exp["missions"]])
-        st.markdown(
-            f"""
-            <div class="experience-card">
-                <div class="experience-position">{exp['poste']}</div>
-                <div class="experience-company">🏢 {exp['entreprise']}</div>
-                <div class="experience-date">📅 {exp['periode']}</div>
-                <div style="font-weight:bold; color:#102a43; margin-top:10px;">{t['labels']['missions']} :</div>
-                <ul>{missions_html}</ul>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['form']}</div>", unsafe_allow_html=True)
-    for form in t["formations"]:
-        st.markdown(
-            f"""
-            <div class="education-card">
-                <span class="year">{form['annee']}</span>
-                <div class="education-title">{form['titre']}</div>
-                <div class="education-school">🏢 {form['organisme']}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-elif page in ["🛠️ Compétences", "🛠️ Skills"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['comp']}</div>", unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    for idx, comp in enumerate(t["competences"]):
-        col = col1 if idx % 2 == 0 else col2
-        with col:
-            st.markdown(
-                f'<div class="skill-card">✔️ {comp}</div>',
-                unsafe_allow_html=True,
-            )
-
-elif page in ["🌐 Langues", "🌐 Languages"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['langues']}</div>", unsafe_allow_html=True)
-    cols = st.columns(len(t["langues"]))
-    for idx, (langue, niveau) in enumerate(t["langues"]):
-        with cols[idx]:
-            st.markdown(
-                f"""
-                <div class="contact-card">
-                    <div class="contact-icon">🗣️</div>
-                    <div class="contact-title">{langue}</div>
-                    <div class="contact-value">{niveau}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-elif page in ["⭐ Centres d'intérêt", "⭐ Interests"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['interets']}</div>", unsafe_allow_html=True)
-    cols = st.columns(3)
-    for idx, (icone, interet) in enumerate(t["interets"]):
-        col = cols[idx % 3]
-        with col:
-            st.markdown(
-                f"""
-                <div class="contact-card">
-                    <div class="contact-icon">{icone}</div>
-                    <div class="contact-title">{interet}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-elif page in ["📞 Contact", "📞 Contact"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['contact']}</div>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown(
-            f"""
-            <div class="contact-card">
-                <div class="contact-icon">📞</div>
-                <div class="contact-title">{t['labels']['tel']}</div>
-                <div class="contact-value">{telephone}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with col2:
-        st.markdown(
-            f"""
-            <div class="contact-card">
-                <div class="contact-icon">✉️</div>
-                <div class="contact-title">{t['labels']['email']}</div>
-                <div class="contact-value">{email}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    with col3:
-        st.markdown(
-            f"""
-            <div class="contact-card">
-                <div class="contact-icon">📍</div>
-                <div class="contact-title">{t['labels']['adresse_title']}</div>
-                <div class="contact-value">{adresse}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        "profil": (
+            "Dinámico, serio y con excelentes habilidades interpersonales, "
+            "con 9 años de experiencia en el sector de la logística. "
+            "Muy hábil con las herramientas informáticas, deseo aportar "
+            "mis competencias y motivación al servicio de una empresa "
+            "y asumir nuevos retos profesionales."
+        ),
+        "sections": {
+            "profil": "Perfil Profesional", "expertise": "Áreas de Experiencia",
+            "actuel": "Puesto Actual", "identite": "👤 Identidad",
+            "infos_pro": "📋 Información Profesional", "exp": "Experiencia Laboral",
+            "form": "Educación y Formación", "comp": "Habilidades Profesionales",
+            "langues": "Idiomas", "interets": "Intereses", "contact": "Contacto"
+        },
+        "labels": {
+            "nom": "Nombre", "nationalite": "Nacionalidad", "situation": "Estado Civil",
+            "fonction": "Puesto", "adresse": "Dirección", "service": "Servicio Militar",
+            "stat_exp": "Experiencia", "stat_postes": "Puestos", "stat_form": "Formación",
+            "stat_langues": "Idiomas", "missions": "Principales Responsabilidades", "tel": "Teléfono",
+            "email": "Correo electrónico", "adresse_title": "Dirección",
+            "degree_subtitle": "Máster 2 en Investigación Operativa",
+            "sub_keywords": "Logística • Transporte • Planificación • Supervisión • Optimización",
+            "photo_missing": "Foto no encontrada"
+        },
+        "domaines": [
+            ("🚚", "Transporte", "Organización, seguimiento y supervisión de operaciones de transporte."),
+            ("📦", "Logística", "Gestión de flujos, operaciones logísticas y recursos."),
+            ("📅", "Planificación", "Programación de operaciones y planificación de recursos humanos y materiales."),
+            ("👥", "Supervisión", "Gestión de equipos y control del desarrollo de las operaciones."),
+            ("📈", "Optimización", "Búsqueda de soluciones para optimizar costes, plazos y recursos."),
+            ("📊", "Reportes", "El
