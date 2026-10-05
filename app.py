@@ -27,16 +27,14 @@ email = "hamidoucheredjdal@yahoo.fr"
 adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
-# 2. DESIGN CSS PROFESSIONNEL ET HAUT DE GAMME
-# ============================================================
-# ============================================================
 # 2. DESIGN CSS : CHAMP SÉLECTIONNÉ EN NOIR FONCÉ ET ÉCRITURE GRASSE
 # ============================================================
+
 st.markdown(
     """
     <style>
     /* Import police Google */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
@@ -215,10 +213,14 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-  
+# ============================================================
+# 3. SÉLECTION DE LA LANGUE (DÉPLACÉE AU DÉBUT)
+# ============================================================
+
+langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma", ["Français", "English", "Español"])
 
 # ============================================================
-# 3. BASE DE DONNÉES MULTILINGUE
+# 4. BASE DE DONNÉES MULTILINGUE
 # ============================================================
 
 TEXTES = {
@@ -674,7 +676,7 @@ TEXTES = {
 t = TEXTES[langue_choisie]
 
 # ============================================================
-# 4. GÉNÉRATION DU PDF
+# 5. GÉNÉRATION DU PDF
 # ============================================================
 
 def generer_pdf(filepath, data_langue):
@@ -742,7 +744,7 @@ def generer_pdf(filepath, data_langue):
 generer_pdf(PDF_PATH, t)
 
 # ============================================================
-# 5. EN-TÊTE DU CV
+# 6. EN-TÊTE DU CV
 # ============================================================
 
 col_photo, col_header = st.columns([1, 4])
@@ -773,7 +775,7 @@ with col_header:
     )
 
 # ============================================================
-# 6. SIDEBAR ET NAVIGATION
+# 7. SIDEBAR ET NAVIGATION
 # ============================================================
 
 st.sidebar.markdown("---")
@@ -806,7 +808,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown(t["sidebar_domains"])
 
 # ============================================================
-# 7. CONTENU PRINCIPAL
+# 8. CONTENU PRINCIPAL
 # ============================================================
 
 if page in ["🏠 Accueil", "🏠 Home", "🏠 Inicio"]:
@@ -867,7 +869,7 @@ elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training", "🎓 
             unsafe_allow_html=True,
         )
 
-elif page in ["🛠️ Compétences", "🛠️ Skills", "🛠️ Habilidades"]:
+elif page in ["🛠️ Compétences", "🛠 Skills", "🛠️ Habilidades"]:
     st.markdown(f"<div class='section-title'>{t['sections']['comp']}</div>", unsafe_allow_html=True)
     cols = st.columns(2)
     for idx, comp in enumerate(t["competences"]):
