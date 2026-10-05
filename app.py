@@ -41,7 +41,7 @@ st.markdown(
 
     /* 2. Boîte du champ sélectionné (Fond Blanc + Texte Noir) */
     div[data-baseweb="select"] > div {
-        background-color: #ffffff !important;
+        background-color: #ff0000 !important;
         border: 2px solid #cccccc !important;
         border-radius: 8px !important;
     }
@@ -50,7 +50,7 @@ st.markdown(
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
-        color: #FF0000 !important;
+        color: #000000 !important;
         font-weight: bold !important;
         -webkit-text-fill-color: #000000 !important; /* Force le texte en noir foncé sans transparence */
     }
