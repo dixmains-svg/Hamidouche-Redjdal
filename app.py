@@ -29,6 +29,9 @@ adresse = "Tazmalt 06039, wilaya de Bejaia"
 # ============================================================
 # 2. DESIGN CSS PROFESSIONNEL ET HAUT DE GAMME
 # ============================================================
+# ============================================================
+# 2. DESIGN CSS : CHAMP SÉLECTIONNÉ EN NOIR FONCÉ ET ÉCRITURE GRASSE
+# ============================================================
 st.markdown(
     """
     <style>
@@ -39,68 +42,178 @@ st.markdown(
         font-family: 'Inter', sans-serif;
     }
 
-    /* Fond global de l'application (Gris Ardoise très clair) */
+    /* Fond global de l'application */
     .stApp { background-color: #F8FAFC; }
     .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
 
-    /* ============================================================
-       STYLE CORRIGÉ ET PROFESSIONNEL POUR LE SELECTBOX (LANGUE)
-       ============================================================ */
+    /* Titre du champ (label au-dessus) */
     div[data-testid="stSidebar"] label p {
         color: #F8FAFC !important;
-        font-weight: 700 !important;
+        font-weight: 800 !important;
         font-size: 14px !important;
         letter-spacing: 0.5px;
         text-transform: uppercase;
         margin-bottom: 8px;
     }
 
-    /* Champ de sélection fermé (Fond blanc + texte noir net) */
+    /* 1. CHAMP DE SÉLECTION FERMÉ (Fond Noir + Écriture Blanche Grasse) */
     div[data-baseweb="select"] > div {
         background-color: #000000 !important;
-        border: 1.5px solid #CBD5E1 !important;
+        border: 2px solid #475569 !important;
         border-radius: 8px !important;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
     }
 
+    /* Force le texte sélectionné en BLANC PUR et TRÈS GRAS */
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
-        color: #0F172A !important;
-        font-weight: 700 !important;
-        -webkit-text-fill-color: #0F172A !important;
+        color: #FFFFFF !important;
+        font-weight: 900 !important;
+        font-size: 16px !important;
+        -webkit-text-fill-color: #FFFFFF !important;
     }
 
-    /* Flèche du menu déroulant (Gris Foncé) */
+    /* Flèche du menu déroulant (Blanc pur) */
     div[data-baseweb="select"] svg {
-        fill: #0F172A !important;
+        fill: #FFFFFF !important;
     }
 
-    /* Menu déroulant ouvert */
+    /* 2. MENU DÉROULANT OUVERT (Fond Blanc + Écriture Noire Grasse) */
     ul[data-baseweb="menu"] {
         background-color: #FFFFFF !important;
-        border: 1.5px solid #CBD5E1 !important;
+        border: 2px solid #CBD5E1 !important;
         border-radius: 8px !important;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15) !important;
     }
 
-    /* Options du menu */
+    /* Options dans la liste déroulante */
     ul[data-baseweb="menu"] li div,
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
-        color: #0F172A !important;
+        color: #000000 !important;
         background-color: #FFFFFF !important;
-        font-weight: 600 !important;
-        -webkit-text-fill-color: #0F172A !important;
+        font-weight: 800 !important;
+        -webkit-text-fill-color: #000000 !important;
     }
 
-    /* Effet survol professionnel (Bleu doux) */
+    /* Effet au survol de la souris dans la liste (Gris clair) */
     ul[data-baseweb="menu"] li:hover,
     ul[data-baseweb="menu"] li:hover * {
-        background-color: #EFF6FF !important;
+        background-color: #F1F5F9 !important;
         color: #2563EB !important;
         -webkit-text-fill-color: #2563EB !important;
     }
+
+    /* Styles généraux de la Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #0F172A !important;
+        border-right: 1px solid #1E293B;
+    }
+
+    [data-testid="stSidebar"] *, 
+    [data-testid="stSidebar"] p, 
+    [data-testid="stSidebar"] span {
+        color: #E2E8F0 !important;
+    }
+
+    [data-testid="stSidebar"] div[role="radiogroup"] label span {
+        color: #38BDF8 !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+    }
+
+    /* Bouton Télécharger PDF */
+    [data-testid="stSidebar"] button {
+        background-color: #2563EB !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        font-weight: 700 !important;
+        border-radius: 8px !important;
+        padding: 10px 16px !important;
+    }
+
+    /* Style En-tête CV */
+    .cv-header {
+        background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        color: #FFFFFF;
+        padding: 35px 40px;
+        border-radius: 16px;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+        border: 1px solid #334155;
+    }
+    .cv-name { font-size: 38px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: #FFFFFF; }
+    .cv-title { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: #38BDF8; }
+    .cv-subtitle { font-size: 15px; line-height: 1.7; color: #94A3B8; }
+
+    /* Titres de section */
+    .section-title {
+        color: #0F172A;
+        font-size: 24px;
+        font-weight: 800;
+        margin-top: 30px;
+        margin-bottom: 18px;
+        padding-bottom: 8px;
+        border-bottom: 3px solid #2563EB;
+        display: inline-block;
+    }
+
+    /* Cartes principales */
+    .card { 
+        background-color: #FFFFFF; 
+        border-radius: 12px; 
+        padding: 22px; 
+        margin-bottom: 16px; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+        border: 1px solid #E2E8F0;
+    }
+    .card-title { color: #0F172A; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .card-text { color: #334155; font-size: 15px; line-height: 1.7; }
+
+    /* Cartes d'expérience */
+    .experience-card {
+        background-color: #FFFFFF; 
+        border-left: 5px solid #2563EB; 
+        border-radius: 10px;
+        padding: 22px; 
+        margin-bottom: 18px; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border-top: 1px solid #E2E8F0;
+        border-right: 1px solid #E2E8F0;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    .experience-position { color: #0F172A; font-size: 20px; font-weight: 800; }
+    .experience-company { color: #2563EB; font-size: 15px; font-weight: 700; margin-top: 4px; }
+    .experience-date { color: #64748B; font-size: 13px; margin-top: 4px; margin-bottom: 12px; font-weight: 600; }
+    .mission { color: #334155; line-height: 1.6; margin-top: 6px; font-size: 14px; }
+
+    /* Cartes compétences & contact */
+    .skill-card { 
+        background-color: #FFFFFF; 
+        border-radius: 10px; 
+        padding: 16px; 
+        margin-bottom: 12px; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04); 
+        color: #0F172A; 
+        font-weight: 600;
+        border: 1px solid #E2E8F0;
+    }
+    .contact-card { 
+        background-color: #FFFFFF; 
+        border-radius: 12px; 
+        padding: 22px; 
+        text-align: center; 
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+        border: 1px solid #E2E8F0;
+    }
+    .contact-icon { font-size: 30px; margin-bottom: 6px; }
+    .contact-title { color: #0F172A; font-weight: 800; margin-bottom: 6px; }
+    .contact-value { color: #475569; font-size: 14px; font-weight: 600; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
     /* ============================================================
        STYLES DES COMPOSANTS PRINCIPAUX (SIDEBAR & EN-TÊTE)
