@@ -50,7 +50,7 @@ st.markdown(
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
-        color: #000000 !important;
+        color: #FF0000 !important;
         font-weight: bold !important;
         -webkit-text-fill-color: #000000 !important; /* Force le texte en noir foncé sans transparence */
     }
@@ -71,7 +71,7 @@ st.markdown(
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
         color: #000000 !important;
-        background-color: #e0e0e0 !important;
+        background-color: #ffffff !important;
         font-weight: bold !important;
         -webkit-text-fill-color: #000000 !important;
     }
