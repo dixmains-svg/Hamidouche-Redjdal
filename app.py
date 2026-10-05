@@ -29,42 +29,59 @@ adresse = "Tazmalt 06039, wilaya de Bejaia"
 # ============================================================
 # 2. SÉLECTION DE LA LANGUE DANS LA SIDEBAR
 # ============================================================
-
 st.markdown(
     """
     <style>
-    /* 1. Champ de sélection principal */
-    div[data-testid="stSidebar"] div[data-baseweb="select"] {
+    /* 1. Titre du champ (label au-dessus) */
+    div[data-testid="stSidebar"] label p {
+        color: #ffffff !important; /* Texte de l'intitulé reste clair sur la sidebar */
+        font-weight: bold !important;
+        font-size: 15px !important;
+    }
+
+    /* 2. Boîte du champ sélectionné (Fond Blanc + Texte Noir) */
+    div[data-baseweb="select"] > div {
         background-color: #ffffff !important;
+        border: 2px solid #cccccc !important;
         border-radius: 8px !important;
     }
 
-    /* 2. Texte sélectionné visible dans le champ */
-    div[data-testid="stSidebar"] div[data-baseweb="select"] div {
-        color: #102a43 !important;
+    /* 3. Écriture de l'option choisie dans la boîte */
+    div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
+    div[data-baseweb="select"] span,
+    div[data-baseweb="select"] div {
+        color: #000000 !important;
         font-weight: bold !important;
+        -webkit-text-fill-color: #000000 !important; /* Force le texte en noir foncé sans transparence */
     }
 
-    /* 3. Icone de la flèche du menu déroulant */
-    div[data-testid="stSidebar"] div[data-baseweb="select"] svg {
-        fill: #102a43 !important;
+    /* 4. Flèche du menu déroulant (Noire) */
+    div[data-baseweb="select"] svg {
+        fill: #000000 !important;
     }
 
-    /* 4. Fond et texte du menu déroulant (liste d'options) */
+    /* 5. Menu déroulant ouvert (Fond Blanc) */
     ul[data-baseweb="menu"] {
         background-color: #ffffff !important;
+        border: 1px solid #cccccc !important;
     }
 
+    /* 6. Écriture noire dans la liste des options */
+    ul[data-baseweb="menu"] li div,
+    ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
-        color: #102a43 !important;
+        color: #000000 !important;
         background-color: #ffffff !important;
-        font-weight: 600 !important;
+        font-weight: bold !important;
+        -webkit-text-fill-color: #000000 !important;
     }
 
-    /* 5. Survol (Hover) des options du menu déroulant */
-    ul[data-baseweb="menu"] li:hover {
-        background-color: #e4e7eb !important;
-        color: #102a43 !important;
+    /* 7. Effet au passage de la souris (Survol) */
+    ul[data-baseweb="menu"] li:hover,
+    ul[data-baseweb="menu"] li:hover * {
+        background-color: #e0e0e0 !important; /* Gris clair au survol */
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
     }
     </style>
     """,
