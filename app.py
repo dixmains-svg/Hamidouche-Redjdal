@@ -41,7 +41,7 @@ st.markdown(
 
     /* 2. Boîte du champ sélectionné (Fond Blanc + Texte Noir) */
     div[data-baseweb="select"] > div {
-        background-color: #e0e0e0 !important;
+        background-color: #ffffff !important;
         border: 2px solid #cccccc !important;
         border-radius: 8px !important;
     }
@@ -71,7 +71,7 @@ st.markdown(
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
         color: #000000 !important;
-        background-color: #ffffff !important;
+        background-color: #e0e0e0 !important;
         font-weight: bold !important;
         -webkit-text-fill-color: #000000 !important;
     }
