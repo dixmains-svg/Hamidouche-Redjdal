@@ -1,3 +1,222 @@
+import streamlit as st
+from pathlib import Path
+
+# Bibliothèques pour la génération du PDF
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, HRFlowable
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
+
+# ============================================================
+# 1. CONFIGURATION DE LA PAGE
+# ============================================================
+
+st.set_page_config(
+    page_title="HAMIDOUCHE REDJDAL | CV",
+    page_icon="👨‍💼",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+PHOTO = Path("photo.jpg")
+PDF_PATH = Path("cv_hamidouche_redjdal.pdf")
+
+nom = "HAMIDOUCHE REDJDAL"
+telephone = "00213775 73 79 30"
+email = "hamidoucheredjdal@yahoo.fr"
+adresse = "Tazmalt 06039, wilaya de Bejaia"
+
+# ============================================================
+# 2. DESIGN CSS
+# ============================================================
+
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .stApp { background-color: #F8FAFC; }
+    .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
+
+    div[data-testid="stSidebar"] label p {
+        color: #F8FAFC !important;
+        font-weight: 800 !important;
+        font-size: 14px !important;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    div[data-baseweb="select"] > div {
+        background-color: #000000 !important;
+        border: 2px solid #475569 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
+    div[data-baseweb="select"] span,
+    div[data-baseweb="select"] div {
+        color: #FFFFFF !important;
+        font-weight: 900 !important;
+        font-size: 16px !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+    }
+
+    div[data-baseweb="select"] svg { fill: #FFFFFF !important; }
+
+    ul[data-baseweb="menu"] {
+        background-color: #FFFFFF !important;
+        border: 2px solid #CBD5E1 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    ul[data-baseweb="menu"] li div,
+    ul[data-baseweb="menu"] li span,
+    ul[data-baseweb="menu"] li {
+        color: #000000 !important;
+        background-color: #FFFFFF !important;
+        font-weight: 800 !important;
+        -webkit-text-fill-color: #000000 !important;
+    }
+
+    ul[data-baseweb="menu"] li:hover,
+    ul[data-baseweb="menu"] li:hover * {
+        background-color: #F1F5F9 !important;
+        color: #2563EB !important;
+        -webkit-text-fill-color: #2563EB !important;
+    }
+
+    [data-testid="stSidebar"] {
+        background-color: #0F172A !important;
+        border-right: 1px solid #1E293B;
+    }
+
+    [data-testid="stSidebar"] *, 
+    [data-testid="stSidebar"] p, 
+    [data-testid="stSidebar"] span {
+        color: #E2E8F0 !important;
+    }
+
+    [data-testid="stSidebar"] div[role="radiogroup"] label span {
+        color: #38BDF8 !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+    }
+
+    [data-testid="stSidebar"] button {
+        background-color: #2563EB !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        font-weight: 700 !important;
+        border-radius: 8px !important;
+        padding: 10px 16px !important;
+    }
+
+    .cv-header {
+        background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        color: #FFFFFF;
+        padding: 30px 35px;
+        border-radius: 16px;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+        border: 1px solid #334155;
+    }
+    .cv-name { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: #FFFFFF; }
+    .cv-title { font-size: 20px; font-weight: 600; margin-bottom: 14px; color: #38BDF8; }
+    .cv-subtitle { font-size: 14px; line-height: 1.7; color: #94A3B8; }
+
+    .section-title {
+        color: #0F172A;
+        font-size: 24px;
+        font-weight: 800;
+        margin-top: 30px;
+        margin-bottom: 18px;
+        padding-bottom: 8px;
+        border-bottom: 3px solid #2563EB;
+        display: inline-block;
+    }
+
+    .card { 
+        background-color: #FFFFFF; 
+        border-radius: 12px; 
+        padding: 22px; 
+        margin-bottom: 16px; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+        border: 1px solid #E2E8F0;
+    }
+    .card-title { color: #0F172A; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .card-text { color: #334155; font-size: 15px; line-height: 1.7; }
+
+    .badge-chip {
+        display: inline-block;
+        background-color: #E0F2FE;
+        color: #0369A1;
+        padding: 5px 12px;
+        border-radius: 18px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-right: 6px;
+        margin-bottom: 8px;
+    }
+
+    .experience-card {
+        background-color: #FFFFFF; 
+        border-left: 5px solid #2563EB; 
+        border-radius: 10px;
+        padding: 22px; 
+        margin-bottom: 18px; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border-top: 1px solid #E2E8F0;
+        border-right: 1px solid #E2E8F0;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    .experience-position { color: #0F172A; font-size: 20px; font-weight: 800; }
+    .experience-company { color: #2563EB; font-size: 15px; font-weight: 700; margin-top: 4px; }
+    .experience-date { color: #64748B; font-size: 13px; margin-top: 4px; margin-bottom: 12px; font-weight: 600; }
+    .mission { color: #334155; line-height: 1.6; margin-top: 6px; font-size: 14px; }
+
+    .skill-card { 
+        background-color: #FFFFFF; 
+        border-radius: 10px; 
+        padding: 16px; 
+        margin-bottom: 12px; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04); 
+        color: #0F172A; 
+        font-weight: 600;
+        border: 1px solid #E2E8F0;
+    }
+    .contact-card { 
+        background-color: #FFFFFF; 
+        border-radius: 12px; 
+        padding: 22px; 
+        text-align: center; 
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+        border: 1px solid #E2E8F0;
+    }
+    .contact-icon { font-size: 30px; margin-bottom: 6px; }
+    .contact-title { color: #0F172A; font-weight: 800; margin-bottom: 6px; }
+    .contact-value { color: #475569; font-size: 14px; font-weight: 600; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ============================================================
+# 3. SÉLECTION DE LA LANGUE
+# ============================================================
+
+langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma", ["Français", "English", "Español"])
+
+# ============================================================
+# 4. BASE DE DONNÉES MULTILINGUE
+# ============================================================
+
 TEXTES = {
     "Français": {
         "fonction": "Responsable Section Transport et Manutention",
@@ -510,3 +729,284 @@ TEXTES = {
         ]
     }
 }
+
+T = TEXTES[langue_choisie]
+
+# ============================================================
+# 5. GÉNÉRATEUR DE PDF (REPORTLAB)
+# ============================================================
+
+def generer_pdf():
+    doc = SimpleDocTemplate(str(PDF_PATH), pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
+    styles = getSampleStyleSheet()
+    story = []
+
+    title_style = ParagraphStyle('TitleStyle', parent=styles['Heading1'], fontSize=22, textColor=colors.HexColor('#0F172A'), spaceAfter=4, fontName='Helvetica-Bold')
+    subtitle_style = ParagraphStyle('SubTitleStyle', parent=styles['Normal'], fontSize=12, textColor=colors.HexColor('#2563EB'), spaceAfter=15, fontName='Helvetica-Bold')
+    section_style = ParagraphStyle('SectionStyle', parent=styles['Heading2'], fontSize=14, textColor=colors.HexColor('#0F172A'), spaceBefore=12, spaceAfter=6, fontName='Helvetica-Bold')
+    body_style = ParagraphStyle('BodyStyle', parent=styles['Normal'], fontSize=10, textColor=colors.HexColor('#334155'), spaceAfter=4, fontName='Helvetica')
+    bold_style = ParagraphStyle('BoldStyle', parent=body_style, fontName='Helvetica-Bold')
+
+    story.append(Paragraph(nom, title_style))
+    story.append(Paragraph(f"{T['fonction']} | {telephone} | {email} | {adresse}", subtitle_style))
+    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#2563EB'), spaceAfter=10))
+
+    # Profil
+    story.append(Paragraph(T['sections']['profil'], section_style))
+    story.append(Paragraph(T['profil'], body_style))
+    story.append(Spacer(1, 8))
+
+    # Expériences
+    story.append(Paragraph(T['sections']['exp'], section_style))
+    for exp in T['experiences']:
+        story.append(Paragraph(f"<b>{exp['poste']}</b> — {exp['entreprise']} ({exp['periode']})", bold_style))
+        for m in exp['missions']:
+            story.append(Paragraph(f"• {m}", body_style))
+        story.append(Spacer(1, 4))
+
+    # Formations
+    story.append(Paragraph(T['sections']['form'], section_style))
+    for f in T['formations']:
+        story.append(Paragraph(f"<b>{f['annee']}</b> : {f['titre']} — <font color='#64748B'>{f['organisme']}</font>", body_style))
+
+    doc.build(story)
+
+if not PDF_PATH.exists():
+    try:
+        generer_pdf()
+    except Exception:
+        pass
+
+# ============================================================
+# 6. INTERFACE GRAPHIQUE STREAMLIT
+# ============================================================
+
+with st.sidebar:
+    st.markdown("---")
+    if PDF_PATH.exists():
+        with open(PDF_PATH, "rb") as f:
+            st.download_button(label=T["download_btn"], data=f, file_name="cv_hamidouche_redjdal.pdf", mime="application/pdf")
+    st.markdown("---")
+    choix_menu = st.radio(T["nav_title"], T["nav"])
+    st.markdown("---")
+    st.markdown(T["sidebar_domains"])
+
+# Accueil
+if choix_menu == T["nav"][0]:
+    col_header1, col_header2 = st.columns([1, 4])
+    with col_header1:
+        if PHOTO.exists():
+            st.image(str(PHOTO), width=150)
+        else:
+            st.markdown('<div style="font-size:100px; text-align:center;">👨‍💼</div>', unsafe_allow_html=True)
+    with col_header2:
+        st.markdown(
+            f"""
+            <div class="cv-header">
+                <div class="cv-name">{nom}</div>
+                <div class="cv-title">{T['fonction']}</div>
+                <div class="cv-subtitle">
+                    📍 {adresse} &nbsp;&nbsp;|&nbsp;&nbsp; 📞 {telephone} &nbsp;&nbsp;|&nbsp;&nbsp; ✉️ {email}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    c1, c2, c3, c4 = st.columns(4)
+    with c1:
+        st.markdown(f'<div class="card"><div class="card-title">⏳ {T["labels"]["stat_exp"]}</div><div class="card-text"><b>9 ans</b></div></div>', unsafe_allow_html=True)
+    with c2:
+        st.markdown(f'<div class="card"><div class="card-title">💼 {T["labels"]["stat_postes"]}</div><div class="card-text"><b>6 postes</b></div></div>', unsafe_allow_html=True)
+    with c3:
+        st.markdown(f'<div class="card"><div class="card-title">🎓 {T["labels"]["stat_form"]}</div><div class="card-text" style="font-size:14px;"><b>{T["labels"]["degree_stat"]}</b></div></div>', unsafe_allow_html=True)
+    with c4:
+        st.markdown(f'<div class="card"><div class="card-title">🌐 {T["labels"]["stat_langues"]}</div><div class="card-text"><b>4 langues</b></div></div>', unsafe_allow_html=True)
+
+    st.markdown(f'<div class="section-title">{T["sections"]["profil"]}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><div class="card-text">{T["profil"]}</div></div>', unsafe_allow_html=True)
+
+    st.markdown(f'<div class="section-title">{T["sections"]["expertise"]}</div>', unsafe_allow_html=True)
+    cols = st.columns(3)
+    for i, (icon, titre, desc) in enumerate(T["domaines"]):
+        with cols[i % 3]:
+            st.markdown(
+                f"""
+                <div class="card">
+                    <div style="font-size:24px; margin-bottom:8px;">{icon}</div>
+                    <div class="card-title">{titre}</div>
+                    <div class="card-text" style="font-size:13px; color:#64748B;">{desc}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+# Profil
+elif choix_menu == T["nav"][1]:
+    st.markdown(f'<div class="section-title">{T["sections"]["identite"]}</div>', unsafe_allow_html=True)
+    c_photo, c_info1, c_info2 = st.columns([1, 2, 2])
+    with c_photo:
+        if PHOTO.exists():
+            st.image(str(PHOTO), width=160)
+        else:
+            st.markdown('<div style="font-size:100px; text-align:center;">👨‍💼</div>', unsafe_allow_html=True)
+    with c_info1:
+        st.markdown(
+            f"""
+            <div class="card">
+                <p><b>{T["labels"]["nom"]} :</b> {nom}</p>
+                <p><b>{T["labels"]["nationalite"]} :</b> {T["nationalite"]}</p>
+                <p><b>{T["labels"]["situation"]} :</b> {T["situation"]}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with c_info2:
+        st.markdown(
+            f"""
+            <div class="card">
+                <p><b>{T["labels"]["fonction"]} :</b> {T["fonction"]}</p>
+                <p><b>{T["labels"]["adresse"]} :</b> {adresse}</p>
+                <p><b>{T["labels"]["service"]} :</b> {T["service_national"]}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    st.markdown(f'<div class="section-title">{T["sections"]["infos_pro"]}</div>', unsafe_allow_html=True)
+    
+    # Génération des Badges
+    badges_html = "".join([f'<span class="badge-chip">{kw}</span>' for kw in T["labels"]["keywords"]])
+    valeurs_html = "".join([f"<li style='margin-bottom:6px;'>{val}</li>" for val in T["labels"]["valeurs"]])
+
+    st.markdown(
+        f"""
+        <div class="card">
+            <div style="font-size:18px; font-weight:800; color:#0F172A; margin-bottom:10px;">
+                <b>{T["labels"]["fonction"]}</b> chez <b>SPA TMF Logistics</b>
+            </div>
+            <div style="margin-bottom:15px;">
+                {badges_html}
+            </div>
+            <div class="card-text" style="border-top: 1px solid #E2E8F0; padding-top:12px; margin-top:8px;">
+                <p><b>📌 Pôles d'intervention :</b> {T["labels"]["poles"]}</p>
+                <p style="margin-top:10px; margin-bottom:6px;"><b>🎯 Périmètre Opérationnel & Valeur Ajoutée :</b></p>
+                <ul style="padding-left:20px; color:#334155;">
+                    {valeurs_html}
+                </ul>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+# Expériences
+elif choix_menu == T["nav"][2]:
+    st.markdown(f'<div class="section-title">{T["sections"]["exp"]}</div>', unsafe_allow_html=True)
+    for exp in T["experiences"]:
+        missions_html = "".join([f"<div class='mission'>• {m}</div>" for m in exp["missions"]])
+        st.markdown(
+            f"""
+            <div class="experience-card">
+                <div class="experience-position">{exp['poste']}</div>
+                <div class="experience-company">🏢 {exp['entreprise']}</div>
+                <div class="experience-date">📅 {exp['periode']}</div>
+                <div style="margin-top:10px; font-weight:700; color:#0F172A; font-size:14px;">{T["labels"]["missions"]} :</div>
+                {missions_html}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+# Diplômes & Formations
+elif choix_menu == T["nav"][3]:
+    st.markdown(f'<div class="section-title">{T["sections"]["form"]}</div>', unsafe_allow_html=True)
+    for form in T["formations"]:
+        st.markdown(
+            f"""
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="card-title" style="margin-bottom:0;">{form['titre']}</div>
+                    <span style="background-color:#E0F2FE; color:#0369A1; padding:4px 10px; border-radius:20px; font-weight:700; font-size:13px;">{form['annee']}</span>
+                </div>
+                <div class="card-text" style="color:#64748B; margin-top:6px;">{form['organisme']}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+# Compétences
+elif choix_menu == T["nav"][4]:
+    st.markdown(f'<div class="section-title">{T["sections"]["comp"]}</div>', unsafe_allow_html=True)
+    for comp in T["competences"]:
+        st.markdown(f'<div class="skill-card">✔️ {comp}</div>', unsafe_allow_html=True)
+
+# Langues
+elif choix_menu == T["nav"][5]:
+    st.markdown(f'<div class="section-title">{T["sections"]["langues"]}</div>', unsafe_allow_html=True)
+    cols = st.columns(2)
+    for i, (langue, niveau) in enumerate(T["langues"]):
+        with cols[i % 2]:
+            st.markdown(
+                f"""
+                <div class="card">
+                    <div class="card-title">🌐 {langue}</div>
+                    <div class="card-text" style="color:#2563EB; font-weight:700;">{niveau}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+# Centres d'intérêt
+elif choix_menu == T["nav"][6]:
+    st.markdown(f'<div class="section-title">{T["sections"]["interets"]}</div>', unsafe_allow_html=True)
+    cols = st.columns(3)
+    for i, (icon, interet) in enumerate(T["interets"]):
+        with cols[i % 3]:
+            st.markdown(
+                f"""
+                <div class="card" style="text-align:center;">
+                    <div style="font-size:32px; margin-bottom:8px;">{icon}</div>
+                    <div class="card-title" style="font-size:16px;">{interet}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+# Contact
+elif choix_menu == T["nav"][7]:
+    st.markdown(f'<div class="section-title">{T["sections"]["contact"]}</div>', unsafe_allow_html=True)
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-title">{T["labels"]["tel"]}</div>
+                <div class="contact-value">{telephone}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with c2:
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-title">{T["labels"]["email"]}</div>
+                <div class="contact-value">{email}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with c3:
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <div class="contact-title">{T["labels"]["adresse_title"]}</div>
+                <div class="contact-value">{adresse}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
