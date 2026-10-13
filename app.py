@@ -27,24 +27,21 @@ email = "hamidoucheredjdal@yahoo.fr"
 adresse = "Tazmalt 06039, wilaya de Bejaia"
 
 # ============================================================
-# 2. DESIGN CSS : CHAMP SÉLECTIONNÉ EN NOIR FONCÉ ET ÉCRITURE GRASSE
+# 2. DESIGN CSS
 # ============================================================
 
 st.markdown(
     """
     <style>
-    /* Import police Google */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
     }
 
-    /* Fond global de l'application */
     .stApp { background-color: #F8FAFC; }
     .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
 
-    /* Titre du champ (label au-dessus) */
     div[data-testid="stSidebar"] label p {
         color: #F8FAFC !important;
         font-weight: 800 !important;
@@ -54,7 +51,6 @@ st.markdown(
         margin-bottom: 8px;
     }
 
-    /* 1. CHAMP DE SÉLECTION FERMÉ (Fond Noir + Écriture Blanche Grasse) */
     div[data-baseweb="select"] > div {
         background-color: #000000 !important;
         border: 2px solid #475569 !important;
@@ -62,7 +58,6 @@ st.markdown(
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
     }
 
-    /* Force le texte sélectionné en BLANC PUR et TRÈS GRAS */
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
@@ -72,12 +67,8 @@ st.markdown(
         -webkit-text-fill-color: #FFFFFF !important;
     }
 
-    /* Flèche du menu déroulant (Blanc pur) */
-    div[data-baseweb="select"] svg {
-        fill: #FFFFFF !important;
-    }
+    div[data-baseweb="select"] svg { fill: #FFFFFF !important; }
 
-    /* 2. MENU DÉROULANT OUVERT (Fond Blanc + Écriture Noire Grasse) */
     ul[data-baseweb="menu"] {
         background-color: #FFFFFF !important;
         border: 2px solid #CBD5E1 !important;
@@ -85,7 +76,6 @@ st.markdown(
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15) !important;
     }
 
-    /* Options dans la liste déroulante */
     ul[data-baseweb="menu"] li div,
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
@@ -95,7 +85,6 @@ st.markdown(
         -webkit-text-fill-color: #000000 !important;
     }
 
-    /* Effet au survol de la souris dans la liste (Gris clair) */
     ul[data-baseweb="menu"] li:hover,
     ul[data-baseweb="menu"] li:hover * {
         background-color: #F1F5F9 !important;
@@ -103,7 +92,6 @@ st.markdown(
         -webkit-text-fill-color: #2563EB !important;
     }
 
-    /* Styles généraux de la Sidebar */
     [data-testid="stSidebar"] {
         background-color: #0F172A !important;
         border-right: 1px solid #1E293B;
@@ -121,7 +109,6 @@ st.markdown(
         font-weight: 600 !important;
     }
 
-    /* Bouton Télécharger PDF */
     [data-testid="stSidebar"] button {
         background-color: #2563EB !important;
         color: #FFFFFF !important;
@@ -131,21 +118,19 @@ st.markdown(
         padding: 10px 16px !important;
     }
 
-    /* Style En-tête CV */
     .cv-header {
         background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
         color: #FFFFFF;
-        padding: 35px 40px;
+        padding: 30px 35px;
         border-radius: 16px;
         margin-bottom: 25px;
         box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
         border: 1px solid #334155;
     }
-    .cv-name { font-size: 38px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: #FFFFFF; }
-    .cv-title { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: #38BDF8; }
-    .cv-subtitle { font-size: 15px; line-height: 1.7; color: #94A3B8; }
+    .cv-name { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: #FFFFFF; }
+    .cv-title { font-size: 20px; font-weight: 600; margin-bottom: 14px; color: #38BDF8; }
+    .cv-subtitle { font-size: 14px; line-height: 1.7; color: #94A3B8; }
 
-    /* Titres de section */
     .section-title {
         color: #0F172A;
         font-size: 24px;
@@ -157,7 +142,6 @@ st.markdown(
         display: inline-block;
     }
 
-    /* Cartes principales */
     .card { 
         background-color: #FFFFFF; 
         border-radius: 12px; 
@@ -169,7 +153,6 @@ st.markdown(
     .card-title { color: #0F172A; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .card-text { color: #334155; font-size: 15px; line-height: 1.7; }
 
-    /* Cartes d'expérience */
     .experience-card {
         background-color: #FFFFFF; 
         border-left: 5px solid #2563EB; 
@@ -186,7 +169,6 @@ st.markdown(
     .experience-date { color: #64748B; font-size: 13px; margin-top: 4px; margin-bottom: 12px; font-weight: 600; }
     .mission { color: #334155; line-height: 1.6; margin-top: 6px; font-size: 14px; }
 
-    /* Cartes compétences & contact */
     .skill-card { 
         background-color: #FFFFFF; 
         border-radius: 10px; 
@@ -214,7 +196,7 @@ st.markdown(
 )
 
 # ============================================================
-# 3. SÉLECTION DE LA LANGUE (DÉPLACÉE AU DÉBUT)
+# 3. SÉLECTION DE LA LANGUE
 # ============================================================
 
 langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma", ["Français", "English", "Español"])
@@ -775,18 +757,26 @@ with st.sidebar:
 
 # Accueil
 if choix_menu == T["nav"][0]:
-    st.markdown(
-        f"""
-        <div class="cv-header">
-            <div class="cv-name">{nom}</div>
-            <div class="cv-title">{T['fonction']}</div>
-            <div class="cv-subtitle">
-                📍 {adresse} &nbsp;&nbsp;|&nbsp;&nbsp; 📞 {telephone} &nbsp;&nbsp;|&nbsp;&nbsp; ✉️ {email}
+    # En-tête dynamique avec Photo si présente
+    col_header1, col_header2 = st.columns([1, 4])
+    with col_header1:
+        if PHOTO.exists():
+            st.image(str(PHOTO), width=150)
+        else:
+            st.markdown('<div style="font-size:100px; text-align:center;">👨‍💼</div>', unsafe_allow_html=True)
+    with col_header2:
+        st.markdown(
+            f"""
+            <div class="cv-header">
+                <div class="cv-name">{nom}</div>
+                <div class="cv-title">{T['fonction']}</div>
+                <div class="cv-subtitle">
+                    📍 {adresse} &nbsp;&nbsp;|&nbsp;&nbsp; 📞 {telephone} &nbsp;&nbsp;|&nbsp;&nbsp; ✉️ {email}
+                </div>
             </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+            """,
+            unsafe_allow_html=True,
+        )
 
     c1, c2, c3, c4 = st.columns(4)
     with c1:
@@ -819,8 +809,13 @@ if choix_menu == T["nav"][0]:
 # Profil
 elif choix_menu == T["nav"][1]:
     st.markdown(f'<div class="section-title">{T["sections"]["identite"]}</div>', unsafe_allow_html=True)
-    c1, c2 = st.columns(2)
-    with c1:
+    c_photo, c_info1, c_info2 = st.columns([1, 2, 2])
+    with c_photo:
+        if PHOTO.exists():
+            st.image(str(PHOTO), width=160)
+        else:
+            st.markdown('<div style="font-size:100px; text-align:center;">👨‍💼</div>', unsafe_allow_html=True)
+    with c_info1:
         st.markdown(
             f"""
             <div class="card">
@@ -831,7 +826,7 @@ elif choix_menu == T["nav"][1]:
             """,
             unsafe_allow_html=True,
         )
-    with c2:
+    with c_info2:
         st.markdown(
             f"""
             <div class="card">
