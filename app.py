@@ -153,6 +153,18 @@ st.markdown(
     .card-title { color: #0F172A; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .card-text { color: #334155; font-size: 15px; line-height: 1.7; }
 
+    .badge-chip {
+        display: inline-block;
+        background-color: #E0F2FE;
+        color: #0369A1;
+        padding: 5px 12px;
+        border-radius: 18px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-right: 6px;
+        margin-bottom: 8px;
+    }
+
     .experience-card {
         background-color: #FFFFFF; 
         border-left: 5px solid #2563EB; 
@@ -248,8 +260,14 @@ TEXTES = {
             "stat_langues": "Langues", "missions": "Principales missions", "tel": "Téléphone",
             "email": "Email", "adresse_title": "Adresse",
             "degree_stat": "Master 2 en Recherche Opérationnelle",
-            "sub_keywords": "Logistique • Transport • Planification • Supervision • Optimisation • Analyse des données",
-            "photo_missing": "Photo non trouvée"
+            "keywords": ["🚚 Logistique & Transport", "📅 Planification", "👥 Supervision", "📈 Optimisation", "📊 Analyse des données", "⚓ Port & Manutention"],
+            "poles": "Gestion Portuaire & Opérations de Manutention, Flotte Roulante, Entreposage & Fret",
+            "valeurs": [
+                "Pilotage dynamique de la flotte en temps réel et optimisation de la rotation des camions.",
+                "Digitalisation et suivi analytique des Ordres de Mission (OM) et maîtrise des coûts d'exploitation.",
+                "Coordination multi-sites (Akbou, Alger, Sétif, Oran) et suivi rigoureux des prestations de manutention.",
+                "Traitement de données opérationnelles pour la modélisation et l'aide à la décision stratégique."
+            ]
         },
         "domaines": [
             ("🚚", "Transport", "Organisation, suivi et supervision des opérations de transport."),
@@ -412,8 +430,14 @@ TEXTES = {
             "stat_langues": "Languages", "missions": "Key Responsibilities", "tel": "Phone",
             "email": "Email", "adresse_title": "Address",
             "degree_stat": "Master 2 in Operational Research",
-            "sub_keywords": "Logistics • Transport • Planning • Supervision • Optimization • Data Analysis",
-            "photo_missing": "Photo not found"
+            "keywords": ["🚚 Logistics & Transport", "📅 Planning", "👥 Supervision", "📈 Optimization", "📊 Data Analysis", "⚓ Port & Handling"],
+            "poles": "Port Management & Handling Operations, Rolling Fleet, Warehousing & Freight",
+            "valeurs": [
+                "Real-time dynamic fleet supervision and vehicle rotation optimization.",
+                "Digital tracking of Mission Orders (MO) and operational cost control.",
+                "Multi-site coordination (Akbou, Algiers, Setif, Oran) and handling service quality monitoring.",
+                "Operational data processing for modeling and strategic decision support."
+            ]
         },
         "domaines": [
             ("🚚", "Transport", "Organization, tracking, and supervision of transport operations."),
@@ -576,8 +600,14 @@ TEXTES = {
             "stat_langues": "Idiomas", "missions": "Principales Responsabilidades", "tel": "Teléfono",
             "email": "Correo electrónico", "adresse_title": "Dirección",
             "degree_stat": "Máster 2 en Investigación Operativa",
-            "sub_keywords": "Logística • Transporte • Planificación • Supervisión • Optimización • Análisis de Datos",
-            "photo_missing": "Foto no encontrada"
+            "keywords": ["🚚 Logística y Transporte", "📅 Planificación", "👥 Supervisión", "📈 Optimización", "📊 Análisis de Datos", "⚓ Puerto y Manipulación"],
+            "poles": "Gestión Portuaria y Operaciones de Manipulación, Parque Móvil, Almacenamiento y Carga",
+            "valeurs": [
+                "Control dinámico de la flota en tiempo real y optimización del tiempo de rotación.",
+                "Digitalización de Órdenes de Misión (OM) y gestión analítica de costes operativos.",
+                "Coordinación entre centros (Akbou, Argel, Sétif, Orán) y seguimiento de calidad de operaciones.",
+                "Procesamiento de datos operativos para la toma de decisiones estratégicas."
+            ]
         },
         "domaines": [
             ("🚚", "Transporte", "Organización, seguimiento y supervisión de operaciones de transporte."),
@@ -844,7 +874,31 @@ elif choix_menu == T["nav"][1]:
         )
 
     st.markdown(f'<div class="section-title">{T["sections"]["infos_pro"]}</div>', unsafe_allow_html=True)
-    st.markdown(f'<div class="card"><div class="card-text"><b>{T["labels"]["fonction"]}</b> chez <b>SPA TMF Logistics</b> — {T["labels"]["sub_keywords"]}</div></div>', unsafe_allow_html=True)
+    
+    # Génération des Badges
+    badges_html = "".join([f'<span class="badge-chip">{kw}</span>' for kw in T["labels"]["keywords"]])
+    valeurs_html = "".join([f"<li style='margin-bottom:6px;'>{val}</li>" for val in T["labels"]["valeurs"]])
+
+    st.markdown(
+        f"""
+        <div class="card">
+            <div style="font-size:18px; font-weight:800; color:#0F172A; margin-bottom:10px;">
+                <b>{T["labels"]["fonction"]}</b> chez <b>SPA TMF Logistics</b>
+            </div>
+            <div style="margin-bottom:15px;">
+                {badges_html}
+            </div>
+            <div class="card-text" style="border-top: 1px solid #E2E8F0; padding-top:12px; margin-top:8px;">
+                <p><b>📌 Pôles d'intervention :</b> {T["labels"]["poles"]}</p>
+                <p style="margin-top:10px; margin-bottom:6px;"><b>🎯 Périmètre Opérationnel & Valeur Ajoutée :</b></p>
+                <ul style="padding-left:20px; color:#334155;">
+                    {valeurs_html}
+                </ul>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 # Expériences
 elif choix_menu == T["nav"][2]:
