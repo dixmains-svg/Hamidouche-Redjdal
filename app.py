@@ -225,6 +225,7 @@ TEXTES = {
 📊 Planification  
 👥 Supervision  
 📈 Optimisation  
+📊 Analyse des données  
 """,
         "profil": (
             "Dynamique, sérieux et ayant de bonnes compétences relationnelles, "
@@ -246,8 +247,8 @@ TEXTES = {
             "stat_exp": "Expérience", "stat_postes": "Postes", "stat_form": "Formations",
             "stat_langues": "Langues", "missions": "Principales missions", "tel": "Téléphone",
             "email": "Email", "adresse_title": "Adresse",
-            "degree_subtitle": "Master 2 en Recherche Opérationnelle",
-            "sub_keywords": "Logistique • Transport • Planification • Supervision • Optimisation",
+            "degree_stat": "Master 2 en Recherche Opérationnelle",
+            "sub_keywords": "Logistique • Transport • Planification • Supervision • Optimisation • Analyse des données",
             "photo_missing": "Photo non trouvée"
         },
         "domaines": [
@@ -256,7 +257,8 @@ TEXTES = {
             ("📅", "Planification", "Élaboration des programmes et planification des ressources humaines et matérielles."),
             ("👥", "Supervision", "Suivi des équipes et contrôle du bon déroulement des opérations."),
             ("📈", "Optimisation", "Recherche de solutions permettant d'améliorer les coûts, les délais et l'utilisation des ressources."),
-            ("📊", "Reporting", "Élaboration et suivi des reportings d'activité pour faciliter le pilotage."),
+            ("📊", "Analyse des données", "Exploitation, traitement et analyse des données opérationnelles pour l'aide à la décision."),
+            ("📋", "Reporting", "Élaboration et suivi des reportings d'activité pour faciliter le pilotage."),
             ("🎯", "KPI", "Mise en place et suivi des indicateurs de performance liés à l'activité."),
             ("🤝", "Coordination", "Coordination entre les différents services et intervenants afin d'assurer la continuité des opérations."),
             ("⚙️", "Gestion des ressources", "Préparation, affectation et utilisation optimale des ressources disponibles."),
@@ -387,6 +389,7 @@ TEXTES = {
 📊 Planning  
 👥 Supervision  
 📈 Optimization  
+📊 Data Analysis  
 """,
         "profil": (
             "Dynamic, reliable, and possessing strong interpersonal skills, "
@@ -408,8 +411,8 @@ TEXTES = {
             "stat_exp": "Experience", "stat_postes": "Positions", "stat_form": "Training",
             "stat_langues": "Languages", "missions": "Key Responsibilities", "tel": "Phone",
             "email": "Email", "adresse_title": "Address",
-            "degree_subtitle": "Master 2 in Operational Research",
-            "sub_keywords": "Logistics • Transport • Planning • Supervision • Optimization",
+            "degree_stat": "Master 2 in Operational Research",
+            "sub_keywords": "Logistics • Transport • Planning • Supervision • Optimization • Data Analysis",
             "photo_missing": "Photo not found"
         },
         "domaines": [
@@ -418,7 +421,8 @@ TEXTES = {
             ("📅", "Planning", "Scheduling operations and planning human and material resources."),
             ("👥", "Supervision", "Team management and operational control."),
             ("📈", "Optimization", "Cost reduction, lead time improvement, and optimal resource usage."),
-            ("📊", "Reporting", "Developing and tracking activity reports for management."),
+            ("📊", "Data Analysis", "Processing, analyzing, and leveraging operational data for decision support."),
+            ("📋", "Reporting", "Developing and tracking activity reports for management."),
             ("🎯", "KPI", "Implementation and monitoring of activity performance indicators."),
             ("🤝", "Coordination", "Inter-departmental coordination ensuring seamless operations."),
             ("⚙️", "Resource Management", "Preparation, assignment, and optimal allocation of resources."),
@@ -549,6 +553,7 @@ TEXTES = {
 📊 Planificación  
 👥 Supervisión  
 📈 Optimización  
+📊 Análisis de Datos  
 """,
         "profil": (
             "Dinámico, serio y con excelentes habilidades interpersonales, "
@@ -570,8 +575,8 @@ TEXTES = {
             "stat_exp": "Experiencia", "stat_postes": "Puestos", "stat_form": "Formación",
             "stat_langues": "Idiomas", "missions": "Principales Responsabilidades", "tel": "Teléfono",
             "email": "Correo electrónico", "adresse_title": "Dirección",
-            "degree_subtitle": "Máster 2 en Investigación Operativa",
-            "sub_keywords": "Logística • Transporte • Planificación • Supervisión • Optimización",
+            "degree_stat": "Máster 2 en Investigación Operativa",
+            "sub_keywords": "Logística • Transporte • Planificación • Supervisión • Optimización • Análisis de Datos",
             "photo_missing": "Foto no encontrada"
         },
         "domaines": [
@@ -580,7 +585,8 @@ TEXTES = {
             ("📅", "Planificación", "Programación de operaciones y planificación de recursos humanos y materiales."),
             ("👥", "Supervisión", "Gestión de equipos y control del desarrollo de las operaciones."),
             ("📈", "Optimización", "Búsqueda de soluciones para optimizar costes, plazos y recursos."),
-            ("📊", "Reportes", "Elaboración y seguimiento de informes de actividad para la dirección."),
+            ("📊", "Análisis de Datos", "Procesamiento, análisis y aprovechamiento de datos operativos para la toma de decisiones."),
+            ("📋", "Reportes", "Elaboración y seguimiento de informes de actividad para la dirección."),
             ("🎯", "KPI", "Implementación y seguimiento de indicadores de rendimiento."),
             ("🤝", "Coordinación", "Coordinación interdepartamental para asegurar la continuidad operativa."),
             ("⚙️", "Gestión de Recursos", "Preparación, asignación y uso óptimo de los recursos disponibles."),
@@ -757,7 +763,6 @@ with st.sidebar:
 
 # Accueil
 if choix_menu == T["nav"][0]:
-    # En-tête dynamique avec Photo si présente
     col_header1, col_header2 = st.columns([1, 4])
     with col_header1:
         if PHOTO.exists():
@@ -784,7 +789,7 @@ if choix_menu == T["nav"][0]:
     with c2:
         st.markdown(f'<div class="card"><div class="card-title">💼 {T["labels"]["stat_postes"]}</div><div class="card-text"><b>6 postes</b></div></div>', unsafe_allow_html=True)
     with c3:
-        st.markdown(f'<div class="card"><div class="card-title">🎓 {T["labels"]["stat_form"]}</div><div class="card-text"><b>Master 2</b></div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="card"><div class="card-title">🎓 {T["labels"]["stat_form"]}</div><div class="card-text" style="font-size:14px;"><b>{T["labels"]["degree_stat"]}</b></div></div>', unsafe_allow_html=True)
     with c4:
         st.markdown(f'<div class="card"><div class="card-title">🌐 {T["labels"]["stat_langues"]}</div><div class="card-text"><b>4 langues</b></div></div>', unsafe_allow_html=True)
 
