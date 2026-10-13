@@ -897,4 +897,62 @@ elif choix_menu == T["nav"][5]:
                 f"""
                 <div class="card">
                     <div class="card-title">🌐 {langue}</div>
-                    <div class="card
+                    <div class="card-text" style="color:#2563EB; font-weight:700;">{niveau}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+# Centres d'intérêt
+elif choix_menu == T["nav"][6]:
+    st.markdown(f'<div class="section-title">{T["sections"]["interets"]}</div>', unsafe_allow_html=True)
+    cols = st.columns(3)
+    for i, (icon, interet) in enumerate(T["interets"]):
+        with cols[i % 3]:
+            st.markdown(
+                f"""
+                <div class="card" style="text-align:center;">
+                    <div style="font-size:32px; margin-bottom:8px;">{icon}</div>
+                    <div class="card-title" style="font-size:16px;">{interet}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+# Contact
+elif choix_menu == T["nav"][7]:
+    st.markdown(f'<div class="section-title">{T["sections"]["contact"]}</div>', unsafe_allow_html=True)
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-title">{T["labels"]["tel"]}</div>
+                <div class="contact-value">{telephone}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with c2:
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-title">{T["labels"]["email"]}</div>
+                <div class="contact-value">{email}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with c3:
+        st.markdown(
+            f"""
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <div class="contact-title">{T["labels"]["adresse_title"]}</div>
+                <div class="contact-value">{adresse}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
