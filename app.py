@@ -225,7 +225,7 @@ langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma", ["Fran�
 
 TEXTES = {
     "Français": {
-        "fonction": "Planificateur et Superviseur Logistique",
+        "fonction": "Responsable Section Port et Manutention",
         "nationalite": "Algérienne",
         "situation": "Marié",
         "service_national": "Dégagé",
@@ -281,7 +281,20 @@ TEXTES = {
         ],
         "experiences": [
             {
-                "poste": "Superviseur techno-commercial", "periode": "01/2024 - À ce jour", "entreprise": "SPA TMF Logistics",
+                "poste": "Responsable Section Port et Manutention", "periode": "08/2026 - À ce jour", "entreprise": "SPA TMF Logistics",
+                "missions": [
+                    "Optimisation & Planification des Flux de Transport.",
+                    "Pilotage & Supervision Dynamique de la Flotte en Temps Réel.",
+                    "Supervision des Opérations de Transport & Manutention.",
+                    "Gestion des Imprévus, Pointage & Traçabilité du Fret.",
+                    "Management Opérationnel & Transmission des Directives (OM).",
+                    "Gestion Technico-Opérationnelle du Parc Roulant.",
+                    "Contrôle & Validation des Temps de Service.",
+                    "Suivi des Indicateurs Clés de Performance (KPI)."
+                ],
+            },
+            {
+                "poste": "Superviseur techno-commercial", "periode": "01/2024 - 08/2026", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Analyser les besoins des clients.",
                     "Établir des reportings d'activité quotidiens, mensuels et annuels.",
@@ -374,7 +387,7 @@ TEXTES = {
         ]
     },
     "English": {
-        "fonction": "Logistics Planner & Supervisor",
+        "fonction": "Port and Handling Section Manager",
         "nationalite": "Algerian",
         "situation": "Married",
         "service_national": "Exempted",
@@ -430,7 +443,20 @@ TEXTES = {
         ],
         "experiences": [
             {
-                "poste": "Technical & Commercial Supervisor", "periode": "01/2024 - Present", "entreprise": "SPA TMF Logistics",
+                "poste": "Port and Handling Section Manager", "periode": "08/2026 - Present", "entreprise": "SPA TMF Logistics",
+                "missions": [
+                    "Transport Flow Optimization & Planning.",
+                    "Real-Time Dynamic Fleet Management & Supervision.",
+                    "Supervision of Transport & Handling Operations.",
+                    "Contingency Management, Attendance & Freight Traceability.",
+                    "Operational Management & Transmission of Directives (Mission Orders).",
+                    "Technical & Operational Management of the Rolling Fleet.",
+                    "Control & Validation of Service Hours.",
+                    "Monitoring Key Performance Indicators (KPIs)."
+                ],
+            },
+            {
+                "poste": "Technical & Commercial Supervisor", "periode": "01/2024 - 08/2026", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Analyze customer requirements and needs.",
                     "Establish daily, monthly, and annual activity reports.",
@@ -523,7 +549,7 @@ TEXTES = {
         ]
     },
     "Español": {
-        "fonction": "Planificador y Supervisor Logístico",
+        "fonction": "Responsable de Sección Puerto y Manipulación",
         "nationalite": "Argelina",
         "situation": "Casado",
         "service_national": "Eximido",
@@ -579,7 +605,20 @@ TEXTES = {
         ],
         "experiences": [
             {
-                "poste": "Supervisor Técnico-Comercial", "periode": "01/2024 - Presente", "entreprise": "SPA TMF Logistics",
+                "poste": "Responsable de Sección Puerto y Manipulación", "periode": "08/2026 - Presente", "entreprise": "SPA TMF Logistics",
+                "missions": [
+                    "Optimización y planificación de flujos de transporte.",
+                    "Control y supervisión dinámica de la flota en tiempo real.",
+                    "Supervisión de operaciones de transporte y manipulación.",
+                    "Gestión de imprevistos, control de presencia y trazabilidad de la carga.",
+                    "Gestión operativa y transmisión de directrices (Órdenes de Misión).",
+                    "Gestión técnico-operativa del parque móvil.",
+                    "Control y validación de tiempos de servicio.",
+                    "Seguimiento de indicadores clave de rendimiento (KPI)."
+                ],
+            },
+            {
+                "poste": "Supervisor Técnico-Comercial", "periode": "01/2024 - 08/2026", "entreprise": "SPA TMF Logistics",
                 "missions": [
                     "Analizar las necesidades de los clientes.",
                     "Elaborar informes de actividad diarios, mensuales y anuales.",
@@ -617,230 +656,200 @@ TEXTES = {
                     "Mantener una coordinación fluida con los demás departamentos.",
                     "Diseñar e implementar indicadores de seguimiento del transporte.",
                     "Gestionar las alianzas con los proveedores de transporte.",
-                    "Controlar el rendimiento operativo a corto, medio y largo plazo.",
+                    "Supervisar el rendimiento a corto, medio y largo plazo.",
                     "Garantizar el cumplimiento de los procedimientos y normativas.",
                 ],
             },
             {
                 "poste": "Responsable de Programación", "periode": "04/2016 - 10/2018", "entreprise": "SPA TMF Logistics",
                 "missions": [
-                    "Ejecutar y supervisar la programación y el uso de recursos.",
-                    "Establecer una planificación óptima equilibrando costes y plazos.",
-                    "Anticipar imprevistos y tomar decisiones correctivas con rapidez.",
+                    "Ejecutar y supervisar regularmente la programación y uso de recursos.",
+                    "Establecer un planning óptimo equilibrando costes y plazos.",
+                    "Anticipar situaciones imprevistas y tomar decisiones correctoras.",
                     "Estudiar la viabilidad de las misiones antes de asignar recursos.",
                 ],
             },
         ],
         "formations": [
-            {"annee": "2021", "titre": "Curso de Transporte Internacional de Mercancías", "organisme": "Cámara Argelina de Comercio e Industria, Argel - Argelia"},
-            {"annee": "2020", "titre": "Curso de Planificación y Optimización Logística", "organisme": "Instituto Internacional de Management, Bejaia - Argelia"},
-            {"annee": "2019", "titre": "Curso de Logística y Transporte", "organisme": "Instituto Internacional de Management, Bejaia - Argelia"},
-            {"annee": "2019", "titre": "Curso de Gestión del Tiempo y Prioridades", "organisme": "Instituto Internacional de Management, Bejaia - Argelia"},
-            {"annee": "2018", "titre": "Curso de Gestión de Operaciones de Transporte", "organisme": "Instituto Internacional de Management, Bejaia - Argelia"},
-            {"annee": "2015", "titre": "Máster 2 en Investigación Operativa", "organisme": "Especialidad: Fiabilidad y Evaluación de Rendimiento de Redes. Universidad Abderrahmane Mira, Bejaia - Argelia"},
-            {"annee": "2012", "titre": "Grado / Licenciatura en Investigación Operativa", "organisme": "Especialidad: Sistemas de Apoyo a la Toma de Decisiones. Universidad Abderrahmane Mira, Bejaia - Argelia"},
+            {"annee": "2021", "titre": "Formación en Transporte Internacional de Mercancías", "organisme": "Cámara Argelina de Comercio e Industria, Argel - Argelia"},
+            {"annee": "2020", "titre": "Formación en Planificación y Optimización Logística", "organisme": "Instituto Internacional de Gestión, Bejaia - Argelia"},
+            {"annee": "2019", "titre": "Formación en Logística y Transporte", "organisme": "Instituto Internacional de Gestión, Bejaia - Argelia"},
+            {"annee": "2019", "titre": "Formación en Gestión del Tiempo y Prioridades", "organisme": "Instituto Internacional de Gestión, Bejaia - Argelia"},
+            {"annee": "2018", "titre": "Formación en Gestión de Operaciones de Transporte", "organisme": "Instituto Internacional de Gestión, Bejaia - Argelia"},
+            {"annee": "2015", "titre": "Máster 2 en Investigación Operativa", "organisme": "Opción: Fiabilidad y evaluación de rendimiento de redes. Universidad Abderrahmane Mira, Bejaia - Argelia"},
+            {"annee": "2012", "titre": "Licenciatura en Investigación Operativa", "organisme": "Opción: Sistemas de ayuda a la decisión. Universidad Abderrahmane Mira, Bejaia - Argelia"},
             {"annee": "2012", "titre": "Certificado de Prácticas en Gestión Portuaria", "organisme": "Autoridad Portuaria de Bejaia, Bejaia - Argelia"},
-            {"annee": "2008", "titre": "Título de Bachillerato", "organisme": "Especialidad: Ciencias de la Naturaleza y de la Vida. Instituto Mohamed Boudiaf, Tazmalt - Argelia"},
+            {"annee": "2008", "titre": "Título de Bachillerato", "organisme": "Opción: Ciencias de la Naturaleza y de la Vida. Instituto Mohamed Boudiaf, Tazmalt - Argelia"},
         ],
         "competences": [
-            "Dominio de MS Office: Excel, Word, PowerPoint y Outlook.",
+            "Dominio de Paquete Office: Excel, Word, PowerPoint y Outlook.",
             "Dominio de Matlab, LaTeX, Photoshop, Illustrator e InDesign.",
             "Lenguajes de programación: HTML, Java, Delphi y C++.",
             "Planificación y optimización de recursos.",
             "Gestión de operaciones de transporte.",
             "Supervisión de operaciones de transporte.",
-            "Diseño e implementación de indicadores de seguimiento.",
+            "Desarrollo e implementación de indicadores de transporte.",
             "Elaboración de informes y KPIs de actividad.",
-            "Gestión de acuerdos con proveedores de transporte.",
+            "Gestión de alianzas con proveedores de transporte.",
             "Coordinación interdepartamental.",
             "Gestión de recursos humanos y materiales.",
-            "Administración y emisión de órdenes de misión.",
+            "Gestión y emisión de órdenes de misión.",
         ],
         "langues": [
-            ("Cabilio (Kabyle)", "Nativo / Excelente"),
+            ("Cabila", "Nativo / Excelente"),
             ("Árabe", "Nativo / Excelente"),
-            ("Francés", "Avanzado / Fluido"),
+            ("Francés", "Fluido"),
             ("Inglés", "Intermedio"),
         ],
         "interets": [
             ("✈️", "Viajes"),
-            ("⚽", "Pasión por el Deporte"),
-            ("🤝", "Actividades Comunitarias"),
+            ("⚽", "Pasión por el deporte"),
+            ("🤝", "Actividades asociativas"),
             ("🎬", "Cine"),
-            ("🎨", "Artes Creativas"),
-            ("💻", "Informática y Tecnología"),
+            ("🎨", "Artes creativas"),
+            ("💻", "Informática"),
         ]
     }
 }
 
-t = TEXTES[langue_choisie]
+T = TEXTES[langue_choisie]
 
 # ============================================================
-# 5. GÉNÉRATION DU PDF
+# 5. GÉNÉRATEUR DE PDF (REPORTLAB)
 # ============================================================
 
-def generer_pdf(filepath, data_langue):
-    doc = SimpleDocTemplate(
-        str(filepath),
-        pagesize=letter,
-        rightMargin=40, leftMargin=40,
-        topMargin=40, bottomMargin=40
-    )
+def generer_pdf():
+    doc = SimpleDocTemplate(str(PDF_PATH), pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
     styles = getSampleStyleSheet()
-    
-    title_style = ParagraphStyle(
-        'DocTitle', parent=styles['Heading1'],
-        fontSize=20, leading=24, textColor=colors.HexColor('#0F172A'), spaceAfter=4
-    )
-    subtitle_style = ParagraphStyle(
-        'DocSubTitle', parent=styles['Normal'],
-        fontSize=12, leading=16, textColor=colors.HexColor('#2563EB'), spaceAfter=12
-    )
-    section_heading = ParagraphStyle(
-        'SectionHeading', parent=styles['Heading2'],
-        fontSize=13, leading=16, textColor=colors.HexColor('#0F172A'), spaceBefore=10, spaceAfter=6
-    )
-    body_style = ParagraphStyle(
-        'BodyTextCustom', parent=styles['Normal'],
-        fontSize=9, leading=13, textColor=colors.HexColor('#334155')
-    )
-
     story = []
-    story.append(Paragraph(f"<b>{nom}</b>", title_style))
-    story.append(Paragraph(f"<b>{data_langue['fonction']}</b>", subtitle_style))
-    story.append(Paragraph(f"📞 {telephone} &nbsp;|&nbsp; ✉️ {email} &nbsp;|&nbsp; 📍 {adresse}", body_style))
-    story.append(Spacer(1, 10))
-    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#2563EB'), spaceAfter=12))
 
-    story.append(Paragraph(data_langue['sections']['profil'].upper(), section_heading))
-    story.append(Paragraph(data_langue['profil'], body_style))
-    story.append(Spacer(1, 10))
+    title_style = ParagraphStyle('TitleStyle', parent=styles['Heading1'], fontSize=22, textColor=colors.HexColor('#0F172A'), spaceAfter=4, fontName='Helvetica-Bold')
+    subtitle_style = ParagraphStyle('SubTitleStyle', parent=styles['Normal'], fontSize=12, textColor=colors.HexColor('#2563EB'), spaceAfter=15, fontName='Helvetica-Bold')
+    section_style = ParagraphStyle('SectionStyle', parent=styles['Heading2'], fontSize=14, textColor=colors.HexColor('#0F172A'), spaceBefore=12, spaceAfter=6, fontName='Helvetica-Bold')
+    body_style = ParagraphStyle('BodyStyle', parent=styles['Normal'], fontSize=10, textColor=colors.HexColor('#334155'), spaceAfter=4, fontName='Helvetica')
+    bold_style = ParagraphStyle('BoldStyle', parent=body_style, fontName='Helvetica-Bold')
 
-    story.append(Paragraph(data_langue['sections']['exp'].upper(), section_heading))
-    for exp in data_langue['experiences']:
-        story.append(Paragraph(f"<b>{exp['poste']}</b> — <i>{exp['entreprise']}</i> ({exp['periode']})", body_style))
-        for mission in exp['missions']:
-            story.append(Paragraph(f"• {mission}", body_style))
+    story.append(Paragraph(nom, title_style))
+    story.append(Paragraph(f"{T['fonction']} | {telephone} | {email} | {adresse}", subtitle_style))
+    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#2563EB'), spaceAfter=10))
+
+    # Profil
+    story.append(Paragraph(T['sections']['profil'], section_style))
+    story.append(Paragraph(T['profil'], body_style))
+    story.append(Spacer(1, 8))
+
+    # Expériences
+    story.append(Paragraph(T['sections']['exp'], section_style))
+    for exp in T['experiences']:
+        story.append(Paragraph(f"<b>{exp['poste']}</b> — {exp['entreprise']} ({exp['periode']})", bold_style))
+        for m in exp['missions']:
+            story.append(Paragraph(f"• {m}", body_style))
         story.append(Spacer(1, 4))
 
-    story.append(Spacer(1, 6))
-
-    story.append(Paragraph(data_langue['sections']['form'].upper(), section_heading))
-    for form in data_langue['formations']:
-        story.append(Paragraph(f"<b>{form['annee']}</b> : {form['titre']} — <i>{form['organisme']}</i>", body_style))
-        story.append(Spacer(1, 2))
-
-    story.append(Spacer(1, 6))
-
-    story.append(Paragraph(data_langue['sections']['comp'].upper(), section_heading))
-    comp_text = ", ".join(data_langue['competences'])
-    story.append(Paragraph(f"<b>{data_langue['sections']['comp']} :</b> {comp_text}", body_style))
-    
-    langues_text = ", ".join([f"{l} ({n})" for l, n in data_langue['langues']])
-    story.append(Paragraph(f"<b>{data_langue['sections']['langues']} :</b> {langues_text}", body_style))
+    # Formations
+    story.append(Paragraph(T['sections']['form'], section_style))
+    for f in T['formations']:
+        story.append(Paragraph(f"<b>{f['annee']}</b> : {f['titre']} — <font color='#64748B'>{f['organisme']}</font>", body_style))
 
     doc.build(story)
 
-generer_pdf(PDF_PATH, t)
+if not PDF_PATH.exists():
+    try:
+        generer_pdf()
+    except Exception:
+        pass
 
 # ============================================================
-# 6. EN-TÊTE DU CV
+# 6. INTERFACE GRAPHIQUE STREAMLIT
 # ============================================================
 
-col_photo, col_header = st.columns([1, 4])
+with st.sidebar:
+    st.markdown("---")
+    if PDF_PATH.exists():
+        with open(PDF_PATH, "rb") as f:
+            st.download_button(label=T["download_btn"], data=f, file_name="cv_hamidouche_redjdal.pdf", mime="application/pdf")
+    st.markdown("---")
+    choix_menu = st.radio(T["nav_title"], T["nav"])
+    st.markdown("---")
+    st.markdown(T["sidebar_domains"])
 
-with col_photo:
-    st.markdown('<div style="background: linear-gradient(135deg, #0F172A, #1E293B); padding: 20px; border-radius: 16px; height: 100%; text-align: center; border: 1px solid #334155;">', unsafe_allow_html=True)
-    if PHOTO.exists():
-        st.image(str(PHOTO), width=180)
-    else:
-        st.markdown('<div style="font-size:90px; padding:20px;">👤</div>', unsafe_allow_html=True)
-        st.warning(t["labels"]["photo_missing"])
-    st.markdown("</div>", unsafe_allow_html=True)
-
-with col_header:
+# Accueil
+if choix_menu == T["nav"][0]:
     st.markdown(
         f"""
         <div class="cv-header">
             <div class="cv-name">{nom}</div>
-            <div class="cv-title">👨‍💼 {t['fonction']}</div>
+            <div class="cv-title">{T['fonction']}</div>
             <div class="cv-subtitle">
-                {t['labels']['degree_subtitle']}
-                <br><br>
-                {t['labels']['sub_keywords']}
+                📍 {adresse} &nbsp;&nbsp;|&nbsp;&nbsp; 📞 {telephone} &nbsp;&nbsp;|&nbsp;&nbsp; ✉️ {email}
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-# ============================================================
-# 7. SIDEBAR ET NAVIGATION
-# ============================================================
+    c1, c2, c3, c4 = st.columns(4)
+    with c1:
+        st.markdown(f'<div class="card"><div class="card-title">⏳ {T["labels"]["stat_exp"]}</div><div class="card-text"><b>9 ans</b></div></div>', unsafe_allow_html=True)
+    with c2:
+        st.markdown(f'<div class="card"><div class="card-title">💼 {T["labels"]["stat_postes"]}</div><div class="card-text"><b>6 postes</b></div></div>', unsafe_allow_html=True)
+    with c3:
+        st.markdown(f'<div class="card"><div class="card-title">🎓 {T["labels"]["stat_form"]}</div><div class="card-text"><b>Master 2</b></div></div>', unsafe_allow_html=True)
+    with c4:
+        st.markdown(f'<div class="card"><div class="card-title">🌐 {T["labels"]["stat_langues"]}</div><div class="card-text"><b>4 langues</b></div></div>', unsafe_allow_html=True)
 
-st.sidebar.markdown("---")
-st.sidebar.markdown(
-    f"""
-    <div style="text-align:center; padding:10px 0px;">
-        <div style="font-size:35px;">👨‍💼</div>
-        <div style="font-size:18px; font-weight:800; color:white;">{nom}</div>
-        <div style="font-size:12px; color:#94A3B8;">CURRICULUM VITAE</div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+    st.markdown(f'<div class="section-title">{T["sections"]["profil"]}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><div class="card-text">{T["profil"]}</div></div>', unsafe_allow_html=True)
 
-if PDF_PATH.exists():
-    with open(PDF_PATH, "rb") as f:
-        pdf_bytes = f.read()
-
-    st.sidebar.download_button(
-        label=t["download_btn"],
-        data=pdf_bytes,
-        file_name="CV_HAMIDOUCHE_REDJDAL.pdf",
-        mime="application/pdf",
-        use_container_width=True,
-    )
-
-st.sidebar.markdown("---")
-page = st.sidebar.radio(t["nav_title"], t["nav"])
-st.sidebar.markdown("---")
-st.sidebar.markdown(t["sidebar_domains"])
-
-# ============================================================
-# 8. CONTENU PRINCIPAL
-# ============================================================
-
-if page in ["🏠 Accueil", "🏠 Home", "🏠 Inicio"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['profil']}</div>", unsafe_allow_html=True)
-    st.markdown(f'<div class="card"><p class="card-text">{t["profil"]}</p></div>', unsafe_allow_html=True)
-
-    col1, col2, col3, col4 = st.columns(4)
-    experience_value = "09 Ans" if langue_choisie == "Français" else ("09 Años" if langue_choisie == "Español" else "09 Yrs")
-    with col1: st.metric(t["labels"]["stat_exp"], experience_value)
-    with col2: st.metric(t["labels"]["stat_postes"], len(t["experiences"]))
-    with col3: st.metric(t["labels"]["stat_form"], len(t["formations"]))
-    with col4: st.metric(t["labels"]["stat_langues"], len(t["langues"]))
-
-    st.markdown(f"<div class='section-title'>{t['sections']['expertise']}</div>", unsafe_allow_html=True)
+    st.markdown(f'<div class="section-title">{T["sections"]["expertise"]}</div>', unsafe_allow_html=True)
     cols = st.columns(3)
-    for idx, (icon, title, desc) in enumerate(t["domaines"]):
-        with cols[idx % 3]:
-            st.markdown(f'<div class="card"><div class="card-title">{icon} {title}</div><p class="card-text">{desc}</p></div>', unsafe_allow_html=True)
+    for i, (icon, titre, desc) in enumerate(T["domaines"]):
+        with cols[i % 3]:
+            st.markdown(
+                f"""
+                <div class="card">
+                    <div style="font-size:24px; margin-bottom:8px;">{icon}</div>
+                    <div class="card-title">{titre}</div>
+                    <div class="card-text" style="font-size:13px; color:#64748B;">{desc}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
-elif page in ["👤 Profil", "👤 Profile", "👤 Perfil"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['identite']}</div>", unsafe_allow_html=True)
-    col_a, col_b = st.columns(2)
-    with col_a:
-        st.markdown(f'<div class="card"><div class="card-title">{t["labels"]["nom"]}</div><p class="card-text">{nom}</p></div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="card"><div class="card-title">{t["labels"]["nationalite"]}</div><p class="card-text">{t["nationalite"]}</p></div>', unsafe_allow_html=True)
-    with col_b:
-        st.markdown(f'<div class="card"><div class="card-title">{t["labels"]["situation"]}</div><p class="card-text">{t["situation"]}</p></div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="card"><div class="card-title">{t["labels"]["service"]}</div><p class="card-text">{t["service_national"]}</p></div>', unsafe_allow_html=True)
+# Profil
+elif choix_menu == T["nav"][1]:
+    st.markdown(f'<div class="section-title">{T["sections"]["identite"]}</div>', unsafe_allow_html=True)
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown(
+            f"""
+            <div class="card">
+                <p><b>{T["labels"]["nom"]} :</b> {nom}</p>
+                <p><b>{T["labels"]["nationalite"]} :</b> {T["nationalite"]}</p>
+                <p><b>{T["labels"]["situation"]} :</b> {T["situation"]}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with c2:
+        st.markdown(
+            f"""
+            <div class="card">
+                <p><b>{T["labels"]["fonction"]} :</b> {T["fonction"]}</p>
+                <p><b>{T["labels"]["adresse"]} :</b> {adresse}</p>
+                <p><b>{T["labels"]["service"]} :</b> {T["service_national"]}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-elif page in ["💼 Expériences", "💼 Experience", "💼 Experiencia"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['exp']}</div>", unsafe_allow_html=True)
-    for exp in t["experiences"]:
+    st.markdown(f'<div class="section-title">{T["sections"]["infos_pro"]}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><div class="card-text"><b>{T["labels"]["fonction"]}</b> chez <b>SPA TMF Logistics</b> — {T["labels"]["sub_keywords"]}</div></div>', unsafe_allow_html=True)
+
+# Expériences
+elif choix_menu == T["nav"][2]:
+    st.markdown(f'<div class="section-title">{T["sections"]["exp"]}</div>', unsafe_allow_html=True)
+    for exp in T["experiences"]:
         missions_html = "".join([f"<div class='mission'>• {m}</div>" for m in exp["missions"]])
         st.markdown(
             f"""
@@ -848,54 +857,44 @@ elif page in ["💼 Expériences", "💼 Experience", "💼 Experiencia"]:
                 <div class="experience-position">{exp['poste']}</div>
                 <div class="experience-company">🏢 {exp['entreprise']}</div>
                 <div class="experience-date">📅 {exp['periode']}</div>
-                <div style="font-weight:700; color:#0F172A; margin-top:10px;">{t['labels']['missions']} :</div>
+                <div style="margin-top:10px; font-weight:700; color:#0F172A; font-size:14px;">{T["labels"]["missions"]} :</div>
                 {missions_html}
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-elif page in ["🎓 Diplômes & Formations", "🎓 Education & Training", "🎓 Educación y Formación"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['form']}</div>", unsafe_allow_html=True)
-    for form in t["formations"]:
+# Diplômes & Formations
+elif choix_menu == T["nav"][3]:
+    st.markdown(f'<div class="section-title">{T["sections"]["form"]}</div>', unsafe_allow_html=True)
+    for form in T["formations"]:
         st.markdown(
             f"""
             <div class="card">
-                <span style="background-color:#0F172A; color:#FFFFFF; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:700;">{form['annee']}</span>
-                <div class="card-title" style="margin-top:10px;">{form['titre']}</div>
-                <div style="color:#64748B; font-size:14px; font-weight:600;">📍 {form['organisme']}</div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="card-title" style="margin-bottom:0;">{form['titre']}</div>
+                    <span style="background-color:#E0F2FE; color:#0369A1; padding:4px 10px; border-radius:20px; font-weight:700; font-size:13px;">{form['annee']}</span>
+                </div>
+                <div class="card-text" style="color:#64748B; margin-top:6px;">{form['organisme']}</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-elif page in ["🛠️ Compétences", "🛠 Skills", "🛠️ Habilidades"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['comp']}</div>", unsafe_allow_html=True)
+# Compétences
+elif choix_menu == T["nav"][4]:
+    st.markdown(f'<div class="section-title">{T["sections"]["comp"]}</div>', unsafe_allow_html=True)
+    for comp in T["competences"]:
+        st.markdown(f'<div class="skill-card">✔️ {comp}</div>', unsafe_allow_html=True)
+
+# Langues
+elif choix_menu == T["nav"][5]:
+    st.markdown(f'<div class="section-title">{T["sections"]["langues"]}</div>', unsafe_allow_html=True)
     cols = st.columns(2)
-    for idx, comp in enumerate(t["competences"]):
-        with cols[idx % 2]:
-            st.markdown(f'<div class="skill-card">✔ {comp}</div>', unsafe_allow_html=True)
-
-elif page in ["🌐 Langues", "🌐 Languages", "🌐 Idiomas"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['langues']}</div>", unsafe_allow_html=True)
-    cols = st.columns(2)
-    for idx, (langue, niveau) in enumerate(t["langues"]):
-        with cols[idx % 2]:
-            st.markdown(f'<div class="card"><div class="card-title">🗣️ {langue}</div><p class="card-text">{niveau}</p></div>', unsafe_allow_html=True)
-
-elif page in ["⭐ Centres d'intérêt", "⭐ Interests", "⭐ Intereses"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['interets']}</div>", unsafe_allow_html=True)
-    cols = st.columns(3)
-    for idx, (icon, interet) in enumerate(t["interets"]):
-        with cols[idx % 3]:
-            st.markdown(f'<div class="card" style="text-align:center;"><div style="font-size:35px;">{icon}</div><div class="card-title" style="margin-top:10px; font-size:18px;">{interet}</div></div>', unsafe_allow_html=True)
-
-elif page in ["📞 Contact", "📞 Contacto"]:
-    st.markdown(f"<div class='section-title'>{t['sections']['contact']}</div>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown(f'<div class="contact-card"><div class="contact-icon">📞</div><div class="contact-title">{t["labels"]["tel"]}</div><div class="contact-value">{telephone}</div></div>', unsafe_allow_html=True)
-    with col2:
-        st.markdown(f'<div class="contact-card"><div class="contact-icon">✉️</div><div class="contact-title">{t["labels"]["email"]}</div><div class="contact-value">{email}</div></div>', unsafe_allow_html=True)
-    with col3:
-        st.markdown(f'<div class="contact-card"><div class="contact-icon">📍</div><div class="contact-title">{t["labels"]["adresse_title"]}</div><div class="contact-value">{adresse}</div></div>', unsafe_allow_html=True)
+    for i, (langue, niveau) in enumerate(T["langues"]):
+        with cols[i % 2]:
+            st.markdown(
+                f"""
+                <div class="card">
+                    <div class="card-title">🌐 {langue}</div>
+                    <div class="card
