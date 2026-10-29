@@ -1,5 +1,6 @@
 import streamlit as st
 from pathlib import Path
+import base64
 
 # Bibliothèques pour la génération du PDF
 from reportlab.lib.pagesizes import letter
@@ -25,6 +26,15 @@ nom = "HAMIDOUCHE REDJDAL"
 telephone = "00213775 73 79 30"
 email = "hamidoucheredjdal@yahoo.fr"
 adresse = "Tazmalt 06039, wilaya de Bejaia"
+
+# Convertir la photo en base64 pour l'intégrer proprement dans le CSS/HTML
+def get_image_base64(path):
+    if path.exists():
+        with open(path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode()
+    return None
+
+photo_b64 = get_image_base64(PHOTO)
 
 # ============================================================
 # 2. DESIGN CSS
@@ -126,6 +136,18 @@ st.markdown(
         margin-bottom: 25px;
         box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
         border: 1px solid #334155;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    .cv-header-content { flex: 1; }
+    .cv-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #38BDF8;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     .cv-name { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; color: #FFFFFF; }
     .cv-title { font-size: 20px; font-weight: 600; margin-bottom: 14px; color: #38BDF8; }
@@ -208,13 +230,13 @@ st.markdown(
 )
 
 # ============================================================
-# 3. SÉLECTION DE LA LANGUE (Ajout de Tamazight)
+# 3. SÉLECTION DE LA LANGUE
 # ============================================================
 
 langue_choisie = st.sidebar.selectbox("🌐 Langue / Language / Idioma / Tutlayt", ["Français", "English", "Español", "Tamazight"])
 
 # ============================================================
-# 4. BASE DE DONNÉES MULTILINGUE (Avec Tamazight)
+# 4. BASE DE DONNÉES MULTILINGUE
 # ============================================================
 
 TEXTES = {
@@ -722,7 +744,7 @@ TEXTES = {
         "interets": [
             ("✈️", "Viajes"),
             ("⚽", "Pasión por el Deporte"),
-            ("🤝", "Actividades Asociativas"),
+            ("🤝", "Actividades Associativas"),
             ("🎬", "Cine"),
             ("🎨", "Artes Creativas"),
             ("💻", "Informática"),
@@ -959,24 +981,29 @@ if PDF_PATH.exists():
         )
 
 # ============================================================
-# 7. CORPS DE LA PAGE (AFFICHAGE)
+# 7. CORPS DE LA PAGE (AFFICHAGE AVEC PHOTO)
 # ============================================================
 
-# En-tête principal
+# Code HTML pour l'en-tête avec condition sur l'existence de la photo
+avatar_html = f'<img src="data:image/jpeg;base64,{photo_b64}" class="cv-avatar">' if photo_b64 else '<div style="font-size: 60px;">👨‍💼</div>'
+
 st.markdown(
     f"""
     <div class="cv-header">
-        <div class="cv-name">{nom}</div>
-        <div class="cv-title">{t["fonction"]}</div>
-        <div class="cv-subtitle">
-            📍 {adresse}   |   📞 {telephone}   |   ✉️ {email}
+        {avatar_html}
+        <div class="cv-header-content">
+            <div class="cv-name">{nom}</div>
+            <div class="cv-title">{t["fonction"]}</div>
+            <div class="cv-subtitle">
+                📍 {adresse}   |   📞 {telephone}   |   ✉️ {email}
+            </div>
         </div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-# Génération automatique du PDF en arrière-plan
+# Génération automatique du PDF
 try:
     generer_pdf()
 except Exception:
@@ -988,7 +1015,7 @@ if menu_choisi.startswith("🏠") or "Accueil" in menu_choisi or "Home" in menu_
     st.markdown(f'<div class="card"><div class="card-text">{t["profil"]}</div></div>', unsafe_allow_html=True)
     
     st.markdown(f'<div class="section-title">{t["sections"]["expertise"]}</div>', unsafe_allow_html=True)
-    cols = st.cols(2) if hasattr(st, "cols") else st.columns(2)
+    cols = st.columns(2)
     for i, (ic, title, desc) in enumerate(t["domaines"]):
         with cols[i % 2]:
             st.markdown(
