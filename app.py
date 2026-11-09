@@ -39,73 +39,61 @@ st.markdown(
         font-family: 'Inter', sans-serif;
     }
 
-    /* ------------------------------------------------------------
-       DESIGN DE FOND PROFESSIONNEL
-    ------------------------------------------------------------ */
-    .stApp { 
-        background-color: #F8FAFC !important; /* Fond général gris-bleu très clair, très professionnel */
-    }
-    
-    .block-container { 
-        max-width: 1200px; 
-        padding-top: 25px; 
-        padding-bottom: 50px; 
-    }
+    .stApp { background-color: #F8FAFC; }
+    .block-container { max-width: 1200px; padding-top: 25px; padding-bottom: 50px; }
 
-    /* ------------------------------------------------------------
-       BOÎTE DE SÉLECTION DE LA LANGUE (FOND BLANC & TEXTE NOIR)
-    ------------------------------------------------------------ */
-    div[data-testid="stSidebar"] div[data-baseweb="select"] > div {
-        background-color: #FFFFFF !important;
-        border: 2px solid #64748B !important;
-        border-radius: 8px !important;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-    }
-
-    div[data-testid="stSidebar"] div[data-baseweb="select"] span,
-    div[data-testid="stSidebar"] div[data-baseweb="select"] div,
-    div[data-testid="stSidebar"] div[data-baseweb="select"] p,
-    div[data-testid="stSidebar"] div[data-baseweb="select"] input {
-        color: #0F172A !important; /* Noir/Bleu nuit très foncé et lisible */
-        -webkit-text-fill-color: #0F172A !important;
+    div[data-testid="stSidebar"] label p {
+        color: #F8FAFC !important;
         font-weight: 800 !important;
-        font-size: 15px !important;
+        font-size: 14px !important;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
     }
 
-    div[data-testid="stSidebar"] div[data-baseweb="select"] svg {
-        fill: #0F172A !important;
+    div[data-baseweb="select"] > div {
+        background-color: #000000 !important;
+        border: 2px solid #475569 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
     }
 
-    /* ------------------------------------------------------------
-       STYLE DU MENU DÉROULANT QUAND ON CLIQUE
-    ------------------------------------------------------------ */
+    div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
+    div[data-baseweb="select"] span,
+    div[data-baseweb="select"] div {
+        color: #1E3A8A !important;
+        font-weight: 900 !important;
+        font-size: 16px !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+    }
+
+    div[data-baseweb="select"] svg { fill: #FFFFFF !important; }
+
     ul[data-baseweb="menu"] {
         background-color: #FFFFFF !important;
-        border: 1px solid #CBD5E1 !important;
+        border: 2px solid #CBD5E1 !important;
         border-radius: 8px !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15) !important;
     }
 
     ul[data-baseweb="menu"] li div,
     ul[data-baseweb="menu"] li span,
     ul[data-baseweb="menu"] li {
-        color: #0F172A !important;
+        color: #000000 !important;
         background-color: #FFFFFF !important;
-        font-weight: 700 !important;
-        -webkit-text-fill-color: #0F172A !important;
+        font-weight: 800 !important;
+        -webkit-text-fill-color: #000000 !important;
     }
 
     ul[data-baseweb="menu"] li:hover,
     ul[data-baseweb="menu"] li:hover * {
-        background-color: #E2E8F0 !important;
+        background-color: #F1F5F9 !important;
         color: #2563EB !important;
         -webkit-text-fill-color: #2563EB !important;
     }
 
-    /* ------------------------------------------------------------
-       BARRE LATÉRALE (SIDEBAR) PROFESSIONNELLE
-    ------------------------------------------------------------ */
     [data-testid="stSidebar"] {
-        background-color: #0F172A !important; /* Bleu nuit professionnel */
+        background-color: #0F172A !important;
         border-right: 1px solid #1E293B;
     }
 
@@ -130,9 +118,6 @@ st.markdown(
         padding: 10px 16px !important;
     }
 
-    /* ------------------------------------------------------------
-       CARTES ET EN-TÊTES DU CV
-    ------------------------------------------------------------ */
     .cv-header {
         background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
         color: #FFFFFF;
@@ -168,6 +153,18 @@ st.markdown(
     .card-title { color: #0F172A; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .card-text { color: #334155; font-size: 15px; line-height: 1.7; }
 
+    .badge-chip {
+        display: inline-block;
+        background-color: #E0F2FE;
+        color: #0369A1;
+        padding: 5px 12px;
+        border-radius: 18px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-right: 6px;
+        margin-bottom: 8px;
+    }
+
     .experience-card {
         background-color: #FFFFFF; 
         border-left: 5px solid #2563EB; 
@@ -194,10 +191,22 @@ st.markdown(
         font-weight: 600;
         border: 1px solid #E2E8F0;
     }
+    .contact-card { 
+        background-color: #FFFFFF; 
+        border-radius: 12px; 
+        padding: 22px; 
+        text-align: center; 
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+        border: 1px solid #E2E8F0;
+    }
+    .contact-icon { font-size: 30px; margin-bottom: 6px; }
+    .contact-title { color: #0F172A; font-weight: 800; margin-bottom: 6px; }
+    .contact-value { color: #475569; font-size: 14px; font-weight: 600; }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 # ============================================================
 # 3. SÉLECTION DE LA LANGUE
 # ============================================================
