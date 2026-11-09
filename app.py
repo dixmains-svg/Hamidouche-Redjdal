@@ -50,7 +50,7 @@ st.markdown(
         text-transform: uppercase;
         margin-bottom: 8px;
     }
-/* 1. Fond et bordure de la boîte */
+/* Fond et bordure de la boîte */
     div[data-baseweb="select"] > div {
         background-color: #FFFFFF !important;
         border: 2px solid #475569 !important;
@@ -58,7 +58,7 @@ st.markdown(
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
     }
 
-    /* 2. Texte sélectionné à l'intérieur de la boîte en vert foncé */
+    /* Texte sélectionné à l'intérieur de la boîte en vert foncé */
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div,
@@ -68,7 +68,7 @@ st.markdown(
         font-weight: 800 !important;
     }
 
-    /* 3. Flèche déroulante en vert foncé */
+    /* Flèche déroulante en vert foncé */
     div[data-baseweb="select"] svg {
         fill: #064E3B !important;
     }
