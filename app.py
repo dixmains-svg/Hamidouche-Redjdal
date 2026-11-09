@@ -50,10 +50,9 @@ st.markdown(
         text-transform: uppercase;
         margin-bottom: 8px;
     }
-
- /* 1. Fond et bordure de la boîte */
+/* 1. Fond et bordure de la boîte */
     div[data-baseweb="select"] > div {
-        background-color: #475569 !important;
+        background-color: #FFFFFF !important;
         border: 2px solid #475569 !important;
         border-radius: 8px !important;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
@@ -73,7 +72,6 @@ st.markdown(
     div[data-baseweb="select"] svg {
         fill: #064E3B !important;
     }
-
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
