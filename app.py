@@ -52,10 +52,12 @@ st.markdown(
     }
 
     div[data-baseweb="select"] > div {
-        background-color: #000000 !important;
+        background-color: #FFFFFF !important; /* Fond en blanc */
         border: 2px solid #475569 !important;
         border-radius: 8px !important;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+        color: #0A192F !important; /* Texte en bleu-noir foncé */
+        -webkit-text-fill-color: #0A192F !important; /* Force la couleur sur les navigateurs webkit */
     }
 
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
