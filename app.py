@@ -51,13 +51,26 @@ st.markdown(
         margin-bottom: 8px;
     }
 
-    div[data-baseweb="select"] > div {
-        background-color: #FFFFFF !important; /* Fond en blanc */
+   div[data-baseweb="select"] > div {
+        background-color: #FFFFFF !important;
         border: 2px solid #475569 !important;
         border-radius: 8px !important;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-        color: #0A192F !important; /* Texte en bleu-noir foncé */
-        -webkit-text-fill-color: #0A192F !important; /* Force la couleur sur les navigateurs webkit */
+    }
+
+    /* Ciblage global ultra-renforcé pour tous les éléments textuels de la boîte */
+    div[data-baseweb="select"] *,
+    div[data-baseweb="select"] span,
+    div[data-baseweb="select"] div,
+    div[data-baseweb="select"] p,
+    div[data-baseweb="select"] input {
+        color: #0A192F !important;
+        -webkit-text-fill-color: #0A192F !important;
+        font-weight: 800 !important;
+    }
+
+    div[data-baseweb="select"] svg { 
+        fill: #0A192F !important; 
     }
 
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
