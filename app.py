@@ -51,26 +51,27 @@ st.markdown(
         margin-bottom: 8px;
     }
 
-   div[data-baseweb="select"] > div {
+ /* 1. Fond et bordure de la boîte */
+    div[data-baseweb="select"] > div {
         background-color: #FFFFFF !important;
         border: 2px solid #475569 !important;
         border-radius: 8px !important;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
     }
 
-    /* Ciblage global ultra-renforcé pour tous les éléments textuels de la boîte */
-    div[data-baseweb="select"] *,
+    /* 2. Texte sélectionné à l'intérieur de la boîte en vert foncé */
+    div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div,
-    div[data-baseweb="select"] p,
     div[data-baseweb="select"] input {
-        color: #0A192F !important;
-        -webkit-text-fill-color: #0A192F !important;
+        color: #064E3B !important;
+        -webkit-text-fill-color: #064E3B !important;
         font-weight: 800 !important;
     }
 
-    div[data-baseweb="select"] svg { 
-        fill: #0A192F !important; 
+    /* 3. Flèche déroulante en vert foncé */
+    div[data-baseweb="select"] svg {
+        fill: #064E3B !important;
     }
 
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
