@@ -55,7 +55,7 @@ st.markdown(
         background-color: #000000 !important;
         border: 2px solid #475569 !important;
         border-radius: 8px !important;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+      
     }
 
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
