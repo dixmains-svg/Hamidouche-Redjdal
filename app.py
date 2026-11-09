@@ -53,7 +53,7 @@ st.markdown(
 
  /* 1. Fond et bordure de la boîte */
     div[data-baseweb="select"] > div {
-        background-color: #FFFFFF !important;
+        background-color: #475569 !important;
         border: 2px solid #475569 !important;
         border-radius: 8px !important;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
