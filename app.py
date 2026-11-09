@@ -50,26 +50,26 @@ st.markdown(
         text-transform: uppercase;
         margin-bottom: 8px;
     }
-/* Fond et bordure de la boîte */
-    div[data-baseweb="select"] > div {
+/* 1. Forcer le fond blanc et la bordure de la boîte */
+    div[data-testid="stSidebar"] div[data-baseweb="select"] > div {
         background-color: #FFFFFF !important;
         border: 2px solid #475569 !important;
         border-radius: 8px !important;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
     }
 
-    /* Texte sélectionné à l'intérieur de la boîte en vert foncé */
-    div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
-    div[data-baseweb="select"] span,
-    div[data-baseweb="select"] div,
-    div[data-baseweb="select"] input {
+    /* 2. Forcer la couleur vert foncé (#064E3B) sur TOUS les textes à l'intérieur */
+    div[data-testid="stSidebar"] div[data-baseweb="select"] span,
+    div[data-testid="stSidebar"] div[data-baseweb="select"] div,
+    div[data-testid="stSidebar"] div[data-baseweb="select"] p,
+    div[data-testid="stSidebar"] div[data-baseweb="select"] input {
         color: #064E3B !important;
         -webkit-text-fill-color: #064E3B !important;
         font-weight: 800 !important;
     }
 
-    /* Flèche déroulante en vert foncé */
-    div[data-baseweb="select"] svg {
+    /* 3. Forcer la flèche en vert foncé */
+    div[data-testid="stSidebar"] div[data-baseweb="select"] svg {
         fill: #064E3B !important;
     }
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
