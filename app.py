@@ -58,19 +58,19 @@ st.markdown(
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
     }
 
-    /* 2. Forcer la couleur vert foncé (#064E3B) sur TOUS les textes à l'intérieur */
+    /* 2. Forcer la couleur vert foncé (#000000) sur TOUS les textes à l'intérieur */
     div[data-testid="stSidebar"] div[data-baseweb="select"] span,
     div[data-testid="stSidebar"] div[data-baseweb="select"] div,
     div[data-testid="stSidebar"] div[data-baseweb="select"] p,
     div[data-testid="stSidebar"] div[data-baseweb="select"] input {
-        color: #064E3B !important;
-        -webkit-text-fill-color: #064E3B !important;
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
         font-weight: 800 !important;
     }
 
     /* 3. Forcer la flèche en vert foncé */
     div[data-testid="stSidebar"] div[data-baseweb="select"] svg {
-        fill: #064E3B !important;
+        fill: #000000 !important;
     }
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
