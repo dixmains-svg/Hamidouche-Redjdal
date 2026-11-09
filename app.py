@@ -61,7 +61,7 @@ st.markdown(
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span,
     div[data-baseweb="select"] div {
-        color: #FFFFFF !important;
+        color: #1E3A8A !important;
         font-weight: 900 !important;
         font-size: 16px !important;
         -webkit-text-fill-color: #FFFFFF !important;
